@@ -1,0 +1,487 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		39784E131B8A0861002B8223 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E121B8A0861002B8223 /* main.m */; };
+		39784E161B8A0861002B8223 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E151B8A0861002B8223 /* AppDelegate.m */; };
+		39784E1C1B8A0861002B8223 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39784E1A1B8A0861002B8223 /* Main.storyboard */; };
+		39784E1E1B8A0861002B8223 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39784E1D1B8A0861002B8223 /* Images.xcassets */; };
+		39784E211B8A0861002B8223 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39784E1F1B8A0861002B8223 /* LaunchScreen.xib */; };
+		39784E381B8A08E1002B8223 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E371B8A08E1002B8223 /* MainViewController.m */; };
+		39784E3B1B8A1C73002B8223 /* TripViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E3A1B8A1C73002B8223 /* TripViewController.m */; };
+		39784E3E1B8A45E3002B8223 /* AddTripViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E3D1B8A45E3002B8223 /* AddTripViewController.m */; };
+		39784E411B8B1D8D002B8223 /* ReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E401B8B1D8D002B8223 /* ReceiptViewController.m */; };
+		39784E441B8B1DDE002B8223 /* EmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E431B8B1DDE002B8223 /* EmailViewController.m */; };
+		39784E461B8F1B03002B8223 /* PDFHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E451B8F1B03002B8223 /* PDFHelper.m */; };
+		39784E491B933F3C002B8223 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 39784E481B933F3C002B8223 /* libsqlite3.dylib */; };
+		39784E4C1B933FAD002B8223 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E4B1B933FAD002B8223 /* DBManager.m */; };
+		39784E521B93BF38002B8223 /* Values.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39784E511B93BF38002B8223 /* Values.plist */; };
+		39784E541B9AF9D8002B8223 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39784E531B9AF9D8002B8223 /* MessageUI.framework */; };
+		39784E571B9AFF0D002B8223 /* Trip.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E561B9AFF0D002B8223 /* Trip.m */; };
+		39784E5A1B9AFF22002B8223 /* Receipt.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E591B9AFF22002B8223 /* Receipt.m */; };
+		39784E6F1B9E0478002B8223 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39784E6E1B9E0478002B8223 /* Photos.framework */; };
+		39784E8B1BA44653002B8223 /* RemitConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E8A1BA44653002B8223 /* RemitConsts.m */; };
+		39784E8D1BA46DE8002B8223 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39784E8C1BA46DE8002B8223 /* Default-568h@2x.png */; };
+		39784E9A1BA46E74002B8223 /* 1.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 39784E8E1BA46E74002B8223 /* 1.JPG */; };
+		39784E9B1BA46E74002B8223 /* 2.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 39784E8F1BA46E74002B8223 /* 2.JPG */; };
+		39784E9C1BA46E74002B8223 /* 3.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 39784E901BA46E74002B8223 /* 3.JPG */; };
+		39784E9D1BA46E74002B8223 /* 4.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 39784E911BA46E74002B8223 /* 4.JPG */; };
+		39784E9E1BA46E74002B8223 /* 5.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 39784E921BA46E74002B8223 /* 5.JPG */; };
+		39784E9F1BA46E74002B8223 /* ios-linen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39784E931BA46E74002B8223 /* ios-linen.jpg */; };
+		39784EA01BA46E74002B8223 /* logo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39784E941BA46E74002B8223 /* logo1.jpg */; };
+		39784EA11BA46E74002B8223 /* logo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 39784E951BA46E74002B8223 /* logo1.png */; };
+		39784EA21BA46E74002B8223 /* logo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39784E961BA46E74002B8223 /* logo2.jpg */; };
+		39784EA31BA46E74002B8223 /* logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 39784E971BA46E74002B8223 /* logo2.png */; };
+		39784EA41BA46E74002B8223 /* mockup1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39784E981BA46E74002B8223 /* mockup1.jpg */; };
+		39784EA51BA46E74002B8223 /* mockup2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39784E991BA46E74002B8223 /* mockup2.jpg */; };
+		39784EA81BA46EAF002B8223 /* fabric_plaid2.png in Resources */ = {isa = PBXBuildFile; fileRef = 39784EA61BA46EAF002B8223 /* fabric_plaid2.png */; };
+		39784EA91BA46EAF002B8223 /* whitey2.png in Resources */ = {isa = PBXBuildFile; fileRef = 39784EA71BA46EAF002B8223 /* whitey2.png */; };
+		39784EAB1BA46ED5002B8223 /* remitjoy.sql in Resources */ = {isa = PBXBuildFile; fileRef = 39784EAA1BA46ED5002B8223 /* remitjoy.sql */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		39784E0D1B8A0861002B8223 /* Remit Joy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Remit Joy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		39784E111B8A0861002B8223 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39784E121B8A0861002B8223 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		39784E141B8A0861002B8223 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		39784E151B8A0861002B8223 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		39784E1B1B8A0861002B8223 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		39784E1D1B8A0861002B8223 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		39784E201B8A0861002B8223 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		39784E2B1B8A0861002B8223 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39784E2C1B8A0861002B8223 /* TestApp2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestApp2Tests.m; sourceTree = "<group>"; };
+		39784E361B8A08E1002B8223 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		39784E371B8A08E1002B8223 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		39784E391B8A1C73002B8223 /* TripViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripViewController.h; sourceTree = "<group>"; };
+		39784E3A1B8A1C73002B8223 /* TripViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripViewController.m; sourceTree = "<group>"; };
+		39784E3C1B8A45E3002B8223 /* AddTripViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTripViewController.h; sourceTree = "<group>"; };
+		39784E3D1B8A45E3002B8223 /* AddTripViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTripViewController.m; sourceTree = "<group>"; };
+		39784E3F1B8B1D8D002B8223 /* ReceiptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptViewController.h; sourceTree = "<group>"; };
+		39784E401B8B1D8D002B8223 /* ReceiptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptViewController.m; sourceTree = "<group>"; };
+		39784E421B8B1DDE002B8223 /* EmailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailViewController.h; sourceTree = "<group>"; };
+		39784E431B8B1DDE002B8223 /* EmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailViewController.m; sourceTree = "<group>"; };
+		39784E451B8F1B03002B8223 /* PDFHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFHelper.m; sourceTree = "<group>"; };
+		39784E471B8F1B1D002B8223 /* PDFHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDFHelper.h; sourceTree = "<group>"; };
+		39784E481B933F3C002B8223 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		39784E4A1B933FAD002B8223 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		39784E4B1B933FAD002B8223 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
+		39784E511B93BF38002B8223 /* Values.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Values.plist; sourceTree = "<group>"; };
+		39784E531B9AF9D8002B8223 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		39784E551B9AFF0D002B8223 /* Trip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trip.h; sourceTree = "<group>"; };
+		39784E561B9AFF0D002B8223 /* Trip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trip.m; sourceTree = "<group>"; };
+		39784E581B9AFF22002B8223 /* Receipt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Receipt.h; sourceTree = "<group>"; };
+		39784E591B9AFF22002B8223 /* Receipt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Receipt.m; sourceTree = "<group>"; };
+		39784E5B1B9B1F88002B8223 /* DatabaseTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseTest.m; sourceTree = "<group>"; };
+		39784E6C1B9E033A002B8223 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		39784E6E1B9E0478002B8223 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		39784E891BA44653002B8223 /* RemitConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemitConsts.h; sourceTree = "<group>"; };
+		39784E8A1BA44653002B8223 /* RemitConsts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemitConsts.m; sourceTree = "<group>"; };
+		39784E8C1BA46DE8002B8223 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		39784E8E1BA46E74002B8223 /* 1.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.JPG; path = RemitJoyApp/1.JPG; sourceTree = "<group>"; };
+		39784E8F1BA46E74002B8223 /* 2.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.JPG; path = RemitJoyApp/2.JPG; sourceTree = "<group>"; };
+		39784E901BA46E74002B8223 /* 3.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 3.JPG; path = RemitJoyApp/3.JPG; sourceTree = "<group>"; };
+		39784E911BA46E74002B8223 /* 4.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 4.JPG; path = RemitJoyApp/4.JPG; sourceTree = "<group>"; };
+		39784E921BA46E74002B8223 /* 5.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 5.JPG; path = RemitJoyApp/5.JPG; sourceTree = "<group>"; };
+		39784E931BA46E74002B8223 /* ios-linen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "ios-linen.jpg"; path = "RemitJoyApp/ios-linen.jpg"; sourceTree = "<group>"; };
+		39784E941BA46E74002B8223 /* logo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logo1.jpg; path = RemitJoyApp/logo1.jpg; sourceTree = "<group>"; };
+		39784E951BA46E74002B8223 /* logo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo1.png; path = RemitJoyApp/logo1.png; sourceTree = "<group>"; };
+		39784E961BA46E74002B8223 /* logo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logo2.jpg; path = RemitJoyApp/logo2.jpg; sourceTree = "<group>"; };
+		39784E971BA46E74002B8223 /* logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo2.png; path = RemitJoyApp/logo2.png; sourceTree = "<group>"; };
+		39784E981BA46E74002B8223 /* mockup1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = mockup1.jpg; path = RemitJoyApp/mockup1.jpg; sourceTree = "<group>"; };
+		39784E991BA46E74002B8223 /* mockup2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = mockup2.jpg; path = RemitJoyApp/mockup2.jpg; sourceTree = "<group>"; };
+		39784EA61BA46EAF002B8223 /* fabric_plaid2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fabric_plaid2.png; path = RemitJoyApp/fabric_plaid2.png; sourceTree = "<group>"; };
+		39784EA71BA46EAF002B8223 /* whitey2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whitey2.png; path = RemitJoyApp/whitey2.png; sourceTree = "<group>"; };
+		39784EAA1BA46ED5002B8223 /* remitjoy.sql */ = {isa = PBXFileReference; lastKnownFileType = file; name = remitjoy.sql; path = RemitJoyApp/remitjoy.sql; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		39784E0A1B8A0861002B8223 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39784E6F1B9E0478002B8223 /* Photos.framework in Frameworks */,
+				39784E541B9AF9D8002B8223 /* MessageUI.framework in Frameworks */,
+				39784E491B933F3C002B8223 /* libsqlite3.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		39784E041B8A0861002B8223 = {
+			isa = PBXGroup;
+			children = (
+				39784E8C1BA46DE8002B8223 /* Default-568h@2x.png */,
+				39784E861BA43CCA002B8223 /* ImgAssets */,
+				39784E6E1B9E0478002B8223 /* Photos.framework */,
+				39784E6C1B9E033A002B8223 /* AssetsLibrary.framework */,
+				39784E871BA43D0B002B8223 /* AppTexture */,
+				39784E881BA43D20002B8223 /* StartupDB */,
+				39784E531B9AF9D8002B8223 /* MessageUI.framework */,
+				39784E481B933F3C002B8223 /* libsqlite3.dylib */,
+				39784E0F1B8A0861002B8223 /* RemitJoyApp */,
+				39784E291B8A0861002B8223 /* TestApp2Tests */,
+				39784E0E1B8A0861002B8223 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		39784E0E1B8A0861002B8223 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				39784E0D1B8A0861002B8223 /* Remit Joy.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		39784E0F1B8A0861002B8223 /* RemitJoyApp */ = {
+			isa = PBXGroup;
+			children = (
+				39784E141B8A0861002B8223 /* AppDelegate.h */,
+				39784E151B8A0861002B8223 /* AppDelegate.m */,
+				39784E1A1B8A0861002B8223 /* Main.storyboard */,
+				39784E1D1B8A0861002B8223 /* Images.xcassets */,
+				39784E1F1B8A0861002B8223 /* LaunchScreen.xib */,
+				39784E101B8A0861002B8223 /* Supporting Files */,
+				39784E361B8A08E1002B8223 /* MainViewController.h */,
+				39784E371B8A08E1002B8223 /* MainViewController.m */,
+				39784E391B8A1C73002B8223 /* TripViewController.h */,
+				39784E3A1B8A1C73002B8223 /* TripViewController.m */,
+				39784E3C1B8A45E3002B8223 /* AddTripViewController.h */,
+				39784E3D1B8A45E3002B8223 /* AddTripViewController.m */,
+				39784E3F1B8B1D8D002B8223 /* ReceiptViewController.h */,
+				39784E401B8B1D8D002B8223 /* ReceiptViewController.m */,
+				39784E421B8B1DDE002B8223 /* EmailViewController.h */,
+				39784E431B8B1DDE002B8223 /* EmailViewController.m */,
+				39784E451B8F1B03002B8223 /* PDFHelper.m */,
+				39784E471B8F1B1D002B8223 /* PDFHelper.h */,
+				39784E4A1B933FAD002B8223 /* DBManager.h */,
+				39784E4B1B933FAD002B8223 /* DBManager.m */,
+				39784E511B93BF38002B8223 /* Values.plist */,
+				39784E551B9AFF0D002B8223 /* Trip.h */,
+				39784E561B9AFF0D002B8223 /* Trip.m */,
+				39784E581B9AFF22002B8223 /* Receipt.h */,
+				39784E591B9AFF22002B8223 /* Receipt.m */,
+				39784E5B1B9B1F88002B8223 /* DatabaseTest.m */,
+				39784E891BA44653002B8223 /* RemitConsts.h */,
+				39784E8A1BA44653002B8223 /* RemitConsts.m */,
+			);
+			path = RemitJoyApp;
+			sourceTree = "<group>";
+		};
+		39784E101B8A0861002B8223 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				39784E111B8A0861002B8223 /* Info.plist */,
+				39784E121B8A0861002B8223 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		39784E291B8A0861002B8223 /* TestApp2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				39784E2C1B8A0861002B8223 /* TestApp2Tests.m */,
+				39784E2A1B8A0861002B8223 /* Supporting Files */,
+			);
+			name = TestApp2Tests;
+			path = RemitJoyAppTests;
+			sourceTree = "<group>";
+		};
+		39784E2A1B8A0861002B8223 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				39784E2B1B8A0861002B8223 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		39784E861BA43CCA002B8223 /* ImgAssets */ = {
+			isa = PBXGroup;
+			children = (
+				39784E8E1BA46E74002B8223 /* 1.JPG */,
+				39784E8F1BA46E74002B8223 /* 2.JPG */,
+				39784E901BA46E74002B8223 /* 3.JPG */,
+				39784E911BA46E74002B8223 /* 4.JPG */,
+				39784E921BA46E74002B8223 /* 5.JPG */,
+				39784E941BA46E74002B8223 /* logo1.jpg */,
+				39784E951BA46E74002B8223 /* logo1.png */,
+				39784E961BA46E74002B8223 /* logo2.jpg */,
+				39784E971BA46E74002B8223 /* logo2.png */,
+				39784E981BA46E74002B8223 /* mockup1.jpg */,
+				39784E991BA46E74002B8223 /* mockup2.jpg */,
+			);
+			name = ImgAssets;
+			sourceTree = "<group>";
+		};
+		39784E871BA43D0B002B8223 /* AppTexture */ = {
+			isa = PBXGroup;
+			children = (
+				39784EA61BA46EAF002B8223 /* fabric_plaid2.png */,
+				39784EA71BA46EAF002B8223 /* whitey2.png */,
+				39784E931BA46E74002B8223 /* ios-linen.jpg */,
+			);
+			name = AppTexture;
+			sourceTree = "<group>";
+		};
+		39784E881BA43D20002B8223 /* StartupDB */ = {
+			isa = PBXGroup;
+			children = (
+				39784EAA1BA46ED5002B8223 /* remitjoy.sql */,
+			);
+			name = StartupDB;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		39784E0C1B8A0861002B8223 /* Remit Joy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39784E301B8A0861002B8223 /* Build configuration list for PBXNativeTarget "Remit Joy" */;
+			buildPhases = (
+				39784E091B8A0861002B8223 /* Sources */,
+				39784E0A1B8A0861002B8223 /* Frameworks */,
+				39784E0B1B8A0861002B8223 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Remit Joy";
+			productName = TestApp2;
+			productReference = 39784E0D1B8A0861002B8223 /* Remit Joy.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		39784E051B8A0861002B8223 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Manish Kumar";
+				TargetAttributes = {
+					39784E0C1B8A0861002B8223 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+				};
+			};
+			buildConfigurationList = 39784E081B8A0861002B8223 /* Build configuration list for PBXProject "Remit Joy" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 39784E041B8A0861002B8223;
+			productRefGroup = 39784E0E1B8A0861002B8223 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				39784E0C1B8A0861002B8223 /* Remit Joy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		39784E0B1B8A0861002B8223 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39784E9D1BA46E74002B8223 /* 4.JPG in Resources */,
+				39784EA31BA46E74002B8223 /* logo2.png in Resources */,
+				39784E9B1BA46E74002B8223 /* 2.JPG in Resources */,
+				39784E9C1BA46E74002B8223 /* 3.JPG in Resources */,
+				39784E9E1BA46E74002B8223 /* 5.JPG in Resources */,
+				39784EA11BA46E74002B8223 /* logo1.png in Resources */,
+				39784EA81BA46EAF002B8223 /* fabric_plaid2.png in Resources */,
+				39784E521B93BF38002B8223 /* Values.plist in Resources */,
+				39784E1C1B8A0861002B8223 /* Main.storyboard in Resources */,
+				39784EA41BA46E74002B8223 /* mockup1.jpg in Resources */,
+				39784EA01BA46E74002B8223 /* logo1.jpg in Resources */,
+				39784E9A1BA46E74002B8223 /* 1.JPG in Resources */,
+				39784EA91BA46EAF002B8223 /* whitey2.png in Resources */,
+				39784EA21BA46E74002B8223 /* logo2.jpg in Resources */,
+				39784E9F1BA46E74002B8223 /* ios-linen.jpg in Resources */,
+				39784EAB1BA46ED5002B8223 /* remitjoy.sql in Resources */,
+				39784E211B8A0861002B8223 /* LaunchScreen.xib in Resources */,
+				39784E8D1BA46DE8002B8223 /* Default-568h@2x.png in Resources */,
+				39784EA51BA46E74002B8223 /* mockup2.jpg in Resources */,
+				39784E1E1B8A0861002B8223 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		39784E091B8A0861002B8223 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39784E571B9AFF0D002B8223 /* Trip.m in Sources */,
+				39784E461B8F1B03002B8223 /* PDFHelper.m in Sources */,
+				39784E441B8B1DDE002B8223 /* EmailViewController.m in Sources */,
+				39784E161B8A0861002B8223 /* AppDelegate.m in Sources */,
+				39784E4C1B933FAD002B8223 /* DBManager.m in Sources */,
+				39784E3E1B8A45E3002B8223 /* AddTripViewController.m in Sources */,
+				39784E3B1B8A1C73002B8223 /* TripViewController.m in Sources */,
+				39784E411B8B1D8D002B8223 /* ReceiptViewController.m in Sources */,
+				39784E5A1B9AFF22002B8223 /* Receipt.m in Sources */,
+				39784E381B8A08E1002B8223 /* MainViewController.m in Sources */,
+				39784E131B8A0861002B8223 /* main.m in Sources */,
+				39784E8B1BA44653002B8223 /* RemitConsts.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		39784E1A1B8A0861002B8223 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39784E1B1B8A0861002B8223 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		39784E1F1B8A0861002B8223 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39784E201B8A0861002B8223 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		39784E2E1B8A0861002B8223 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		39784E2F1B8A0861002B8223 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		39784E311B8A0861002B8223 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/RemitJoyApp/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "Remit Joy";
+			};
+			name = Debug;
+		};
+		39784E321B8A0861002B8223 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/RemitJoyApp/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "Remit Joy";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		39784E081B8A0861002B8223 /* Build configuration list for PBXProject "Remit Joy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39784E2E1B8A0861002B8223 /* Debug */,
+				39784E2F1B8A0861002B8223 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39784E301B8A0861002B8223 /* Build configuration list for PBXNativeTarget "Remit Joy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39784E311B8A0861002B8223 /* Debug */,
+				39784E321B8A0861002B8223 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 39784E051B8A0861002B8223 /* Project object */;
+}

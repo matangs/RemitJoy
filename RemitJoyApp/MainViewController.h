@@ -1,0 +1,17 @@
+//
+//  MainViewController.h
+//  TestApp2
+//
+//  Created by Manish Kumar on 8/23/15.
+//  Copyright (c) 2015 Manish Kumar. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "RemitConsts.h"
+
+@interface MainViewController : UITableViewController
+@property(strong, nonatomic) NSMutableArray* m_tripArray;
+
++(void)setBackgrounColor:(UIViewController*)controller;
+
+@end
