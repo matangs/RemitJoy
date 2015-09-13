@@ -228,6 +228,21 @@
 
 -(void)saveImageToAppFolder{
     
+    if (self.m_imageURL == nil){
+    
+        NSData *imageData = UIImageJPEGRepresentation(self.m_receipt1ImgView.image, 0.7); // 0.7 is JPG quality
+        NSString* destinationPath = [self.m_receipt imagePath];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:destinationPath]){
+            NSError* error;
+            [[NSFileManager defaultManager] removeItemAtPath: destinationPath error: &error];
+        }
+        
+        
+        [imageData writeToFile:destinationPath atomically:true];
+        return;
+        
+    }
+
     NSArray* urlArray = [NSArray arrayWithObjects:self.m_imageURL,nil];
     
     PHFetchResult* fetchResult = [PHAsset fetchAssetsWithALAssetURLs:urlArray options:nil];
@@ -255,7 +270,6 @@
                                                     [imageData writeToFile:destinationPath atomically:true];
                                                     
                                                 }];
-    
 }
 
 - (IBAction)onEmail:(id)sender {
@@ -385,33 +399,6 @@
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
     self.m_imageURL = [info objectForKey:@"UIImagePickerControllerReferenceURL"];
-
-    /*
-    NSArray* urlArray = [NSArray arrayWithObjects:[info objectForKey:@"UIImagePickerControllerReferenceURL"],nil];
-    
-    PHFetchResult* fetchResult = [PHAsset fetchAssetsWithALAssetURLs:urlArray options:nil];
-    if (fetchResult.count != 1)
-        return;
-    
-    PHAsset* asset = (PHAsset*)[fetchResult objectAtIndex:0];
-    
-    PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
-    options.synchronous = YES;
-    [[PHImageManager defaultManager] requestImageDataForAsset:asset
-            options:options
-            resultHandler:^(NSData *imageData,
-                NSString *dataUTI,
-                UIImageOrientation orientation,
-                NSDictionary *info){
-
-                NSString* imgName = [info objectForKey:@"PHImageFileURLKey"];
-                
-                NSString *imgFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[imgName lastPathComponent]];
-                [imageData writeToFile:imgFilePath atomically:true];
-                NSLog(@"%@",dataUTI);
-                                                          
-    }];
-     */
 }
 
 - (IBAction)testButton:(id)sender {
