@@ -58,7 +58,7 @@ NSString* const m_databaseFileName = @"remitjoy.sql";
         if ([[NSFileManager defaultManager] fileExistsAtPath:destinationPath])
             continue;
 
-        NSString *sourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%lu.jpg",i]];
+        NSString *sourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%lu.1.jpg",i]];
         NSError *error;
         [[NSFileManager defaultManager] copyItemAtPath:sourcePath toPath:destinationPath error:&error];
 
@@ -69,7 +69,7 @@ NSString* const m_databaseFileName = @"remitjoy.sql";
         if ([[NSFileManager defaultManager] fileExistsAtPath:destinationPath])
             continue;
         
-        NSString *sourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%lu.jpg",i]];
+        NSString *sourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%lu.1.jpg",i]];
         NSError *error;
         [[NSFileManager defaultManager] copyItemAtPath:sourcePath toPath:destinationPath error:&error];
     }

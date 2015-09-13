@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DD23B651BA5A5FC00217B53 /* 1.1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DD23B601BA5A5FC00217B53 /* 1.1.jpg */; };
+		0DD23B661BA5A5FC00217B53 /* 2.1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DD23B611BA5A5FC00217B53 /* 2.1.jpg */; };
+		0DD23B671BA5A5FC00217B53 /* 3.1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DD23B621BA5A5FC00217B53 /* 3.1.jpg */; };
+		0DD23B681BA5A5FC00217B53 /* 4.1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DD23B631BA5A5FC00217B53 /* 4.1.jpg */; };
+		0DD23B691BA5A5FC00217B53 /* 5.1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DD23B641BA5A5FC00217B53 /* 5.1.jpg */; };
 		39784E131B8A0861002B8223 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E121B8A0861002B8223 /* main.m */; };
 		39784E161B8A0861002B8223 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E151B8A0861002B8223 /* AppDelegate.m */; };
 		39784E1C1B8A0861002B8223 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39784E1A1B8A0861002B8223 /* Main.storyboard */; };
@@ -27,11 +32,6 @@
 		39784E6F1B9E0478002B8223 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39784E6E1B9E0478002B8223 /* Photos.framework */; };
 		39784E8B1BA44653002B8223 /* RemitConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E8A1BA44653002B8223 /* RemitConsts.m */; };
 		39784E8D1BA46DE8002B8223 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39784E8C1BA46DE8002B8223 /* Default-568h@2x.png */; };
-		39784E9A1BA46E74002B8223 /* 1.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 39784E8E1BA46E74002B8223 /* 1.JPG */; };
-		39784E9B1BA46E74002B8223 /* 2.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 39784E8F1BA46E74002B8223 /* 2.JPG */; };
-		39784E9C1BA46E74002B8223 /* 3.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 39784E901BA46E74002B8223 /* 3.JPG */; };
-		39784E9D1BA46E74002B8223 /* 4.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 39784E911BA46E74002B8223 /* 4.JPG */; };
-		39784E9E1BA46E74002B8223 /* 5.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 39784E921BA46E74002B8223 /* 5.JPG */; };
 		39784E9F1BA46E74002B8223 /* ios-linen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39784E931BA46E74002B8223 /* ios-linen.jpg */; };
 		39784EA01BA46E74002B8223 /* logo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39784E941BA46E74002B8223 /* logo1.jpg */; };
 		39784EA11BA46E74002B8223 /* logo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 39784E951BA46E74002B8223 /* logo1.png */; };
@@ -45,6 +45,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0DD23B601BA5A5FC00217B53 /* 1.1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.1.jpg; path = RemitJoyApp/1.1.jpg; sourceTree = "<group>"; };
+		0DD23B611BA5A5FC00217B53 /* 2.1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.1.jpg; path = RemitJoyApp/2.1.jpg; sourceTree = "<group>"; };
+		0DD23B621BA5A5FC00217B53 /* 3.1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 3.1.jpg; path = RemitJoyApp/3.1.jpg; sourceTree = "<group>"; };
+		0DD23B631BA5A5FC00217B53 /* 4.1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 4.1.jpg; path = RemitJoyApp/4.1.jpg; sourceTree = "<group>"; };
+		0DD23B641BA5A5FC00217B53 /* 5.1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 5.1.jpg; path = RemitJoyApp/5.1.jpg; sourceTree = "<group>"; };
 		39784E0D1B8A0861002B8223 /* Remit Joy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Remit Joy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39784E111B8A0861002B8223 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39784E121B8A0861002B8223 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -82,11 +87,6 @@
 		39784E891BA44653002B8223 /* RemitConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemitConsts.h; sourceTree = "<group>"; };
 		39784E8A1BA44653002B8223 /* RemitConsts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemitConsts.m; sourceTree = "<group>"; };
 		39784E8C1BA46DE8002B8223 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		39784E8E1BA46E74002B8223 /* 1.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.JPG; path = RemitJoyApp/1.JPG; sourceTree = "<group>"; };
-		39784E8F1BA46E74002B8223 /* 2.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.JPG; path = RemitJoyApp/2.JPG; sourceTree = "<group>"; };
-		39784E901BA46E74002B8223 /* 3.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 3.JPG; path = RemitJoyApp/3.JPG; sourceTree = "<group>"; };
-		39784E911BA46E74002B8223 /* 4.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 4.JPG; path = RemitJoyApp/4.JPG; sourceTree = "<group>"; };
-		39784E921BA46E74002B8223 /* 5.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 5.JPG; path = RemitJoyApp/5.JPG; sourceTree = "<group>"; };
 		39784E931BA46E74002B8223 /* ios-linen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "ios-linen.jpg"; path = "RemitJoyApp/ios-linen.jpg"; sourceTree = "<group>"; };
 		39784E941BA46E74002B8223 /* logo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logo1.jpg; path = RemitJoyApp/logo1.jpg; sourceTree = "<group>"; };
 		39784E951BA46E74002B8223 /* logo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo1.png; path = RemitJoyApp/logo1.png; sourceTree = "<group>"; };
@@ -203,11 +203,11 @@
 		39784E861BA43CCA002B8223 /* ImgAssets */ = {
 			isa = PBXGroup;
 			children = (
-				39784E8E1BA46E74002B8223 /* 1.JPG */,
-				39784E8F1BA46E74002B8223 /* 2.JPG */,
-				39784E901BA46E74002B8223 /* 3.JPG */,
-				39784E911BA46E74002B8223 /* 4.JPG */,
-				39784E921BA46E74002B8223 /* 5.JPG */,
+				0DD23B601BA5A5FC00217B53 /* 1.1.jpg */,
+				0DD23B611BA5A5FC00217B53 /* 2.1.jpg */,
+				0DD23B621BA5A5FC00217B53 /* 3.1.jpg */,
+				0DD23B631BA5A5FC00217B53 /* 4.1.jpg */,
+				0DD23B641BA5A5FC00217B53 /* 5.1.jpg */,
 				39784E941BA46E74002B8223 /* logo1.jpg */,
 				39784E951BA46E74002B8223 /* logo1.png */,
 				39784E961BA46E74002B8223 /* logo2.jpg */,
@@ -293,25 +293,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39784E9D1BA46E74002B8223 /* 4.JPG in Resources */,
+				0DD23B671BA5A5FC00217B53 /* 3.1.jpg in Resources */,
 				39784EA31BA46E74002B8223 /* logo2.png in Resources */,
-				39784E9B1BA46E74002B8223 /* 2.JPG in Resources */,
-				39784E9C1BA46E74002B8223 /* 3.JPG in Resources */,
-				39784E9E1BA46E74002B8223 /* 5.JPG in Resources */,
 				39784EA11BA46E74002B8223 /* logo1.png in Resources */,
 				39784EA81BA46EAF002B8223 /* fabric_plaid2.png in Resources */,
 				39784E521B93BF38002B8223 /* Values.plist in Resources */,
 				39784E1C1B8A0861002B8223 /* Main.storyboard in Resources */,
 				39784EA41BA46E74002B8223 /* mockup1.jpg in Resources */,
+				0DD23B681BA5A5FC00217B53 /* 4.1.jpg in Resources */,
+				0DD23B651BA5A5FC00217B53 /* 1.1.jpg in Resources */,
 				39784EA01BA46E74002B8223 /* logo1.jpg in Resources */,
-				39784E9A1BA46E74002B8223 /* 1.JPG in Resources */,
 				39784EA91BA46EAF002B8223 /* whitey2.png in Resources */,
 				39784EA21BA46E74002B8223 /* logo2.jpg in Resources */,
 				39784E9F1BA46E74002B8223 /* ios-linen.jpg in Resources */,
 				39784EAB1BA46ED5002B8223 /* remitjoy.sql in Resources */,
 				39784E211B8A0861002B8223 /* LaunchScreen.xib in Resources */,
+				0DD23B661BA5A5FC00217B53 /* 2.1.jpg in Resources */,
 				39784E8D1BA46DE8002B8223 /* Default-568h@2x.png in Resources */,
 				39784EA51BA46E74002B8223 /* mockup2.jpg in Resources */,
+				0DD23B691BA5A5FC00217B53 /* 5.1.jpg in Resources */,
 				39784E1E1B8A0861002B8223 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
