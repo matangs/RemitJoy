@@ -16,5 +16,7 @@
 -(UIColor*)backgrounColor;
 -(NSString*)backgrounTexture;
 -(UIColor*)darkBackgrounColor;
++(NSDate*)dateFromStr:(NSString*)str;
++(NSString*)strFromDate:(NSDate*)date;
 
 @end

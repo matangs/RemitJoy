@@ -38,4 +38,19 @@
     
 }
 
++(NSDate*)dateFromStr:(NSString*)str{
+    NSDateFormatter* outputFormatter = [[NSDateFormatter alloc]init];
+    [outputFormatter setDateFormat:@"MM-dd-YYYY"];
+    return [outputFormatter dateFromString:str];
+    
+}
+
++(NSString*)strFromDate:(NSDate*)date{
+    NSDateFormatter* outputFormatter = [[NSDateFormatter alloc]init];
+    [outputFormatter setDateFormat:@"MM-dd-YYYY"];
+    return [outputFormatter stringFromDate:date];
+    
+}
+
+
 @end

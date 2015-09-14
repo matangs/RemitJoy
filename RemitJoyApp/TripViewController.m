@@ -12,6 +12,7 @@
 #import "ReceiptViewController.h"
 #import "PDFHelper.h"
 #import "EmailViewController.h"
+#import "ReceiptTableViewController.h"
 
 
 @interface TripViewController ()
@@ -190,6 +191,7 @@
     NSIndexPath *path = [self.tableView indexPathForSelectedRow];
     if (path.section == 0){
         ReceiptViewController* rcptController = (ReceiptViewController*)[segue destinationViewController];
+        //ReceiptTableViewController* rcptController = (ReceiptTableViewController*)[segue destinationViewController];
         rcptController.m_receipt = nil;
         rcptController.m_isUpdating = false;
         rcptController.m_tripId = self.m_trip.m_primaryKey;
@@ -200,9 +202,11 @@
         controller.m_tripName = self.m_trip.m_name;
     }
     else if (path.section == 2){
+        
         Receipt* selectedReceipt = (Receipt*)[self.m_trip.m_receipts objectAtIndex:path.row];
         
-        ReceiptViewController* rcptController = (ReceiptViewController*)[segue destinationViewController];
+        //ReceiptViewController* rcptController = (ReceiptViewController*)[segue destinationViewController];
+        ReceiptTableViewController* rcptController = (ReceiptTableViewController*)[segue destinationViewController];
         rcptController.m_receipt = selectedReceipt;
         rcptController.m_isUpdating = true;
         rcptController.m_tripId = self.m_trip.m_primaryKey;

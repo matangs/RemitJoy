@@ -84,6 +84,74 @@
     
     [self setDatePicker];
     
+    self.m_imgTableView.dataSource = self;
+    [self.m_imgTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    /*
+    dispatch_async(dispatch_get_main_queue()) {
+        //This code will run in the main thread:
+        CGRect frame = self.tableView.frame;
+        frame.size.height = self.tableView.contentSize.height;
+        self.tableView.frame = frame;
+    }*/
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        //This code will run in the main thread:
+        CGRect frame = self.m_imgTableView.frame;
+        frame.size.height = self.m_imgTableView.contentSize.height;
+        self.m_imgTableView.frame = frame;
+    });
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"ImageCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    // Configure the cell...
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    UIImageView* imageView = (UIImageView *)[cell viewWithTag:101];
+    
+    if (self.m_receipt != nil){
+        NSString* path = [self.m_receipt imagePath];
+        if (path != nil && [[NSFileManager defaultManager] fileExistsAtPath:path])
+            imageView.image = [UIImage imageWithContentsOfFile:path];
+    }
+    //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    return cell;
+}
+
+
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        
+    }
 }
 
 -(void)datePickerValueChanged:(id)sender{

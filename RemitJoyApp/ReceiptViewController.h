@@ -11,7 +11,7 @@
 #import "Receipt.h"
 
 
-@interface ReceiptViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource,UIPickerViewDelegate, MFMailComposeViewControllerDelegate>
+@interface ReceiptViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource,UIPickerViewDelegate, MFMailComposeViewControllerDelegate,UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIImageView *m_receipt1ImgView;
 @property (weak, nonatomic) IBOutlet UIPickerView *m_currencyPicker;
@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *m_typeTextView;
 @property (weak, nonatomic) IBOutlet UITextField *m_amountTextView;
 @property (weak, nonatomic) IBOutlet UITextField *m_dateTextView;
+@property (weak, nonatomic) IBOutlet UITableView *m_imgTableView;
 
 @property(strong, nonatomic) NSArray* currencyArray;
 @property(strong, nonatomic) NSArray* typeArray;
