@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D61710F1BA7B69200DBD449 /* ReceiptImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D61710E1BA7B69200DBD449 /* ReceiptImage.m */; };
+		0D6171121BA83B7400DBD449 /* ReceiptImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6171111BA83B7400DBD449 /* ReceiptImageViewController.m */; };
 		0DD23B651BA5A5FC00217B53 /* 1.1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DD23B601BA5A5FC00217B53 /* 1.1.jpg */; };
 		0DD23B661BA5A5FC00217B53 /* 2.1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DD23B611BA5A5FC00217B53 /* 2.1.jpg */; };
 		0DD23B671BA5A5FC00217B53 /* 3.1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DD23B621BA5A5FC00217B53 /* 3.1.jpg */; };
@@ -48,6 +49,8 @@
 /* Begin PBXFileReference section */
 		0D61710D1BA7B69200DBD449 /* ReceiptImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptImage.h; sourceTree = "<group>"; };
 		0D61710E1BA7B69200DBD449 /* ReceiptImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptImage.m; sourceTree = "<group>"; };
+		0D6171101BA83B7400DBD449 /* ReceiptImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptImageViewController.h; sourceTree = "<group>"; };
+		0D6171111BA83B7400DBD449 /* ReceiptImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptImageViewController.m; sourceTree = "<group>"; };
 		0DD23B601BA5A5FC00217B53 /* 1.1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.1.jpg; path = RemitJoyApp/1.1.jpg; sourceTree = "<group>"; };
 		0DD23B611BA5A5FC00217B53 /* 2.1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.1.jpg; path = RemitJoyApp/2.1.jpg; sourceTree = "<group>"; };
 		0DD23B621BA5A5FC00217B53 /* 3.1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 3.1.jpg; path = RemitJoyApp/3.1.jpg; sourceTree = "<group>"; };
@@ -174,6 +177,8 @@
 				39784E8A1BA44653002B8223 /* RemitConsts.m */,
 				0DD23B6A1BA5EED900217B53 /* ReceiptTableViewController.h */,
 				0DD23B6B1BA5EED900217B53 /* ReceiptTableViewController.m */,
+				0D6171101BA83B7400DBD449 /* ReceiptImageViewController.h */,
+				0D6171111BA83B7400DBD449 /* ReceiptImageViewController.m */,
 			);
 			path = RemitJoyApp;
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 				0D61710F1BA7B69200DBD449 /* ReceiptImage.m in Sources */,
 				39784E441B8B1DDE002B8223 /* EmailViewController.m in Sources */,
 				39784E161B8A0861002B8223 /* AppDelegate.m in Sources */,
+				0D6171121BA83B7400DBD449 /* ReceiptImageViewController.m in Sources */,
 				39784E4C1B933FAD002B8223 /* DBManager.m in Sources */,
 				39784E3E1B8A45E3002B8223 /* AddTripViewController.m in Sources */,
 				39784E3B1B8A1C73002B8223 /* TripViewController.m in Sources */,

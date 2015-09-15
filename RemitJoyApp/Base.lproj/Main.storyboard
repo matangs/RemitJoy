@@ -142,14 +142,22 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" tag="107" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rN7-ub-Vd4">
-                                            <rect key="frame" x="225" y="10" width="150" height="199.5"/>
+                                            <rect key="frame" x="8" y="8" width="584" height="203.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="199.5" id="PbN-Rk-52k"/>
                                                 <constraint firstAttribute="width" constant="150" id="Pvp-fo-ZOy"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="PbN-Rk-52k"/>
+                                                    <exclude reference="Pvp-fo-ZOy"/>
+                                                </mask>
+                                            </variation>
                                         </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="rN7-ub-Vd4" firstAttribute="leading" secondItem="trh-KN-6ko" secondAttribute="leadingMargin" id="4pK-iQ-D6g"/>
+                                        <constraint firstItem="rN7-ub-Vd4" firstAttribute="top" secondItem="trh-KN-6ko" secondAttribute="topMargin" id="H5B-Uu-IZS"/>
                                         <constraint firstAttribute="centerY" secondItem="rN7-ub-Vd4" secondAttribute="centerY" id="jDa-V2-gCt"/>
                                         <constraint firstItem="rN7-ub-Vd4" firstAttribute="top" secondItem="trh-KN-6ko" secondAttribute="topMargin" id="pdN-c9-YoH"/>
                                         <constraint firstAttribute="centerX" secondItem="rN7-ub-Vd4" secondAttribute="centerX" id="rzT-Fq-20L"/>
@@ -160,6 +168,9 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="mFj-i5-idZ" kind="show" id="ptM-i2-GOn"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RcptAmountCell" id="DWN-TR-LcL">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -272,6 +283,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Rh-wQ-1Ql" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2988" y="488"/>
+        </scene>
+        <!--Receipt Image View Controller-->
+        <scene sceneID="HCY-kW-iNB">
+            <objects>
+                <viewController id="mFj-i5-idZ" customClass="ReceiptImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TLR-72-3g9"/>
+                        <viewControllerLayoutGuide type="bottom" id="WSU-2q-kH8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="y41-fj-wPg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pQW-ae-y9f">
+                                <rect key="frame" x="16" y="0.0" width="568" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pQW-ae-y9f" firstAttribute="top" secondItem="y41-fj-wPg" secondAttribute="topMargin" id="CwO-ON-qgX"/>
+                            <constraint firstAttribute="centerX" secondItem="pQW-ae-y9f" secondAttribute="centerX" id="Lv2-OC-CYe"/>
+                            <constraint firstAttribute="centerY" secondItem="pQW-ae-y9f" secondAttribute="centerY" id="QwN-1a-kaf"/>
+                            <constraint firstItem="pQW-ae-y9f" firstAttribute="leading" secondItem="y41-fj-wPg" secondAttribute="leadingMargin" id="lB4-eF-IaI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="m_imageView" destination="pQW-ae-y9f" id="8Yt-1O-n4o"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cvE-Mq-ZMj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3683" y="488"/>
         </scene>
         <!--Trip View Controller-->
         <scene sceneID="YWZ-Xh-TWu">

@@ -11,6 +11,7 @@
 #import "MainViewController.h"
 #import "ReceiptImage.h"
 #import "TripViewController.h"
+#import "ReceiptImageViewController.h"
 
 @interface ReceiptTableViewController ()
 
@@ -239,8 +240,10 @@
         }
         
         UIImageView* imgView = (UIImageView*)[cell viewWithTag:107];
+        imgView.contentMode = UIViewContentModeScaleAspectFit;
+
         imgView.image = ((ReceiptImageData*)[self.m_receiptImageHelper.m_imageDataArr objectAtIndex:indexPath.row]).m_image;
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
         return cell;
     }
@@ -317,6 +320,15 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+    if (path.section == 3){
+        ReceiptImageViewController* rcptController = (ReceiptImageViewController*)[segue destinationViewController];
+        rcptController.m_image = ((ReceiptImageData*)[self.m_receiptImageHelper.m_imageDataArr objectAtIndex:path.row]).m_image;
+    }
+}
+
 
 #pragma mark - various pickers
 
