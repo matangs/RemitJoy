@@ -2,23 +2,159 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>ExpenseTypeOrder</key>
+	<dict>
+        <key>Breakfast</key><string>1</string>
+        <key>Lunch</key><string>2</string>
+        <key>Dinner</key><string>3</string>
+        <key>Group Mean (Non Travel)</key><string>4</string>
+        <key>Meal with Client/Customer</key><string>5</string>
+        <key>Hotel</key><string>6</string>
+        <key>Other lodging services</key><string>7</string>
+        <key>Internet</key><string>8</string>
+        <key>Laundry</key><string>9</string>
+        <key>Taxi</key><string>10</string>
+        <key>Train</key><string>11</string>
+        <key>Public Transportation</key><string>12</string>
+        <key>Car Rental</key><string>13</string>
+        <key>Fuel / Gasoline</key><string>14</string>
+        <key>Parking</key><string>15</string>
+        <key>Office Supplies/Stationery</key><string>16</string>
+        <key>Mileage</key><string>17</string>
+        <key>Books / Subscriptions</key><string>18</string>
+        <key>Cell Phone</key><string>19</string>
+        <key>Computer Supplies</key><string>20</string>
+        <key>Entertainment</key><string>21</string>
+        <key>Immigration/Passport/Visa Fees</key><string>22</string>
+        <key>Membership</key><string>23</string>
+        <key>Perdiem</key><string>24</string>
+        <key>Phone/Fax</key><string>25</string>
+        <key>Postages</key><string>26</string>
+        <key>Professional Services</key><string>27</string>
+        <key>Toll</key><string>28</string>
+        <key>Seminars/Conferences</key><string>29</string>
+        <key>Training</key><string>30</string>
+        <key>Travel Other</key><string>31</string>
+        <key>Travel Service Fee</key><string>32</string>
+	</dict>
+    <key>CurrencyDetail</key>
+    <dict>
+        <key>AED</key><string>UAE - Dirham</string>
+        <key>ARS</key><string>Argentine Peso</string>
+        <key>AUD</key><string>Australian Dollar</string>
+        <key>BGN</key><string>Bulgarian LEV</string>
+        <key>BRL</key><string>Brazilian Real</string>
+        <key>CAD</key><string>Canadian Dollar</string>
+        <key>CHF</key><string>Swiss Franc</string>
+        <key>CLP</key><string>Chilean Peso</string>
+        <key>CNY</key><string>Yuan Enminbi</string>
+        <key>COP</key><string>Columbian Peso</string>
+        <key>CZK</key><string>Czech Kruna</string>
+        <key>DKK</key><string>Danish Krone</string>
+        <key>EUR</key><string>Euro</string>
+        <key>GBP</key><string>Pound Sterling</string>
+        <key>HKD</key><string>Hong-Kong Dollar</string>
+        <key>HUF</key><string>Forint</string>
+        <key>IDR</key><string>Indonesian Rupiah</string>
+        <key>ILS</key><string>Israeli Shequel</string>
+        <key>INR</key><string>Indian Rupee</string>
+        <key>JPY</key><string>Yen</string>
+        <key>KRW</key><string>Won</string>
+        <key>KZT</key><string>Tenge</string>
+        <key>MNT</key><string>Tugrik</string>
+        <key>MXN</key><string>Mexican Peso</string>
+        <key>MYR</key><string>Malaysian Ringgit</string>
+        <key>NOK</key><string>Norwegian Krone</string>
+        <key>NZD</key><string>New Zealand Dollar</string>
+        <key>PEN</key><string>Nuevo Sol</string>
+        <key>PLN</key><string>Zloty</string>
+        <key>RON</key><string>Nouveau Leu roumain</string>
+        <key>RUB</key><string>Russian Ruble</string>
+        <key>SEK</key><string>Swedish Krona</string>
+        <key>SGD</key><string>Singapore Dollar</string>
+        <key>THB</key><string>Thailand Baht</string>
+        <key>TRY</key><string>Turkish Lira</string>
+        <key>TWD</key><string>Taiwan Dollar</string>
+        <key>USD</key><string>US Dollar</string>
+        <key>ZAR</key><string>Rand</string>
+    </dict>
 	<key>BackgroundTexture</key>
 	<string>whitey2.png</string>
 	<key>Currency</key>
 	<array>
-		<string>USD</string>
+		<string>AED</string>
+		<string>ARS</string>
+		<string>AUD</string>
+		<string>BGN</string>
+		<string>BRL</string>
+		<string>CAD</string>
+		<string>CHF</string>
+		<string>CLP</string>
+		<string>CNY</string>
+		<string>COP</string>
+		<string>CZK</string>
+		<string>DKK</string>
 		<string>EUR</string>
-		<string>JPY</string>
 		<string>GBP</string>
+		<string>HKD</string>
+		<string>HUF</string>
+		<string>IDR</string>
+		<string>ILS</string>
 		<string>INR</string>
+		<string>JPY</string>
+		<string>KRW</string>
+		<string>KZT</string>
+		<string>MNT</string>
+		<string>MXN</string>
+		<string>MYR</string>
+		<string>NOK</string>
+		<string>NZD</string>
+		<string>PEN</string>
+		<string>PLN</string>
+		<string>RON</string>
+		<string>RUB</string>
+		<string>SEK</string>
+		<string>SGD</string>
+		<string>THB</string>
+		<string>TRY</string>
+		<string>TWD</string>
+		<string>USD</string>
+		<string>ZAR</string>
 	</array>
 	<key>Types</key>
 	<array>
+		<string>Books / Subscriptions</string>
 		<string>Breakfast</string>
-		<string>Lunch</string>
+		<string>Car Rental</string>
+		<string>Cell Phone</string>
+		<string>Computer Supplies</string>
 		<string>Dinner</string>
+		<string>Entertainment</string>
+		<string>Fuel / Gasoline</string>
+		<string>Group Mean (Non Travel)</string>
+		<string>Hotel</string>
+		<string>Immigration/Passport/Visa Fees</string>
+		<string>Internet</string>
+		<string>Laundry</string>
+		<string>Lunch</string>
+		<string>Meal with Client/Customer</string>
+		<string>Membership</string>
+		<string>Mileage</string>
+		<string>Office Supplies/Stationery</string>
+		<string>Other lodging services</string>
 		<string>Parking</string>
+		<string>Perdiem</string>
+		<string>Phone/Fax</string>
+		<string>Postages</string>
+		<string>Professional Services</string>
+		<string>Public Transportation</string>
+		<string>Seminars/Conferences</string>
 		<string>Taxi</string>
+		<string>Toll</string>
+		<string>Train</string>
+		<string>Training</string>
+		<string>Travel Other</string>
+		<string>Travel Service Fee</string>
 	</array>
 </dict>
 </plist>

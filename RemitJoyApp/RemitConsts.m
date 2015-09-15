@@ -52,5 +52,13 @@
     
 }
 
++(NSInteger)orderForExpenseType:(NSString*)type{
+    NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Values" ofType:@"plist"]];
+    NSLog(@"dictionary = %@", dictionary);
+    NSDictionary* dict = (NSDictionary*)[dictionary objectForKey:@"ExpenseTypeOrder"];
+    NSString* valOut = (NSString*)[dict objectForKey:type];
+    return [valOut integerValue];
+}
+
 
 @end

@@ -8,15 +8,19 @@
 
 #import "Receipt.h"
 #import "DBManager.h"
+#import "RemitConsts.h"
 
 @implementation Receipt
 
 -(void)saveReceipt{
-    NSString* insertStr = [NSString stringWithFormat:@"insert into receipts (trip_id, amount, currency, type, date, photo) values(%lu, %.02f, '%@', '%@', '%@','%@')",
+    NSInteger typeOrder = [RemitConsts orderForExpenseType:self.m_expenseType];
+    
+    NSString* insertStr = [NSString stringWithFormat:@"insert into receipts (trip_id, amount, currency, type, type_order, date, photo) values(%lu, %.02f, '%@', '%@', %lu, '%@','%@')",
                            self.m_tripKey,
                            self.m_amount,
                            self.m_currency,
                            self.m_expenseType,
+                           typeOrder,
                            self.m_date,
                            self.m_photo];
     
@@ -28,12 +32,15 @@
 }
 
 -(void)updateReceipt{
-    NSString* updateStr = [NSString stringWithFormat:@"UPDATE receipts SET amount = %.02f, currency = '%@', type = '%@', date = '%@', photo = '%@' WHERE id = %lu",
+    NSInteger typeOrder = [RemitConsts orderForExpenseType:self.m_expenseType];
+
+    NSString* updateStr = [NSString stringWithFormat:@"UPDATE receipts SET amount = %.02f, currency = '%@', type = '%@', date = '%@', photo = '%@', type_order = %lu WHERE id = %lu",
                            self.m_amount,
                            self.m_currency,
                            self.m_expenseType,
                            self.m_date,
                            self.m_photo,
+                           typeOrder,
                            self.m_primaryKey
                            ];
     DBManager* mgr = [[DBManager alloc] initDatabase];
@@ -83,6 +90,7 @@
             rcpt.m_comment = nil;
         
         [retArr addObject: rcpt];
+        
     }
     
     return retArr;

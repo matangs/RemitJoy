@@ -19,4 +19,7 @@
 +(NSDate*)dateFromStr:(NSString*)str;
 +(NSString*)strFromDate:(NSDate*)date;
 
++(NSInteger)orderForExpenseType:(NSString*)type;
+
+
 @end
