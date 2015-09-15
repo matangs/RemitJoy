@@ -15,10 +15,13 @@
 
 @implementation ReceiptImage
 
--(void)load:(NSString*)photoStr receipt:(Receipt*)theReceipt {
-    
+-(id)init{
+    self = [super init];
     self.m_imageDataArr = [[NSMutableArray alloc] init];
-    
+    return self;
+}
+
+-(void)load:(NSString*)photoStr receipt:(Receipt*)theReceipt {
     NSArray* arr = [photoStr componentsSeparatedByString:@","];
     
     for (NSString* indexStr in arr) {

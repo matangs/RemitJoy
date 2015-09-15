@@ -9,7 +9,6 @@
 #import "MainViewController.h"
 #import "TripViewController.h"
 #import "Receipt.h"
-#import "ReceiptViewController.h"
 #import "PDFHelper.h"
 #import "EmailViewController.h"
 #import "ReceiptTableViewController.h"
@@ -190,8 +189,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSIndexPath *path = [self.tableView indexPathForSelectedRow];
     if (path.section == 0){
-        ReceiptViewController* rcptController = (ReceiptViewController*)[segue destinationViewController];
-        //ReceiptTableViewController* rcptController = (ReceiptTableViewController*)[segue destinationViewController];
+        //ReceiptViewController* rcptController = (ReceiptViewController*)[segue destinationViewController];
+        ReceiptTableViewController* rcptController = (ReceiptTableViewController*)[segue destinationViewController];
         rcptController.m_receipt = nil;
         rcptController.m_isUpdating = false;
         rcptController.m_tripId = self.m_trip.m_primaryKey;

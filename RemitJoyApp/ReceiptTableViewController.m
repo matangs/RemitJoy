@@ -154,13 +154,8 @@
         return 1;
     
     if (((NSInteger)section) == 3)
-    {
-        if (self.m_receipt == nil)
-            return 0;
-        else{
-            return self.m_receiptImageHelper.m_imageDataArr.count;
-        }
-    }
+        return self.m_receiptImageHelper.m_imageDataArr.count;
+    
     return 1;
 }
 

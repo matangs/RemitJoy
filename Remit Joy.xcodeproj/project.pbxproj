@@ -22,7 +22,6 @@
 		39784E381B8A08E1002B8223 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E371B8A08E1002B8223 /* MainViewController.m */; };
 		39784E3B1B8A1C73002B8223 /* TripViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E3A1B8A1C73002B8223 /* TripViewController.m */; };
 		39784E3E1B8A45E3002B8223 /* AddTripViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E3D1B8A45E3002B8223 /* AddTripViewController.m */; };
-		39784E411B8B1D8D002B8223 /* ReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E401B8B1D8D002B8223 /* ReceiptViewController.m */; };
 		39784E441B8B1DDE002B8223 /* EmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E431B8B1DDE002B8223 /* EmailViewController.m */; };
 		39784E461B8F1B03002B8223 /* PDFHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E451B8F1B03002B8223 /* PDFHelper.m */; };
 		39784E491B933F3C002B8223 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 39784E481B933F3C002B8223 /* libsqlite3.dylib */; };
@@ -72,8 +71,6 @@
 		39784E3A1B8A1C73002B8223 /* TripViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripViewController.m; sourceTree = "<group>"; };
 		39784E3C1B8A45E3002B8223 /* AddTripViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTripViewController.h; sourceTree = "<group>"; };
 		39784E3D1B8A45E3002B8223 /* AddTripViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTripViewController.m; sourceTree = "<group>"; };
-		39784E3F1B8B1D8D002B8223 /* ReceiptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptViewController.h; sourceTree = "<group>"; };
-		39784E401B8B1D8D002B8223 /* ReceiptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptViewController.m; sourceTree = "<group>"; };
 		39784E421B8B1DDE002B8223 /* EmailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailViewController.h; sourceTree = "<group>"; };
 		39784E431B8B1DDE002B8223 /* EmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailViewController.m; sourceTree = "<group>"; };
 		39784E451B8F1B03002B8223 /* PDFHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFHelper.m; sourceTree = "<group>"; };
@@ -159,8 +156,6 @@
 				39784E3A1B8A1C73002B8223 /* TripViewController.m */,
 				39784E3C1B8A45E3002B8223 /* AddTripViewController.h */,
 				39784E3D1B8A45E3002B8223 /* AddTripViewController.m */,
-				39784E3F1B8B1D8D002B8223 /* ReceiptViewController.h */,
-				39784E401B8B1D8D002B8223 /* ReceiptViewController.m */,
 				39784E421B8B1DDE002B8223 /* EmailViewController.h */,
 				39784E431B8B1DDE002B8223 /* EmailViewController.m */,
 				39784E451B8F1B03002B8223 /* PDFHelper.m */,
@@ -341,7 +336,6 @@
 				39784E4C1B933FAD002B8223 /* DBManager.m in Sources */,
 				39784E3E1B8A45E3002B8223 /* AddTripViewController.m in Sources */,
 				39784E3B1B8A1C73002B8223 /* TripViewController.m in Sources */,
-				39784E411B8B1D8D002B8223 /* ReceiptViewController.m in Sources */,
 				39784E5A1B9AFF22002B8223 /* Receipt.m in Sources */,
 				39784E381B8A08E1002B8223 /* MainViewController.m in Sources */,
 				39784E131B8A0861002B8223 /* main.m in Sources */,
