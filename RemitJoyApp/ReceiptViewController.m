@@ -77,7 +77,7 @@
     [self setExpenseTypePicker];
     
     if (self.m_receipt != nil){
-        NSString* path = [self.m_receipt imagePath];
+        NSString* path = [self.m_receipt imagePathOld];
         if (path != nil && [[NSFileManager defaultManager] fileExistsAtPath:path])
             self.m_receipt1ImgView.image = [UIImage imageWithContentsOfFile:path];
     }
@@ -129,7 +129,7 @@
     UIImageView* imageView = (UIImageView *)[cell viewWithTag:101];
     
     if (self.m_receipt != nil){
-        NSString* path = [self.m_receipt imagePath];
+        NSString* path = [self.m_receipt imagePathOld];
         if (path != nil && [[NSFileManager defaultManager] fileExistsAtPath:path])
             imageView.image = [UIImage imageWithContentsOfFile:path];
     }
@@ -299,7 +299,7 @@
     if (self.m_imageURL == nil){
     
         NSData *imageData = UIImageJPEGRepresentation(self.m_receipt1ImgView.image, 0.7); // 0.7 is JPG quality
-        NSString* destinationPath = [self.m_receipt imagePath];
+        NSString* destinationPath = [self.m_receipt imagePathOld];
         if ([[NSFileManager defaultManager] fileExistsAtPath:destinationPath]){
             NSError* error;
             [[NSFileManager defaultManager] removeItemAtPath: destinationPath error: &error];
@@ -328,7 +328,7 @@
                                                                 UIImageOrientation orientation,
                                                                 NSDictionary *info){
                                                     
-                                                    NSString* destinationPath = [self.m_receipt imagePath];
+                                                    NSString* destinationPath = [self.m_receipt imagePathOld];
                                                     if ([[NSFileManager defaultManager] fileExistsAtPath:destinationPath]){
                                                         NSError* error;
                                                         [[NSFileManager defaultManager] removeItemAtPath: destinationPath error: &error];

@@ -9,6 +9,8 @@
 #import "ReceiptTableViewController.h"
 #import "RemitConsts.h"
 #import "MainViewController.h"
+#import "ReceiptImage.h"
+#import "TripViewController.h"
 
 @interface ReceiptTableViewController ()
 
@@ -24,8 +26,9 @@
 @synthesize m_currencyTextViewPickerToolbar;
 @synthesize m_typeTextViewPickerView;
 @synthesize m_typeTextViewPickerToolbar;
-@synthesize m_selDate, m_selAmount,m_selImageArray;
+@synthesize m_selDate, m_selAmount;
 @synthesize m_currencyText, m_amountText, m_dateText, m_typeText;
+@synthesize m_receiptImageHelper, m_deletedImageArr;
 
 
 - (void)viewDidLoad {
@@ -48,136 +51,120 @@
     NSLog(@"dictionary = %@", dictionary);
     currencyArray = [dictionary objectForKey:@"Currency"];
     typeArray = [dictionary objectForKey:@"Types"];
-    
+    m_receiptImageHelper = [[ReceiptImage alloc] init];
     if (self.m_receipt == nil){
         m_selCurrency = @"USD";
         m_selType = @"Breakfast";
         m_selAmount = 0.0;
         m_selDate = [NSDate date];
-        
     }
     else{
         m_selCurrency = self.m_receipt.m_currency;
         m_selType = self.m_receipt.m_expenseType;
         m_selAmount = self.m_receipt.m_amount;
         m_selDate = [RemitConsts dateFromStr:self.m_receipt.m_date];
+        [m_receiptImageHelper load:self.m_receipt.m_photo receipt:self.m_receipt];
     }
     
-    m_selImageArray = [[NSMutableArray alloc] init];
+    m_deletedImageArr = [[NSMutableArray alloc] init];
 }
+
 
 -(void)onAddOrUpdate{
-/*
- if (self.m_amountTextView.text == nil || self.m_amountTextView.text.length < 1 || (self.m_imageURL == nil && self.m_isUpdating == false)){
- UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
- message:@"Please enter an amount and upload an image."
- delegate:nil
- cancelButtonTitle:@"OK"
- otherButtonTitles: nil];
- 
- [myAlertView show];
- return;
- }
- 
- NSString* amount = self.m_amountTextView.text;
- NSString* date = self.m_dateTextView.text;
- 
- if (self.m_isUpdating == false){
- self.m_receipt = [[Receipt alloc] init];
- }
- self.m_receipt.m_amount = [amount floatValue];
- self.m_receipt.m_currency = m_selCurrency;
- self.m_receipt.m_expenseType = m_selType;
- self.m_receipt.m_date = date;
- self.m_receipt.m_tripKey = self.m_tripId;
- if (self.m_isUpdating)
- [self.m_receipt updateReceipt];
- else
- [self.m_receipt saveReceipt];
- 
- [self saveImageToAppFolder];
- 
- 
- NSArray *viewContrlls=[[self navigationController] viewControllers];
- TripViewController* tripCtrl = (TripViewController*)[viewContrlls objectAtIndex:1];
- tripCtrl.m_trip.m_receipts = [Receipt loadReceipts:tripCtrl.m_trip.m_primaryKey];;
- [tripCtrl.tableView reloadData];
- [[self navigationController] popViewControllerAnimated:YES];
- 
-*/
+    if (self.m_selAmount < 0.01 || m_receiptImageHelper.m_imageDataArr.count < 1){
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                              message:@"Please enter an amount and upload an image."
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles: nil];
+        
+        [myAlertView show];
+        return;
+    }
+
+    
+    if (self.m_isUpdating == false){
+        self.m_receipt = [[Receipt alloc] init];
+    }
+    self.m_receipt.m_amount = m_selAmount;
+    self.m_receipt.m_currency = m_selCurrency;
+    self.m_receipt.m_expenseType = m_selType;
+    self.m_receipt.m_date = [RemitConsts strFromDate:self.m_selDate];;
+    self.m_receipt.m_tripKey = self.m_tripId;
+    self.m_receipt.m_photo = [m_receiptImageHelper getPhotoStr];
+    if (self.m_isUpdating)
+        [self.m_receipt updateReceipt];
+    else
+        [self.m_receipt saveReceipt];
+    
+    [self saveImagesToAppFolder];
+    
+    
+    NSArray *viewContrlls=[[self navigationController] viewControllers];
+    TripViewController* tripCtrl = (TripViewController*)[viewContrlls objectAtIndex:1];
+    tripCtrl.m_trip.m_receipts = [Receipt loadReceipts:tripCtrl.m_trip.m_primaryKey];;
+    [tripCtrl.tableView reloadData];
+    [self.m_receiptImageHelper.m_imageDataArr removeAllObjects];
+    [[self navigationController] popViewControllerAnimated:YES];
+    
+
     
 }
 
--(void)saveImageToAppFolder{
+-(void)saveImagesToAppFolder{
     
-/*    if (self.m_imageURL == nil){
- 
-        NSData *imageData = UIImageJPEGRepresentation(self.m_receipt1ImgView.image, 0.7); // 0.7 is JPG quality
-        NSString* destinationPath = [self.m_receipt imagePath];
+    for (NSString* imgId in self.m_deletedImageArr) {
+        NSString* destinationPath = [self.m_receipt imagePath:imgId];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:destinationPath]){
+            NSError* error;
+            [[NSFileManager defaultManager] removeItemAtPath: destinationPath error: &error];
+        }
+    }
+    
+    for (ReceiptImageData* data in self.m_receiptImageHelper.m_imageDataArr) {
+        if (data.m_isNew == false)
+            continue;
+        
+        NSString* imgId = [NSString stringWithFormat:@"%lu",data.m_id];
+        NSString* destinationPath = [self.m_receipt imagePath:imgId];
         if ([[NSFileManager defaultManager] fileExistsAtPath:destinationPath]){
             NSError* error;
             [[NSFileManager defaultManager] removeItemAtPath: destinationPath error: &error];
         }
         
-        
+        NSData *imageData = UIImageJPEGRepresentation(data.m_image, 0.3);
         [imageData writeToFile:destinationPath atomically:true];
-        return;
-        
     }
     
-    NSArray* urlArray = [NSArray arrayWithObjects:self.m_imageURL,nil];
-    
-    PHFetchResult* fetchResult = [PHAsset fetchAssetsWithALAssetURLs:urlArray options:nil];
-    if (fetchResult.count != 1)
-        return;
-    
-    PHAsset* asset = (PHAsset*)[fetchResult objectAtIndex:0];
-    
-    PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
-    options.synchronous = YES;
-    [[PHImageManager defaultManager] requestImageDataForAsset:asset
-                                                      options:options
-                                                resultHandler:^(NSData *imageData,
-                                                                NSString *dataUTI,
-                                                                UIImageOrientation orientation,
-                                                                NSDictionary *info){
-                                                    
-                                                    NSString* destinationPath = [self.m_receipt imagePath];
-                                                    if ([[NSFileManager defaultManager] fileExistsAtPath:destinationPath]){
-                                                        NSError* error;
-                                                        [[NSFileManager defaultManager] removeItemAtPath: destinationPath error: &error];
-                                                    }
-                                                    
-                                                    
-                                                    [imageData writeToFile:destinationPath atomically:true];
-                                                    
-                                                }];
- 
- */
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
     return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (((NSInteger)section) == 0 || ((NSInteger)section) == 1 )
+    if (((NSInteger)section) == 0 || ((NSInteger)section) == 1 || ((NSInteger)section) == 2 )
         return 1;
     
+    if (((NSInteger)section) == 3)
+    {
+        if (self.m_receipt == nil)
+            return 0;
+        else{
+            return self.m_receiptImageHelper.m_imageDataArr.count;
+        }
+    }
     return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //RcptImageCell, RcptAmountCell, RcptTypeCell
     if (indexPath.section == 0)
     {
         static NSString* cellIdentifier = @"RcptAmountCell";
@@ -196,6 +183,11 @@
         }
         
         [self setCurrencyPicker];
+        
+        [self.m_amountText addTarget:self
+                      action:@selector(amountFieldDidChange:)
+            forControlEvents:UIControlEventEditingChanged];
+        
         return cell;
     }
     if (indexPath.section == 1)
@@ -216,12 +208,9 @@
         [self setDatePicker];
         [self setExpenseTypePicker];
         
-        //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        
         return cell;
     }
 
-    //RcptButtonCell
     if (indexPath.section == 2)
     {
         static NSString* cellIdentifier = @"RcptButtonCell";
@@ -254,14 +243,29 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
         
-        //cell.textLabel.text = @"New Trip";
+        UIImageView* imgView = (UIImageView*)[cell viewWithTag:107];
+        imgView.image = ((ReceiptImageData*)[self.m_receiptImageHelper.m_imageDataArr objectAtIndex:indexPath.row]).m_image;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        // Configure the cell...
         
         return cell;
     }
     
     return nil;
+}
+
+-(void)amountFieldDidChange:sender{
+    UITextField* field = (UITextField*)sender;
+    m_selAmount = [field.text floatValue];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == 0 || indexPath.section == 1 || indexPath.section == 2)
+        return 48;
+    if (indexPath.section == 3)
+        return 220;
+    
+    return 0;
 }
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -298,6 +302,25 @@
     if(section == 0 || section == 1 || section == 2)
         return 35;
     return 0;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 3)
+        return YES;
+    
+    return NO;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        NSInteger idOfDeletedImg = ((ReceiptImageData*)(self.m_receiptImageHelper.m_imageDataArr[indexPath.row])).m_id;
+        [self.m_deletedImageArr addObject: [NSString stringWithFormat:@"%lu",idOfDeletedImg]];
+        [self.m_receiptImageHelper deleteImageAt:indexPath.row];
+        [self.tableView reloadData];
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }
 }
 
 #pragma mark - various pickers
@@ -457,9 +480,9 @@
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     [picker dismissViewControllerAnimated:YES completion:NULL];
+    [self.m_receiptImageHelper addNewImage:chosenImage];
     
-    //self.m_receipt1ImgView.image = chosenImage;
-    //self.m_imageURL = [info objectForKey:@"UIImagePickerControllerReferenceURL"];
+    [self.tableView reloadData];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {

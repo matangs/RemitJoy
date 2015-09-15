@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Receipt.h"
+#import "ReceiptImage.h"
 
 
 @interface ReceiptTableViewController : UITableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource,UIPickerViewDelegate>
@@ -28,8 +29,6 @@
 @property(strong, nonatomic) NSString* m_selType;
 @property(strong, nonatomic) NSDate* m_selDate;
 
-@property(strong, nonatomic) NSMutableArray* m_selImageArray;
-
 @property(strong, nonatomic) UIPickerView* m_currencyTextViewPickerView;
 @property(strong, nonatomic) UIToolbar* m_currencyTextViewPickerToolbar;
 @property(strong, nonatomic) UIPickerView* m_typeTextViewPickerView;
@@ -42,6 +41,9 @@
 @property BOOL m_isUpdating;
 @property(strong, nonatomic) NSURL* m_imageURL;
 @property NSInteger m_tripId;
+
+@property(strong, nonatomic) ReceiptImage* m_receiptImageHelper;
+@property(strong, nonatomic) NSMutableArray* m_deletedImageArr;
 
 
 

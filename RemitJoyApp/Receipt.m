@@ -11,14 +11,14 @@
 
 @implementation Receipt
 
-
 -(void)saveReceipt{
-    NSString* insertStr = [NSString stringWithFormat:@"insert into receipts (trip_id, amount, currency, type, date, photo1) values(%lu, %.02f, '%@', '%@', '%@','test')",
+    NSString* insertStr = [NSString stringWithFormat:@"insert into receipts (trip_id, amount, currency, type, date, photo) values(%lu, %.02f, '%@', '%@', '%@','%@')",
                            self.m_tripKey,
                            self.m_amount,
                            self.m_currency,
                            self.m_expenseType,
-                           self.m_date];
+                           self.m_date,
+                           self.m_photo];
     
     DBManager* mgr = [[DBManager alloc] initDatabase];
     [mgr executeQuery:insertStr];
@@ -28,11 +28,12 @@
 }
 
 -(void)updateReceipt{
-    NSString* updateStr = [NSString stringWithFormat:@"UPDATE receipts SET amount = %.02f, currency = '%@', type = '%@', date = '%@' WHERE id = %lu",
+    NSString* updateStr = [NSString stringWithFormat:@"UPDATE receipts SET amount = %.02f, currency = '%@', type = '%@', date = '%@', photo = '%@' WHERE id = %lu",
                            self.m_amount,
                            self.m_currency,
                            self.m_expenseType,
                            self.m_date,
+                           self.m_photo,
                            self.m_primaryKey
                            ];
     DBManager* mgr = [[DBManager alloc] initDatabase];
@@ -40,7 +41,7 @@
 }
 
 +(void)deleteReceipt:(Receipt*)rcpt{
-    NSString* photoPath = [rcpt imagePath];
+    NSString* photoPath = [rcpt imagePathOld];
     if ([[NSFileManager defaultManager] fileExistsAtPath:photoPath]){
         NSError* error;
         [[NSFileManager defaultManager] removeItemAtPath: photoPath error: &error];
@@ -59,7 +60,7 @@
         [mgr executeQuery:@"UPDATE receipts SET comment='my comment' WHERE id=1"];
     }
     
-    NSString* loadStr = [NSString stringWithFormat:@"select id, trip_id, amount, currency, type, type_order, date, photo1, info1, photo2, info2, photo3, info3, photo4, info4, comment from receipts where trip_id = %lu order by date, type_order",tripId];
+    NSString* loadStr = [NSString stringWithFormat:@"select id, trip_id, amount, currency, type, type_order, date, photo, comment from receipts where trip_id = %lu order by date, type_order",tripId];
     
     DBManager* mgr = [[DBManager alloc] initDatabase];
     NSArray* data = [mgr loadDataFromDB:loadStr];
@@ -74,44 +75,9 @@
         rcpt.m_expenseType = (NSString*)row[4];
         rcpt.m_expenseTypeOrder = [(NSString*)row[5] integerValue];
         rcpt.m_date = (NSString*)row[6];
-        rcpt.m_photo1 = (NSString*)row[7];
+        rcpt.m_photo = (NSString*)row[7];
 
         if ( [(NSString*)row[8] length] > 0)
-            rcpt.m_info1 = [(NSString*)row[8] integerValue];
-        else
-            rcpt.m_info1 = 0;
-        
-        if ( [(NSString*)row[9] length] > 0)
-            rcpt.m_photo2 = (NSString*)row[9];
-        else
-            rcpt.m_photo2 = nil;
-        
-        if ( [(NSString*)row[10] length] > 0)
-            rcpt.m_info2 = [(NSString*)row[10] integerValue];
-        else
-            rcpt.m_info2 = 0;
-        
-        if ( [(NSString*)row[11] length] > 0)
-            rcpt.m_photo3 = (NSString*)row[11];
-        else
-            rcpt.m_photo3 = nil;
-        
-        if ( [(NSString*)row[12] length] > 0)
-            rcpt.m_info3 = [(NSString*)row[12] integerValue];
-        else
-            rcpt.m_info3 = 0;
-        
-        if ( [(NSString*)row[13] length] > 0)
-            rcpt.m_photo4 = (NSString*)row[13];
-        else
-            rcpt.m_photo4 = nil;
-        
-        if ( [(NSString*)row[14] length] > 0)
-            rcpt.m_info4 = [(NSString*)row[14] integerValue];
-        else
-            rcpt.m_info4 = 0;
-        
-        if ( [(NSString*)row[15] length] > 0)
             rcpt.m_comment = (NSString*)row[15];
         else
             rcpt.m_comment = nil;
@@ -123,12 +89,17 @@
     
 }
 
--(NSString*)imagePath{
+-(NSString*)imagePathOld{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString* documentsDirectory = [paths objectAtIndex:0];
     return [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%lu/%lu.1.jpg", self.m_tripKey, self.m_primaryKey]];
 }
 
+-(NSString*)imagePath:(NSString*)imgId{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* documentsDirectory = [paths objectAtIndex:0];
+    return [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%lu/%lu.%@.jpg", self.m_tripKey, self.m_primaryKey,imgId]];
+}
 
 @end
 

@@ -296,7 +296,7 @@
     [pdfFile beginPDF:pdfFilePath];
 
     for (Receipt* rcpt in self.m_trip.m_receipts) {
-        NSString* path = [rcpt imagePath];
+        NSString* path = [rcpt imagePathOld];
         UIImage* image = [UIImage imageWithContentsOfFile:path];
         //image = [self convertToGreyscale:image];
         image = [UIImage imageWithData:UIImageJPEGRepresentation(image, 0.1)];
