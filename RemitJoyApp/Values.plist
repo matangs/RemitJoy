@@ -121,6 +121,47 @@
 		<string>USD</string>
 		<string>ZAR</string>
 	</array>
+    <key>CurrencyFullName</key>
+    <array>
+        <string>AED - UAE - Dirham</string>
+        <string>ARS - Argentine Peso</string>
+        <string>AUD - Australian Dollar</string>
+        <string>BGN - Bulgarian LEV</string>
+        <string>BRL - Brazilian Real</string>
+        <string>CAD - Canadian Dollar</string>
+        <string>CHF - Swiss Franc</string>
+        <string>CLP - Chilean Peso</string>
+        <string>CNY - Yuan Enminbi</string>
+        <string>COP - Columbian Peso</string>
+        <string>CZK - Czech Kruna</string>
+        <string>DKK - Danish Krone</string>
+        <string>EUR - Euro</string>
+        <string>GBP - Pound Sterling</string>
+        <string>HKD - Hong-Kong Dollar</string>
+        <string>HUF - Forint</string>
+        <string>IDR - Indonesian Rupiah</string>
+        <string>ILS - Israeli Shequel</string>
+        <string>INR - Indian Rupee</string>
+        <string>JPY - Yen</string>
+        <string>KRW - Won</string>
+        <string>KZT - Tenge</string>
+        <string>MNT - Tugrik</string>
+        <string>MXN - Mexican Peso</string>
+        <string>MYR - Malaysian Ringgit</string>
+        <string>NOK - Norwegian Krone</string>
+        <string>NZD - New Zealand Dollar</string>
+        <string>PEN - Nuevo Sol</string>
+        <string>PLN - Zloty</string>
+        <string>RON - Nouveau Leu roumain</string>
+        <string>RUB - Russian Ruble</string>
+        <string>SEK - Swedish Krona</string>
+        <string>SGD - Singapore Dollar</string>
+        <string>THB - Thailand Baht</string>
+        <string>TRY - Turkish Lira</string>
+        <string>TWD - Taiwan Dollar</string>
+        <string>USD - US Dollar</string>
+        <string>ZAR - Rand</string>
+    </array>
 	<key>Types</key>
 	<array>
 		<string>Books / Subscriptions</string>

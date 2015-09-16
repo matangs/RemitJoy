@@ -20,7 +20,7 @@
 
 @implementation ReceiptTableViewController
 
-@synthesize currencyArray;
+@synthesize currencyArray,currencyFullNameArray;
 @synthesize typeArray;
 @synthesize m_selCurrency;
 @synthesize m_selType;
@@ -53,6 +53,7 @@
     NSLog(@"dictionary = %@", dictionary);
     currencyArray = [dictionary objectForKey:@"Currency"];
     typeArray = [dictionary objectForKey:@"Types"];
+    currencyFullNameArray = [dictionary objectForKey:@"CurrencyFullName"];
     m_receiptImageHelper = [[ReceiptImage alloc] init];
     if (self.m_receipt == nil){
         m_selCurrency = @"USD";
@@ -486,7 +487,7 @@
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row   forComponent:(NSInteger)component
 {
     if (pickerView == m_currencyTextViewPickerView)
-        return [self.currencyArray objectAtIndex:row];
+        return [self.currencyFullNameArray objectAtIndex:row];
     if (pickerView == m_typeTextViewPickerView)
         return [self.typeArray objectAtIndex:row];
     

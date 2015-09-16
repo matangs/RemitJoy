@@ -22,6 +22,7 @@
 
 
 @property(strong, nonatomic) NSArray* currencyArray;
+@property(strong, nonatomic) NSArray* currencyFullNameArray;
 @property(strong, nonatomic) NSArray* typeArray;
 
 @property float m_selAmount;
