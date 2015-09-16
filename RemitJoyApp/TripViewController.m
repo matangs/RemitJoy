@@ -12,6 +12,7 @@
 #import "PDFHelper.h"
 #import "EmailViewController.h"
 #import "ReceiptTableViewController.h"
+#import "WSCoachMarksView.h"
 
 
 @interface TripViewController ()
@@ -34,11 +35,47 @@
     [MainViewController setBackgrounColor:self];
     
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
-    
-
-    
+    [self setupCoachMark];
     
 }
+
+-(void)setupCoachMark{
+    NSArray *coachMarks = @[
+                            @{
+                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,65.0f},{300.0f,80.0f}}],
+                                @"caption": @"You add a new receipt for this trip here"
+                                },
+                            @{
+                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,145.0f},{300.0f,80.0f}}],
+                                @"caption": @"Here, you generate a PDF with all receipts captured on this trip for an email"
+                                },
+                            @{
+                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,225.0f},{300.0f,80.0f}}],
+                                @"caption": @"You view and change details for this expense here."
+                                },
+                            @{
+                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,260.0f},{300.0f,45.0f}}],
+                                @"caption": @"Now click on this reciept to view it's details"
+                                }
+                            
+                            
+                            ];
+    self.m_coachMarksView = [[WSCoachMarksView alloc] initWithFrame:self.view.bounds coachMarks:coachMarks];
+    
+    [self.navigationController.view addSubview:self.m_coachMarksView];
+}
+
+
+- (void)viewDidAppear:(BOOL)animated {
+    BOOL coachMarksShown = [[NSUserDefaults standardUserDefaults] boolForKey:@"WSTripViewCoachMarksShown"];
+    if (coachMarksShown == NO) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"WSTripViewCoachMarksShown"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [self.m_coachMarksView start];
+    }
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

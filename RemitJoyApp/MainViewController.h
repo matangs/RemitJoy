@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "RemitConsts.h"
+#import "WSCoachMarksView.h"
 
 @interface MainViewController : UITableViewController
 @property(strong, nonatomic) NSMutableArray* m_tripArray;
 
 +(void)setBackgrounColor:(UIViewController*)controller;
 
+@property(strong, nonatomic) WSCoachMarksView* m_coachMarksView;
 @end

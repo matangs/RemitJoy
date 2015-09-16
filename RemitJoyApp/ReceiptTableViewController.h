@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Receipt.h"
 #import "ReceiptImage.h"
+#import "WSCoachMarksView.h"
 
 
 @interface ReceiptTableViewController : UITableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource,UIPickerViewDelegate>
@@ -45,6 +46,7 @@
 @property(strong, nonatomic) ReceiptImage* m_receiptImageHelper;
 @property(strong, nonatomic) NSMutableArray* m_deletedImageArr;
 
+@property(strong, nonatomic) WSCoachMarksView* m_coachMarksView;
 
 
 @end

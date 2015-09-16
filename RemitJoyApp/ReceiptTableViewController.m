@@ -12,6 +12,7 @@
 #import "ReceiptImage.h"
 #import "TripViewController.h"
 #import "ReceiptImageViewController.h"
+#import "WSCoachMarksView.h"
 
 @interface ReceiptTableViewController ()
 
@@ -68,6 +69,43 @@
     }
     
     m_deletedImageArr = [[NSMutableArray alloc] init];
+    [self setupCoachMark];
+}
+
+
+-(void)setupCoachMark{
+    NSArray *coachMarks = @[
+                            @{
+                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,65.0f},{300.0f,80.0f}}],
+                                @"caption": @"Set or change amount you spent and the currency you used."
+                                },
+                            @{
+                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,150.0f},{300.0f,80.0f}}],
+                                @"caption": @"Set or update date for this expense, and the type of expense."
+                                },
+                            @{
+                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,230.0f},{400.0f,80.0f}}],
+                                @"caption": @"You can use your camera to click a photo of reciept or use an existing photo. You can add more than one photo. You can delete a photo by left-swipe."
+                                },
+                            @{
+                                @"rect": [NSValue valueWithCGRect:(CGRect){{250.0f,15.0f},{300.0f,45.0f}}],
+                                @"caption": @"Finally click on update button to save the details"
+                                }
+                            
+                            
+                            ];
+    self.m_coachMarksView = [[WSCoachMarksView alloc] initWithFrame:self.view.bounds coachMarks:coachMarks];
+    
+    [self.navigationController.view addSubview:self.m_coachMarksView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    BOOL coachMarksShown = [[NSUserDefaults standardUserDefaults] boolForKey:@"WSReceiptViewCoachMarksShown"];
+    if (coachMarksShown == NO) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"WSReceiptViewCoachMarksShown"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [self.m_coachMarksView start];
+    }
 }
 
 

@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Trip.h"
+#import "WSCoachMarksView.h"
 
 @interface TripViewController : UITableViewController
 
 @property (strong, nonatomic) Trip* m_trip;
+@property(strong, nonatomic) WSCoachMarksView* m_coachMarksView;
 
 @end

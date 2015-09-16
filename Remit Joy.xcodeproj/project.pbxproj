@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0D61710F1BA7B69200DBD449 /* ReceiptImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D61710E1BA7B69200DBD449 /* ReceiptImage.m */; };
 		0D6171121BA83B7400DBD449 /* ReceiptImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6171111BA83B7400DBD449 /* ReceiptImageViewController.m */; };
+		0D6171151BA8BCCA00DBD449 /* WSCoachMarksView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6171141BA8BCCA00DBD449 /* WSCoachMarksView.m */; };
+		0D6171171BA8BCD700DBD449 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 0D6171161BA8BCD700DBD449 /* LICENSE */; };
 		0DD23B651BA5A5FC00217B53 /* 1.1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DD23B601BA5A5FC00217B53 /* 1.1.jpg */; };
 		0DD23B661BA5A5FC00217B53 /* 2.1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DD23B611BA5A5FC00217B53 /* 2.1.jpg */; };
 		0DD23B671BA5A5FC00217B53 /* 3.1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DD23B621BA5A5FC00217B53 /* 3.1.jpg */; };
@@ -51,6 +53,9 @@
 		0D61710E1BA7B69200DBD449 /* ReceiptImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptImage.m; sourceTree = "<group>"; };
 		0D6171101BA83B7400DBD449 /* ReceiptImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptImageViewController.h; sourceTree = "<group>"; };
 		0D6171111BA83B7400DBD449 /* ReceiptImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptImageViewController.m; sourceTree = "<group>"; };
+		0D6171131BA8BCCA00DBD449 /* WSCoachMarksView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSCoachMarksView.h; sourceTree = "<group>"; };
+		0D6171141BA8BCCA00DBD449 /* WSCoachMarksView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSCoachMarksView.m; sourceTree = "<group>"; };
+		0D6171161BA8BCD700DBD449 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		0DD23B601BA5A5FC00217B53 /* 1.1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.1.jpg; path = RemitJoyApp/1.1.jpg; sourceTree = "<group>"; };
 		0DD23B611BA5A5FC00217B53 /* 2.1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.1.jpg; path = RemitJoyApp/2.1.jpg; sourceTree = "<group>"; };
 		0DD23B621BA5A5FC00217B53 /* 3.1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 3.1.jpg; path = RemitJoyApp/3.1.jpg; sourceTree = "<group>"; };
@@ -147,6 +152,9 @@
 		39784E0F1B8A0861002B8223 /* RemitJoyApp */ = {
 			isa = PBXGroup;
 			children = (
+				0D6171161BA8BCD700DBD449 /* LICENSE */,
+				0D6171131BA8BCCA00DBD449 /* WSCoachMarksView.h */,
+				0D6171141BA8BCCA00DBD449 /* WSCoachMarksView.m */,
 				39784E141B8A0861002B8223 /* AppDelegate.h */,
 				39784E151B8A0861002B8223 /* AppDelegate.m */,
 				39784E1A1B8A0861002B8223 /* Main.storyboard */,
@@ -306,6 +314,7 @@
 				0DD23B671BA5A5FC00217B53 /* 3.1.jpg in Resources */,
 				39784EA31BA46E74002B8223 /* logo2.png in Resources */,
 				39784EA11BA46E74002B8223 /* logo1.png in Resources */,
+				0D6171171BA8BCD700DBD449 /* LICENSE in Resources */,
 				39784EA81BA46EAF002B8223 /* fabric_plaid2.png in Resources */,
 				39784E521B93BF38002B8223 /* Values.plist in Resources */,
 				39784E1C1B8A0861002B8223 /* Main.storyboard in Resources */,
@@ -344,6 +353,7 @@
 				39784E3B1B8A1C73002B8223 /* TripViewController.m in Sources */,
 				39784E5A1B9AFF22002B8223 /* Receipt.m in Sources */,
 				39784E381B8A08E1002B8223 /* MainViewController.m in Sources */,
+				0D6171151BA8BCCA00DBD449 /* WSCoachMarksView.m in Sources */,
 				39784E131B8A0861002B8223 /* main.m in Sources */,
 				0DD23B6C1BA5EED900217B53 /* ReceiptTableViewController.m in Sources */,
 				39784E8B1BA44653002B8223 /* RemitConsts.m in Sources */,
