@@ -391,28 +391,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bVV-XE-IJ8">
-                                <rect key="frame" x="16" y="89" width="72" height="30"/>
-                                <state key="normal" title="Email PDF">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onSendEmail:" destination="za9-dy-ylg" eventType="touchUpInside" id="OhF-z4-yw5"/>
-                                </connections>
-                            </button>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BJk-Wa-Atv">
-                                <rect key="frame" x="16" y="129" width="568" height="461"/>
+                                <rect key="frame" x="16" y="0.0" width="568" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="BJk-Wa-Atv" firstAttribute="top" secondItem="bVV-XE-IJ8" secondAttribute="bottom" constant="10" id="938-A0-jcc"/>
-                            <constraint firstItem="BJk-Wa-Atv" firstAttribute="leading" secondItem="f3y-bi-ds1" secondAttribute="leadingMargin" id="JB1-Pg-3Fl"/>
-                            <constraint firstItem="bVV-XE-IJ8" firstAttribute="leading" secondItem="f3y-bi-ds1" secondAttribute="leadingMargin" id="VLB-Lp-Rw9"/>
-                            <constraint firstItem="bVV-XE-IJ8" firstAttribute="top" secondItem="MMq-j2-6FN" secondAttribute="bottom" constant="25" id="jgO-Jz-JFd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="BJk-Wa-Atv" secondAttribute="trailing" id="mSe-jb-BLL"/>
-                            <constraint firstItem="4aB-Ma-ZGu" firstAttribute="top" secondItem="BJk-Wa-Atv" secondAttribute="bottom" constant="10" id="zm2-X6-Aeq"/>
+                            <constraint firstAttribute="centerX" secondItem="BJk-Wa-Atv" secondAttribute="centerX" id="czI-JT-lnB"/>
+                            <constraint firstItem="BJk-Wa-Atv" firstAttribute="top" secondItem="f3y-bi-ds1" secondAttribute="topMargin" id="hlV-3N-n2j"/>
+                            <constraint firstItem="BJk-Wa-Atv" firstAttribute="leading" secondItem="f3y-bi-ds1" secondAttribute="leadingMargin" id="rfR-uo-GRG"/>
+                            <constraint firstAttribute="centerY" secondItem="BJk-Wa-Atv" secondAttribute="centerY" id="ucu-lt-Hgf"/>
                         </constraints>
                     </view>
                     <connections>

@@ -18,9 +18,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"Email";
+    self.title = @"PDF";
     
-    [MainViewController setBackgrounColor:self];
+    // let this be white background to match the web-view background.
+    //[MainViewController setBackgrounColor:self];
+    
+    NSString* buttonName = @"Email";
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:buttonName
+                                                                    style:UIBarButtonItemStyleDone target:self action:@selector(onSendEmail:)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    
 
     self.m_pdfWebView.scalesPageToFit = YES;
     self.m_pdfWebView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
@@ -39,16 +46,16 @@
 
 - (IBAction)onSendEmail:(id)sender {
     // Email Subject
-    NSString *emailTitle = @"Test Email";
+    NSString *emailTitle = [NSString stringWithFormat: @"%@ - Trip summary", self.m_tripName];
     // Email Content
-    NSString *messageBody = @"iOS programming is so fun!";
+    NSString *messageBody = @"<br /> Hello there,<br /><br />The PDF containing all reciept images are attached for your filing purposes. Hope you enjoyed the ease of use of RemitJoy.<br /><br />Sent using <a href = 'www.remitjoy.com'>RemitJoy</a> for the iPhone.</p>";
     // To address
-    NSArray *toRecipents = [NSArray arrayWithObject:@"matangs@gmail.com"];
+    NSArray *toRecipents = [NSArray arrayWithObject:@""];
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
     mc.mailComposeDelegate = self;
     [mc setSubject:emailTitle];
-    [mc setMessageBody:messageBody isHTML:NO];
+    [mc setMessageBody:messageBody isHTML:YES];
     [mc setToRecipients:toRecipents];
     
     NSString *filePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"temp.pdf"];

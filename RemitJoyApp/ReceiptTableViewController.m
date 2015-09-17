@@ -56,7 +56,13 @@
     currencyFullNameArray = [dictionary objectForKey:@"CurrencyFullName"];
     m_receiptImageHelper = [[ReceiptImage alloc] init];
     if (self.m_receipt == nil){
-        m_selCurrency = @"USD";
+        
+        NSString* defCurrency = [[NSUserDefaults standardUserDefaults] stringForKey:@"ReceiptCurrency"];
+        if (defCurrency == nil){
+            defCurrency = @"USD";
+            [[NSUserDefaults standardUserDefaults] setObject:defCurrency forKey:@"ReceiptCurrency"];
+        }
+        m_selCurrency = defCurrency;
         m_selType = @"Breakfast";
         m_selAmount = 0.0;
         m_selDate = [NSDate date];
@@ -520,8 +526,10 @@
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row   inComponent:(NSInteger)component{
-    if (pickerView == m_currencyTextViewPickerView)
+    if (pickerView == m_currencyTextViewPickerView){
         m_selCurrency = [currencyArray objectAtIndex:row];
+        [[NSUserDefaults standardUserDefaults] setObject:m_selCurrency forKey:@"ReceiptCurrency"];
+    }
     if (pickerView == m_typeTextViewPickerView)
         m_selType = [typeArray objectAtIndex:row];
 }
