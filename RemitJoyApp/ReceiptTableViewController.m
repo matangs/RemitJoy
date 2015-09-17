@@ -111,6 +111,8 @@
 
 
 -(void)onAddOrUpdate{
+    [self.view endEditing:YES];
+    
     if (self.m_selAmount < 0.01 || m_receiptImageHelper.m_imageDataArr.count < 1){
         UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
                                                               message:@"Please enter an amount and upload an image."
