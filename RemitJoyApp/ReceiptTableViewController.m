@@ -219,9 +219,8 @@
         
         [self setCurrencyPicker];
         
-        [self.m_amountText addTarget:self
-                      action:@selector(amountFieldDidChange:)
-            forControlEvents:UIControlEventEditingChanged];
+        self.m_amountText.delegate = self;
+        self.m_currencyText.delegate = self;
         
         return cell;
     }
@@ -242,6 +241,10 @@
         
         [self setDatePicker];
         [self setExpenseTypePicker];
+        
+        self.m_dateText.delegate = self;
+        self.m_typeText.delegate = self;
+        
         
         return cell;
     }
@@ -282,7 +285,6 @@
         imgView.contentMode = UIViewContentModeScaleAspectFit;
 
         imgView.image = ((ReceiptImageData*)[self.m_receiptImageHelper.m_imageDataArr objectAtIndex:indexPath.row]).m_image;
-        //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
         return cell;
     }
@@ -290,10 +292,30 @@
     return nil;
 }
 
--(void)amountFieldDidChange:sender{
-    UITextField* field = (UITextField*)sender;
-    m_selAmount = [field.text floatValue];
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    if (textField == self.m_currencyText){
+        NSInteger index = [self.currencyArray indexOfObject:self.m_selCurrency];
+        [self.m_currencyTextViewPickerView selectRow:index inComponent:0 animated:false];
+        
+    }
+    if (textField == self.m_typeText){
+        NSInteger index = [self.typeArray indexOfObject:self.m_selType];
+        [self.m_typeTextViewPickerView selectRow:index inComponent:0 animated:false];
+        
+    }
+    if (textField == self.m_dateText){
+        //self.m_datePicker.date = self.m_selDate;
+    }
+    
 }
+
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    if (textField == self.m_amountText){
+        m_selAmount = [textField.text floatValue];
+    }
+    
+}
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

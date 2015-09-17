@@ -12,7 +12,7 @@
 #import "WSCoachMarksView.h"
 
 
-@interface ReceiptTableViewController : UITableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource,UIPickerViewDelegate>
+@interface ReceiptTableViewController : UITableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource,UIPickerViewDelegate, UITextFieldDelegate>
 
 
 @property (weak, nonatomic) UITextField* m_amountText;
