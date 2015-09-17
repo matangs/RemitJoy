@@ -7,6 +7,7 @@
 //
 
 #import "Trip.h"
+#import "Receipt.h"
 #import "DBManager.h"
 
 @implementation Trip
@@ -42,5 +43,29 @@
     
 }
 
+-(NSString*)tripDirectoryPath{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* documentsDirectory = [paths objectAtIndex:0];
+    return [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%lu", self.m_primaryKey]];
+}
+
++(void)deleteTrip:(Trip *)trip{
+    
+    for (Receipt* rcpt in trip.m_receipts) {
+        [Receipt deleteReceipt:rcpt];
+    }
+    
+    NSString* dirPath = [trip tripDirectoryPath];
+    BOOL isDir;
+    if ([[NSFileManager defaultManager]  fileExistsAtPath:dirPath isDirectory:&isDir] && isDir ){
+        NSError* error;
+        [[NSFileManager defaultManager] removeItemAtPath: dirPath error: &error];
+    }
+    
+    
+    NSString* deleteStr = [NSString stringWithFormat:@"DELETE FROM trips WHERE id = %lu ",trip.m_primaryKey];
+    DBManager* mgr = [[DBManager alloc] initDatabase];
+    [mgr executeQuery:deleteStr];
+}
 
 @end

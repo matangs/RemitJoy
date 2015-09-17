@@ -19,4 +19,10 @@
 -(void)saveTrip;
 +(NSMutableArray*)loadTrips;
 
+
+-(NSString*)tripDirectoryPath;
++(void)deleteTrip:(Trip*)trip;
+
+
+
 @end

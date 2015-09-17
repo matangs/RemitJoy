@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "RemitConsts.h"
 #import "WSCoachMarksView.h"
+#import "Trip.h"
 
-@interface MainViewController : UITableViewController
+@interface MainViewController : UITableViewController <UIAlertViewDelegate>
 @property(strong, nonatomic) NSMutableArray* m_tripArray;
 
 +(void)setBackgrounColor:(UIViewController*)controller;
 
 @property(strong, nonatomic) WSCoachMarksView* m_coachMarksView;
+
+@property(strong, nonatomic) Trip* m_tripToBeDeleted;
 @end

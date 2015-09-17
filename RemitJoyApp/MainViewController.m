@@ -151,11 +151,53 @@
 }
 
 
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    if (indexPath.section == 1)
+        return YES;
+    
+    return NO;
 }
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        self.m_tripToBeDeleted = (Trip*)[self.m_tripArray objectAtIndex:indexPath.row];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning"
+                                                        message:@"Deleting a trip can't be undone. You will lose data permanently"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles:@"Proceed",nil];
+        [alert show];
+    }
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger) buttonIndex
+{
+    Trip* trip = self.m_tripToBeDeleted;
+    self.m_tripToBeDeleted = nil;
+    
+    if (buttonIndex == 0)
+    {
+        NSLog(@"Cancel Tapped.");
+        return;
+    }
+    else if (buttonIndex == 1)
+    {
+        [self.m_tripArray removeObject:trip];
+        NSLog(@"OK Tapped. Hello World!");
+        [Trip deleteTrip:trip];
+        [self.tableView reloadData];
+        return;
+    }
+}
+
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {

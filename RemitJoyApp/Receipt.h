@@ -29,7 +29,6 @@
 -(void)updateReceipt;
 +(NSMutableArray*)loadReceipts:(NSInteger)tripId;
 +(void)deleteReceipt:(Receipt*)rcpt;
--(NSString*)imagePathOld;
 -(NSString*)imagePath:(NSString*)imgId;
 
 

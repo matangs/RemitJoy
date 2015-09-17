@@ -48,10 +48,16 @@
 }
 
 +(void)deleteReceipt:(Receipt*)rcpt{
-    NSString* photoPath = [rcpt imagePathOld];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:photoPath]){
-        NSError* error;
-        [[NSFileManager defaultManager] removeItemAtPath: photoPath error: &error];
+    
+    NSArray* arr = [rcpt.m_photo componentsSeparatedByString:@","];
+    
+    for (NSString* indexStr in arr)
+    {
+        NSString* photoPath = [rcpt imagePath:indexStr];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:photoPath]){
+            NSError* error;
+            [[NSFileManager defaultManager] removeItemAtPath: photoPath error: &error];
+        }
     }
     
     NSString* deleteStr = [NSString stringWithFormat:@"DELETE FROM receipts WHERE id = %lu ",rcpt.m_primaryKey];
@@ -95,12 +101,6 @@
     
     return retArr;
     
-}
-
--(NSString*)imagePathOld{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString* documentsDirectory = [paths objectAtIndex:0];
-    return [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%lu/%lu.1.jpg", self.m_tripKey, self.m_primaryKey]];
 }
 
 -(NSString*)imagePath:(NSString*)imgId{
