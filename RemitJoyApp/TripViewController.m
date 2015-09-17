@@ -332,41 +332,46 @@
     [pdfFile beginPDF:pdfFilePath];
 
     for (Receipt* rcpt in self.m_trip.m_receipts) {
-        NSString* path = [rcpt imagePathOld];
-        UIImage* image = [UIImage imageWithContentsOfFile:path];
-        //image = [self convertToGreyscale:image];
-        image = [UIImage imageWithData:UIImageJPEGRepresentation(image, 0.1)];
         
-        NSInteger width = image.size.width;
-        NSInteger height = image.size.height;
+        NSArray* arr = [rcpt.m_photo componentsSeparatedByString:@","];
         
-        NSString* message = [NSString stringWithFormat:@"%@ - %@ - %@ %.02f",rcpt.m_date, rcpt.m_expenseType,rcpt.m_currency, rcpt.m_amount];
-        
-        //[pdfFile addImageWithRect:lowResImage inRect:CGRectMake(100, 100, width, height)];
-        //[pdfFile addTextWithRect:message inRect:CGRectMake(100, height + 50, 500, 100)];
-
-        
-        if (width > height)
-        {
-            NSInteger newHt = (NSInteger)(300.0*height/width);
-            [pdfFile addImageWithRect:image inRect:CGRectMake(100, 100, 300, newHt)];
+        for (NSString* indexStr in arr) {
+            NSString* path = [rcpt imagePath:indexStr];
+            UIImage* image = [UIImage imageWithContentsOfFile:path];
+            //image = [self convertToGreyscale:image];
+            image = [UIImage imageWithData:UIImageJPEGRepresentation(image, 0.1)];
             
-            [pdfFile addTextWithRect:message inRect:CGRectMake(100, newHt + 150, 500, newHt + 250)];
+            NSInteger width = image.size.width;
+            NSInteger height = image.size.height;
+            
+            NSString* message = [NSString stringWithFormat:@"%@ - %@ - %@ %.02f",rcpt.m_date, rcpt.m_expenseType,rcpt.m_currency, rcpt.m_amount];
+            
+            //[pdfFile addImageWithRect:lowResImage inRect:CGRectMake(100, 100, width, height)];
+            //[pdfFile addTextWithRect:message inRect:CGRectMake(100, height + 50, 500, 100)];
+            
+            
+            if (width > height)
+            {
+                NSInteger newHt = (NSInteger)(300.0*height/width);
+                [pdfFile addImageWithRect:image inRect:CGRectMake(100, 100, 300, newHt)];
+                
+                [pdfFile addTextWithRect:message inRect:CGRectMake(100, newHt + 150, 500, newHt + 250)];
+            }
+            else if (width < height)
+            {
+                NSInteger newwidtht = (NSInteger)(300.0*width/height);
+                [pdfFile addImageWithRect:image inRect:CGRectMake(100, 100, newwidtht, 300)];
+                [pdfFile addTextWithRect:message inRect:CGRectMake(100, 550, 500, 650)];
+            }
+            else
+            {
+                [pdfFile addImageWithRect:image inRect:CGRectMake(100, 100, 300, 300)];
+                [pdfFile addTextWithRect:message inRect:CGRectMake(100, 550, 500, 650)];
+            }
+            
+            
+            [pdfFile writeOnNewPage];
         }
-        else if (width < height)
-        {
-            NSInteger newwidtht = (NSInteger)(300.0*width/height);
-            [pdfFile addImageWithRect:image inRect:CGRectMake(100, 100, newwidtht, 300)];
-            [pdfFile addTextWithRect:message inRect:CGRectMake(100, 550, 500, 650)];
-        }
-        else
-        {
-            [pdfFile addImageWithRect:image inRect:CGRectMake(100, 100, 300, 300)];
-            [pdfFile addTextWithRect:message inRect:CGRectMake(100, 550, 500, 650)];
-        }
-        
-        
-        [pdfFile writeOnNewPage];
         
     }
     
