@@ -304,6 +304,7 @@
         
     }
     if (textField == self.m_dateText){
+        [self.m_datePicker setDate:self.m_selDate];
         //self.m_datePicker.date = self.m_selDate;
     }
     
