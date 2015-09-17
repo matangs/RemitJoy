@@ -65,7 +65,15 @@
         m_selCurrency = defCurrency;
         m_selType = @"Breakfast";
         m_selAmount = 0.0;
-        m_selDate = [NSDate date];
+        
+        NSString* defDateStr = [[NSUserDefaults standardUserDefaults] stringForKey:@"DefaultReceiptDate"];
+        NSDate* defDate = nil;
+        if (defDateStr)
+            defDate = [RemitConsts dateFromStr:defDateStr];
+        else
+            defDate = [NSDate date];
+            
+        m_selDate = defDate;
     }
     else{
         m_selCurrency = self.m_receipt.m_currency;
@@ -322,7 +330,21 @@
     if (textField == self.m_amountText){
         m_selAmount = [textField.text floatValue];
     }
-    
+    if (textField == self.m_dateText){
+        [self onDateChanged];
+    }
+    if (textField == self.m_currencyText){
+        NSInteger row = [m_currencyTextViewPickerView selectedRowInComponent:0];
+        m_selCurrency = [currencyArray objectAtIndex:row];
+        [[NSUserDefaults standardUserDefaults] setObject:m_selCurrency forKey:@"ReceiptCurrency"];
+        self.m_currencyText.text = m_selCurrency;
+        
+    }
+    if (textField == self.m_typeText){
+        NSInteger row = [m_typeTextViewPickerView selectedRowInComponent:0];
+        m_selType = [typeArray objectAtIndex:row];
+        self.m_typeText.text = m_selType;
+    }
 }
 
 
@@ -419,18 +441,12 @@
     [barItems addObject:doneBtn];
     [self.m_datePickerToolbar setItems:barItems animated:YES];
     
-    NSDateFormatter* formatter = [[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"MM-dd-YYYY"];
-    NSString* dateStr = [formatter stringFromDate:[NSDate date]];
-    if (self.m_receipt)
-        dateStr = self.m_receipt.m_date;
-    
-    self.m_datePicker.date = [NSDate date];
+    self.m_datePicker.date = self.m_selDate;
     
     
     self.m_dateText.inputView = self.m_datePicker;
     self.m_dateText.inputAccessoryView = self.m_datePickerToolbar;
-    self.m_dateText.text = dateStr;
+    self.m_dateText.text = [RemitConsts strFromDate:self.m_selDate];
     
     
 }
@@ -438,6 +454,7 @@
 -(void)onDateChanged{
     self.m_selDate = self.m_datePicker.date;
     self.m_dateText.text = [RemitConsts strFromDate:self.m_selDate];
+    [[NSUserDefaults standardUserDefaults] setObject:self.m_dateText.text forKey:@"DefaultReceiptDate"];
     [self.m_dateText resignFirstResponder];
 }
 
