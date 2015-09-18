@@ -12,13 +12,14 @@
 #import "WSCoachMarksView.h"
 
 
-@interface ReceiptTableViewController : UITableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource,UIPickerViewDelegate, UITextFieldDelegate>
+@interface ReceiptTableViewController : UITableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource,UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 
 
 @property (weak, nonatomic) UITextField* m_amountText;
 @property (weak, nonatomic) UITextField* m_currencyText;
 @property (weak, nonatomic) UITextField* m_typeText;
 @property (weak, nonatomic) UITextField* m_dateText;
+@property (weak, nonatomic) UITextView* m_commentText;
 
 
 @property(strong, nonatomic) NSArray* currencyArray;
@@ -27,9 +28,9 @@
 
 @property float m_selAmount;
 @property(strong, nonatomic) NSString* m_selCurrency;
-
 @property(strong, nonatomic) NSString* m_selType;
 @property(strong, nonatomic) NSDate* m_selDate;
+@property(strong, nonatomic) NSString* m_selComment;
 
 @property(strong, nonatomic) UIPickerView* m_currencyTextViewPickerView;
 @property(strong, nonatomic) UIToolbar* m_currencyTextViewPickerToolbar;

@@ -13,6 +13,8 @@
 +(DBManager*)sharedInstance;
 -(instancetype)initDatabase;
 
+@property (nonatomic, strong) NSMutableArray* m_parameterArray;
+
 @property NSString* const m_databaseFileName;
 @property (nonatomic, strong) NSString* m_documentsDirectory;
 

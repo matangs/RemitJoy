@@ -23,16 +23,6 @@
                                                                     style:UIBarButtonItemStyleDone target:self action:@selector(onDone)];
     self.navigationItem.rightBarButtonItem = rightButton;
     
-    /*
-    NSDateFormatter *inputFormat = [[NSDateFormatter alloc] init];
-    [inputFormat setDateFormat:@"MM-dd-yyyy"];
-    NSDate *inputDate = [inputFormat dateFromString: @"11-22-2011"];
-    
-    NSLog (@"The input date %@", inputDate);
-    
-    [self.m_tripDate setDate:inputDate];
-     */
-    
     [self.m_tripDate setDate:[NSDate date]];
     [MainViewController setBackgrounColor:self];
     

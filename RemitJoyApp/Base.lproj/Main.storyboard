@@ -273,6 +273,27 @@
                                     </variation>
                                 </tableViewCellContentView>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" id="QJ3-fa-PvN">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="109" contentMode="center" tableViewCell="QJ3-fa-PvN" id="xS8-yx-m06">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="110" contentMode="scaleToFill" text="Details about this receipt." translatesAutoresizingMaskIntoConstraints="NO" id="eyR-tl-AAC">
+                                            <rect key="frame" x="8" y="8" width="584" height="31.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                        </textView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="eyR-tl-AAC" firstAttribute="trailing" secondItem="xS8-yx-m06" secondAttribute="trailingMargin" id="ULs-xG-vWc"/>
+                                        <constraint firstItem="eyR-tl-AAC" firstAttribute="top" secondItem="xS8-yx-m06" secondAttribute="topMargin" id="XYd-T5-abG"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="eyR-tl-AAC" secondAttribute="bottom" id="dRF-q8-1l4"/>
+                                        <constraint firstItem="eyR-tl-AAC" firstAttribute="leading" secondItem="xS8-yx-m06" secondAttribute="leadingMargin" id="jHT-Xt-AJs"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="LXA-90-2Ig" id="0JX-Tj-1HJ"/>

@@ -23,7 +23,7 @@
 @synthesize currencyArray,currencyFullNameArray;
 @synthesize typeArray;
 @synthesize m_selCurrency;
-@synthesize m_selType;
+@synthesize m_selType, m_selComment;
 @synthesize m_currencyTextViewPickerView;
 @synthesize m_currencyTextViewPickerToolbar;
 @synthesize m_typeTextViewPickerView;
@@ -74,6 +74,7 @@
             defDate = [NSDate date];
             
         m_selDate = defDate;
+        m_selComment = nil;
     }
     else{
         m_selCurrency = self.m_receipt.m_currency;
@@ -81,6 +82,7 @@
         m_selAmount = self.m_receipt.m_amount;
         m_selDate = [RemitConsts dateFromStr:self.m_receipt.m_date];
         [m_receiptImageHelper load:self.m_receipt.m_photo receipt:self.m_receipt];
+        m_selComment = self.m_receipt.m_comment;
     }
     
     m_deletedImageArr = [[NSMutableArray alloc] init];
@@ -148,6 +150,7 @@
     self.m_receipt.m_date = [RemitConsts strFromDate:self.m_selDate];;
     self.m_receipt.m_tripKey = self.m_tripId;
     self.m_receipt.m_photo = [m_receiptImageHelper getPhotoStr];
+    self.m_receipt.m_comment = self.m_selComment;
     if (self.m_isUpdating)
         [self.m_receipt updateReceipt];
     else
@@ -202,7 +205,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
+    return 5;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -211,7 +214,10 @@
     
     if (((NSInteger)section) == 3)
         return self.m_receiptImageHelper.m_imageDataArr.count;
-    
+
+    if (((NSInteger)section) == 4)
+        return 1;
+
     return 1;
 }
 
@@ -305,7 +311,45 @@
         return cell;
     }
     
+    if (indexPath.section == 4)
+    {
+        static NSString* cellIdentifier = @"CommentCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];// forIndexPath:indexPath];
+        
+        if (cell == nil){
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        }
+        
+        self.m_commentText = (UITextView*)[cell viewWithTag:110];
+        if (self.m_selComment != nil)
+            self.m_commentText.text = m_selComment;
+        
+        self.m_commentText.delegate = self;
+        return cell;
+    }
     return nil;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (textField == self.m_amountText)
+    {
+        NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        
+        NSString *expression = @"^([0-9]+)?(\\.([0-9]{1,2})?)?$";
+        NSError *error = nil;
+        
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:expression
+                                                                               options:NSRegularExpressionCaseInsensitive
+                                                                                 error:&error];
+        NSUInteger numberOfMatches = [regex numberOfMatchesInString:newString
+                                                            options:0
+                                                              range:NSMakeRange(0, [newString length])];
+        if (numberOfMatches == 0)
+            return NO;
+    }
+    
+    return YES;
 }
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
@@ -354,6 +398,8 @@
         return 48;
     if (indexPath.section == 3)
         return 220;
+    if (indexPath.section == 4)
+        return 100;
     
     return 0;
 }
@@ -383,13 +429,19 @@
         [headerView addSubview:subjectLabel];
         return headerView;
     }
+
+    if (section==4) {
+        subjectLabel.text=@"Notes";
+        [headerView addSubview:subjectLabel];
+        return headerView;
+    }
     
     return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if(section == 0 || section == 1 || section == 2)
+    if(section == 0 || section == 1 || section == 2 || section == 4)
         return 35;
     return 0;
 }
@@ -587,6 +639,25 @@
     
 }
 
+-(void)textViewDidEndEditing:(UITextView *)textView{
+    self.m_selComment = textView.text;
+    [textView resignFirstResponder];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if([text isEqualToString:@"\n"]) {
+        NSString* defText = @"Details about this receipt.";
+        if ([defText isEqualToString:textView.text] == false){
+            // something new was entered.
+            self.m_selComment = textView.text;
+        }
+        [textView resignFirstResponder];
+        return NO;
+    }
+    
+    return YES;
+}
 
 
 

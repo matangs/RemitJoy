@@ -13,14 +13,14 @@
 @implementation Trip
 
 -(void)saveTrip{
-    NSString* insertStr = [NSString stringWithFormat:@"insert into trips(name,date) values('%@','%@')",
-           self.m_name,
-           self.m_date];
+    NSString* insertStr = [NSString stringWithFormat:@"insert into trips(name,date) values(?,?)"];
     
     DBManager* mgr = [[DBManager alloc] initDatabase];
+    [mgr.m_parameterArray addObject:self.m_name];
+    [mgr.m_parameterArray addObject:self.m_date];
     [mgr executeQuery:insertStr];
     
-    self.m_primaryKey = [[DBManager sharedInstance] lastInsertedRowID];
+    self.m_primaryKey = [mgr lastInsertedRowID];
 }
 
 +(NSMutableArray*)loadTrips{

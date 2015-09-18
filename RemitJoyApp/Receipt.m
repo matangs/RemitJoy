@@ -15,16 +15,23 @@
 -(void)saveReceipt{
     NSInteger typeOrder = [RemitConsts orderForExpenseType:self.m_expenseType];
     
-    NSString* insertStr = [NSString stringWithFormat:@"insert into receipts (trip_id, amount, currency, type, type_order, date, photo) values(%lu, %.02f, '%@', '%@', %lu, '%@','%@')",
-                           self.m_tripKey,
-                           self.m_amount,
-                           self.m_currency,
-                           self.m_expenseType,
-                           typeOrder,
-                           self.m_date,
-                           self.m_photo];
+    NSString* insertStr = [NSString stringWithFormat:@"insert into receipts (trip_id, amount, currency, type, type_order, date, photo, comment) values(%lu, %.02f, ?, ?, %lu, ?,?,?)",
+                            self.m_tripKey,
+                            self.m_amount,
+                            typeOrder
+                     ];
+        
     
     DBManager* mgr = [[DBManager alloc] initDatabase];
+    [mgr.m_parameterArray addObject:self.m_currency];
+    [mgr.m_parameterArray addObject:self.m_expenseType];
+    [mgr.m_parameterArray addObject:self.m_date];
+    [mgr.m_parameterArray addObject:self.m_photo];
+    if (self.m_comment != nil)
+        [mgr.m_parameterArray addObject:self.m_comment];
+    else
+        [mgr.m_parameterArray addObject:[NSNull null]];
+    
     [mgr executeQuery:insertStr];
     
     self.m_primaryKey = [mgr lastInsertedRowID];
@@ -34,16 +41,22 @@
 -(void)updateReceipt{
     NSInteger typeOrder = [RemitConsts orderForExpenseType:self.m_expenseType];
 
-    NSString* updateStr = [NSString stringWithFormat:@"UPDATE receipts SET amount = %.02f, currency = '%@', type = '%@', date = '%@', photo = '%@', type_order = %lu WHERE id = %lu",
-                           self.m_amount,
-                           self.m_currency,
-                           self.m_expenseType,
-                           self.m_date,
-                           self.m_photo,
-                           typeOrder,
-                           self.m_primaryKey
-                           ];
+    NSString* updateStr = [NSString stringWithFormat:@"UPDATE receipts SET amount = %.02f, currency = ?, type = ?, date = ?, photo = ?, type_order = %lu, comment = ? WHERE id = %lu",
+                     self.m_amount,
+                     typeOrder,
+                     self.m_primaryKey
+                     ];
+    
     DBManager* mgr = [[DBManager alloc] initDatabase];
+    [mgr.m_parameterArray addObject:self.m_currency];
+    [mgr.m_parameterArray addObject:self.m_expenseType];
+    [mgr.m_parameterArray addObject:self.m_date];
+    [mgr.m_parameterArray addObject:self.m_photo];
+    if (self.m_comment != nil)
+        [mgr.m_parameterArray addObject:self.m_comment];
+    else
+        [mgr.m_parameterArray addObject:[NSNull null]];
+    
     [mgr executeQuery:updateStr];
 }
 
@@ -91,7 +104,7 @@
         rcpt.m_photo = (NSString*)row[7];
 
         if ( [(NSString*)row[8] length] > 0)
-            rcpt.m_comment = (NSString*)row[15];
+            rcpt.m_comment = (NSString*)row[8];
         else
             rcpt.m_comment = nil;
         

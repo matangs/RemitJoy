@@ -37,6 +37,7 @@ NSString* const m_databaseFileName = @"remitjoy.sql";
         // Copy the database file into the documents directory if necessary.
         [self copyDatabaseIntoDocumentsDirectory];
         [self copyImagesIntoDirectory];
+        self.m_parameterArray = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -166,6 +167,16 @@ NSString* const m_databaseFileName = @"remitjoy.sql";
             }
             else {
                 // This is the case of an executable query (insert, update, ...).
+                int index = 1;
+                for (id obj in self.m_parameterArray) {
+                    
+                    if ((!obj) || ((NSNull *)obj == [NSNull null]))
+                        sqlite3_bind_null(compiledStatement, index);
+                    else if ([obj isKindOfClass:[NSString class]])
+                        sqlite3_bind_text(compiledStatement, index, [((NSString*)obj) UTF8String], -1, SQLITE_TRANSIENT);
+                    index++;
+                    
+                }
                 
                 // Execute the query.
                 if (sqlite3_step(compiledStatement) == SQLITE_DONE) {
