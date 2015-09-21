@@ -10,7 +10,7 @@
 
 @interface DBManager : NSObject
 
-+(DBManager*)sharedInstance;
+//+(DBManager*)sharedInstance;
 -(instancetype)initDatabase;
 
 @property (nonatomic, strong) NSMutableArray* m_parameterArray;

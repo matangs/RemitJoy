@@ -12,7 +12,7 @@
 @implementation DBManager
 
 NSString* const m_databaseFileName = @"remitjoy.sql";
-
+/*
 +(DBManager*)sharedInstance{
     static DBManager* _sharedInstance = nil;
     
@@ -25,7 +25,7 @@ NSString* const m_databaseFileName = @"remitjoy.sql";
     });
     return _sharedInstance;
 }
-
+*/
 
 -(instancetype)initDatabase{
     self = [super init];

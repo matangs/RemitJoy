@@ -481,7 +481,7 @@
     
     self.m_datePicker = [[UIDatePicker alloc] init];
     self.m_datePicker.datePickerMode = UIDatePickerModeDate;
-    [self.m_datePicker addTarget:self action:nil forControlEvents:UIControlEventValueChanged];
+    //[self.m_datePicker addTarget:self action:nil forControlEvents:UIControlEventValueChanged];
     
     self.m_datePickerToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 56)];
     self.m_datePickerToolbar.barStyle = UIBarStyleDefault;
