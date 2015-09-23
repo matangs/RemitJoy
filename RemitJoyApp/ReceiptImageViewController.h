@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ReceiptImage.h"
 
-@interface ReceiptImageViewController : UIViewController
+@interface ReceiptImageViewController : UIViewController <UIScrollViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIScrollView *m_scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *m_imageView;
-@property (weak, nonatomic) UIImage* m_image;
+@property (weak, nonatomic) ReceiptImageData* m_imageData;
+
+@property bool m_reloadData;
 
 @end

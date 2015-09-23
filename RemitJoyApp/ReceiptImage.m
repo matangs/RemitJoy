@@ -28,7 +28,16 @@
         ReceiptImageData* data = [[ReceiptImageData alloc] init];
         
         NSString* imgPath = [theReceipt imagePath:indexStr];
-        data.m_image = [UIImage imageWithContentsOfFile:imgPath];
+        UIImage* img = [UIImage imageWithContentsOfFile:imgPath];
+        UIImageOrientation orientation = img.imageOrientation;
+        if (orientation != UIImageOrientationUp){
+            data.m_image = [UIImage imageWithCGImage:[img CGImage]
+                            scale:1.0
+                      orientation: UIImageOrientationUp];
+        }
+        else
+            data.m_image = img;
+        
         data.m_isNew = false;
         data.m_id = [indexStr integerValue];
         

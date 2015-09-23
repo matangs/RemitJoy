@@ -469,7 +469,7 @@
     NSIndexPath *path = [self.tableView indexPathForSelectedRow];
     if (path.section == 3){
         ReceiptImageViewController* rcptController = (ReceiptImageViewController*)[segue destinationViewController];
-        rcptController.m_image = ((ReceiptImageData*)[self.m_receiptImageHelper.m_imageDataArr objectAtIndex:path.row]).m_image;
+        rcptController.m_imageData = ((ReceiptImageData*)[self.m_receiptImageHelper.m_imageDataArr objectAtIndex:path.row]);
     }
 }
 
@@ -627,6 +627,13 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    UIImageOrientation orientation = chosenImage.imageOrientation;
+    if (orientation != UIImageOrientationUp){
+        chosenImage = [UIImage imageWithCGImage:[chosenImage CGImage]
+                                           scale:1.0
+                                     orientation: UIImageOrientationUp];
+    }
+    
     [picker dismissViewControllerAnimated:YES completion:NULL];
     [self.m_receiptImageHelper addNewImage:chosenImage];
     
@@ -657,6 +664,15 @@
     }
     
     return YES;
+}
+
+-(BOOL) navigationShouldPopOnBackButton {
+    //if(needsShowConfirmation) {
+        // Show confirmation alert
+        // ...
+   //     return NO; // Ignore 'Back' button this time
+   // }
+    return YES; // Process 'Back' button click and Pop view controller
 }
 
 

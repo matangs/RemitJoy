@@ -329,20 +329,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pQW-ae-y9f">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qwD-KM-3Pf">
                                 <rect key="frame" x="20" y="0.0" width="560" height="600"/>
-                            </imageView>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Px3-0O-15R">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="600"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="600" id="7fN-Uu-5cJ"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Px3-0O-15R" firstAttribute="centerY" secondItem="qwD-KM-3Pf" secondAttribute="centerY" id="Tj9-8b-grh"/>
+                                    <constraint firstItem="Px3-0O-15R" firstAttribute="leading" secondItem="qwD-KM-3Pf" secondAttribute="leading" id="d7w-HY-jyq"/>
+                                    <constraint firstItem="Px3-0O-15R" firstAttribute="centerX" secondItem="qwD-KM-3Pf" secondAttribute="centerX" id="nO3-xi-qWn"/>
+                                    <constraint firstItem="Px3-0O-15R" firstAttribute="top" secondItem="qwD-KM-3Pf" secondAttribute="top" id="sG8-Ux-bdV"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="pQW-ae-y9f" firstAttribute="top" secondItem="y41-fj-wPg" secondAttribute="topMargin" id="CwO-ON-qgX"/>
-                            <constraint firstAttribute="centerX" secondItem="pQW-ae-y9f" secondAttribute="centerX" id="Lv2-OC-CYe"/>
-                            <constraint firstAttribute="centerY" secondItem="pQW-ae-y9f" secondAttribute="centerY" id="QwN-1a-kaf"/>
-                            <constraint firstItem="pQW-ae-y9f" firstAttribute="leading" secondItem="y41-fj-wPg" secondAttribute="leadingMargin" id="lB4-eF-IaI"/>
+                            <constraint firstItem="qwD-KM-3Pf" firstAttribute="centerY" secondItem="y41-fj-wPg" secondAttribute="centerY" id="4eO-jW-b5j"/>
+                            <constraint firstItem="qwD-KM-3Pf" firstAttribute="centerX" secondItem="y41-fj-wPg" secondAttribute="centerX" id="UQ7-aB-wqY"/>
+                            <constraint firstItem="qwD-KM-3Pf" firstAttribute="top" secondItem="y41-fj-wPg" secondAttribute="topMargin" id="V79-wB-nXw"/>
+                            <constraint firstItem="qwD-KM-3Pf" firstAttribute="leading" secondItem="y41-fj-wPg" secondAttribute="leadingMargin" id="aWn-5N-STK"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="m_imageView" destination="pQW-ae-y9f" id="8Yt-1O-n4o"/>
+                        <outlet property="m_imageView" destination="Px3-0O-15R" id="NDq-Ee-120"/>
+                        <outlet property="m_scrollView" destination="qwD-KM-3Pf" id="hZG-As-FVb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvE-Mq-ZMj" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -11,6 +11,7 @@
 		0D6171121BA83B7400DBD449 /* ReceiptImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6171111BA83B7400DBD449 /* ReceiptImageViewController.m */; };
 		0D6171151BA8BCCA00DBD449 /* WSCoachMarksView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6171141BA8BCCA00DBD449 /* WSCoachMarksView.m */; };
 		0D6171171BA8BCD700DBD449 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 0D6171161BA8BCD700DBD449 /* LICENSE */; };
+		0DB35F7A1BB23DDA00D9943A /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB35F791BB23DDA00D9943A /* UIViewController+BackButtonHandler.m */; settings = {ASSET_TAGS = (); }; };
 		0DD23B651BA5A5FC00217B53 /* 1.1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DD23B601BA5A5FC00217B53 /* 1.1.jpg */; };
 		0DD23B661BA5A5FC00217B53 /* 2.1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DD23B611BA5A5FC00217B53 /* 2.1.jpg */; };
 		0DD23B671BA5A5FC00217B53 /* 3.1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DD23B621BA5A5FC00217B53 /* 3.1.jpg */; };
@@ -56,6 +57,8 @@
 		0D6171131BA8BCCA00DBD449 /* WSCoachMarksView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSCoachMarksView.h; sourceTree = "<group>"; };
 		0D6171141BA8BCCA00DBD449 /* WSCoachMarksView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSCoachMarksView.m; sourceTree = "<group>"; };
 		0D6171161BA8BCD700DBD449 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		0DB35F781BB23DDA00D9943A /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
+		0DB35F791BB23DDA00D9943A /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
 		0DD23B601BA5A5FC00217B53 /* 1.1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.1.jpg; path = RemitJoyApp/1.1.jpg; sourceTree = "<group>"; };
 		0DD23B611BA5A5FC00217B53 /* 2.1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.1.jpg; path = RemitJoyApp/2.1.jpg; sourceTree = "<group>"; };
 		0DD23B621BA5A5FC00217B53 /* 3.1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 3.1.jpg; path = RemitJoyApp/3.1.jpg; sourceTree = "<group>"; };
@@ -152,6 +155,8 @@
 		39784E0F1B8A0861002B8223 /* RemitJoyApp */ = {
 			isa = PBXGroup;
 			children = (
+				0DB35F781BB23DDA00D9943A /* UIViewController+BackButtonHandler.h */,
+				0DB35F791BB23DDA00D9943A /* UIViewController+BackButtonHandler.m */,
 				0D6171161BA8BCD700DBD449 /* LICENSE */,
 				0D6171131BA8BCCA00DBD449 /* WSCoachMarksView.h */,
 				0D6171141BA8BCCA00DBD449 /* WSCoachMarksView.m */,
@@ -344,6 +349,7 @@
 			files = (
 				39784E571B9AFF0D002B8223 /* Trip.m in Sources */,
 				39784E461B8F1B03002B8223 /* PDFHelper.m in Sources */,
+				0DB35F7A1BB23DDA00D9943A /* UIViewController+BackButtonHandler.m in Sources */,
 				0D61710F1BA7B69200DBD449 /* ReceiptImage.m in Sources */,
 				39784E441B8B1DDE002B8223 /* EmailViewController.m in Sources */,
 				39784E161B8A0861002B8223 /* AppDelegate.m in Sources */,
