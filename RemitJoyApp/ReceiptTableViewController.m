@@ -64,7 +64,14 @@
             [[NSUserDefaults standardUserDefaults] setObject:defCurrency forKey:@"ReceiptCurrency"];
         }
         m_selCurrency = defCurrency;
-        m_selType = @"Breakfast";
+        
+        NSString* defType = [[NSUserDefaults standardUserDefaults] stringForKey:@"ExpenseType"];
+        if (defType == nil){
+            defType = @"Breakfast";
+            [[NSUserDefaults standardUserDefaults] setObject:defType forKey:@"ExpenseType"];
+        }
+        
+        m_selType = defType;
         m_selAmount = 0.0;
         
         NSString* defDateStr = [[NSUserDefaults standardUserDefaults] stringForKey:@"DefaultReceiptDate"];
@@ -395,6 +402,7 @@
     if (textField == self.m_typeText){
         NSInteger row = [m_typeTextViewPickerView selectedRowInComponent:0];
         m_selType = [typeArray objectAtIndex:row];
+        [[NSUserDefaults standardUserDefaults] setObject:m_selType forKey:@"ExpenseType"];
         self.m_typeText.text = m_selType;
     }
 }

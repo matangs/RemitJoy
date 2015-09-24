@@ -85,6 +85,9 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if (self.m_trip.m_receipts.count == 0)
+        return 1;
+
     // Return the number of sections.
     return 3;
 }
