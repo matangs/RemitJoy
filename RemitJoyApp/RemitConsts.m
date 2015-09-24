@@ -23,8 +23,20 @@
     return _sharedInstance;
 }
 
++(UIColor*)navBarColor{
+    //light orange
+    //return [UIColor colorWithRed:255.0f/255.0f green:229.0f/255.0f blue:204.0f/255.0f alpha:1.0f];
+    
+    // darker orange
+    return [UIColor colorWithRed:255.0f/255.0f green:220.0f/255.0f blue:187.0f/255.0f alpha:1.0f];
+    
+}
 -(UIColor*)backgrounColor{
-    return [UIColor colorWithRed:238/256.0 green:238/256.0 blue:243/256.0 alpha:1.0];
+    // default gray
+    //return [UIColor colorWithRed:238/256.0 green:238/256.0 blue:243/256.0 alpha:1.0];
+    
+    // light orange
+    return [UIColor colorWithRed:255/255.0 green:248/255.0 blue:240/255.0 alpha:1.0];
 }
 
 -(UIColor*)darkBackgrounColor{

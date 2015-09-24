@@ -35,6 +35,9 @@
     
     [MainViewController setBackgrounColor:self];
     
+    
+    self.navigationController.navigationBar.barTintColor = [RemitConsts navBarColor];
+    
     [self setupCoachMark];
     
 }

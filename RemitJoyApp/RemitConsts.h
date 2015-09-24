@@ -14,6 +14,7 @@
 +(RemitConsts*)sharedInstance;
 
 -(UIColor*)backgrounColor;
++(UIColor*)navBarColor;
 -(NSString*)backgrounTexture;
 -(UIColor*)darkBackgrounColor;
 +(NSDate*)dateFromStr:(NSString*)str;
