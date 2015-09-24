@@ -350,7 +350,11 @@
             NSInteger width = image.size.width;
             NSInteger height = image.size.height;
             
-            NSString* message = [NSString stringWithFormat:@"%@ - %@ - %@ %.02f",rcpt.m_date, rcpt.m_expenseType,rcpt.m_currency, rcpt.m_amount];
+            NSString* message = nil;
+            if (rcpt.m_comment == nil)
+                message = [NSString stringWithFormat:@"%@ - %@ - %@ %.02f",rcpt.m_date, rcpt.m_expenseType,rcpt.m_currency, rcpt.m_amount];
+            else
+                message = [NSString stringWithFormat:@"%@ - %@ - %@ %.02f, Comments - %@",rcpt.m_date, rcpt.m_expenseType,rcpt.m_currency, rcpt.m_amount, rcpt.m_comment];
             
             //[pdfFile addImageWithRect:lowResImage inRect:CGRectMake(100, 100, width, height)];
             //[pdfFile addTextWithRect:message inRect:CGRectMake(100, height + 50, 500, 100)];
