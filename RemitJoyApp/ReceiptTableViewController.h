@@ -12,7 +12,7 @@
 #import "WSCoachMarksView.h"
 
 
-@interface ReceiptTableViewController : UITableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource,UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate>
+@interface ReceiptTableViewController : UITableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource,UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate, UIAlertViewDelegate>
 
 
 @property (weak, nonatomic) UITextField* m_amountText;
@@ -40,6 +40,7 @@
 @property(strong, nonatomic) UIToolbar* m_datePickerToolbar;
 
 @property(strong, nonatomic) Receipt* m_receipt;
+@property(strong, nonatomic) Receipt* m_origReceipt;
 
 @property BOOL m_isUpdating;
 @property(strong, nonatomic) NSURL* m_imageURL;

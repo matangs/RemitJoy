@@ -12,6 +12,7 @@
 		0D6171151BA8BCCA00DBD449 /* WSCoachMarksView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6171141BA8BCCA00DBD449 /* WSCoachMarksView.m */; };
 		0D6171171BA8BCD700DBD449 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 0D6171161BA8BCD700DBD449 /* LICENSE */; };
 		0DB35F7A1BB23DDA00D9943A /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB35F791BB23DDA00D9943A /* UIViewController+BackButtonHandler.m */; settings = {ASSET_TAGS = (); }; };
+		0DB35F7E1BB2420900D9943A /* rotate.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB35F7D1BB2420900D9943A /* rotate.png */; settings = {ASSET_TAGS = (); }; };
 		0DD23B651BA5A5FC00217B53 /* 1.1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DD23B601BA5A5FC00217B53 /* 1.1.jpg */; };
 		0DD23B661BA5A5FC00217B53 /* 2.1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DD23B611BA5A5FC00217B53 /* 2.1.jpg */; };
 		0DD23B671BA5A5FC00217B53 /* 3.1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DD23B621BA5A5FC00217B53 /* 3.1.jpg */; };
@@ -59,6 +60,7 @@
 		0D6171161BA8BCD700DBD449 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		0DB35F781BB23DDA00D9943A /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
 		0DB35F791BB23DDA00D9943A /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
+		0DB35F7D1BB2420900D9943A /* rotate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rotate.png; sourceTree = "<group>"; };
 		0DD23B601BA5A5FC00217B53 /* 1.1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.1.jpg; path = RemitJoyApp/1.1.jpg; sourceTree = "<group>"; };
 		0DD23B611BA5A5FC00217B53 /* 2.1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.1.jpg; path = RemitJoyApp/2.1.jpg; sourceTree = "<group>"; };
 		0DD23B621BA5A5FC00217B53 /* 3.1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 3.1.jpg; path = RemitJoyApp/3.1.jpg; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 		39784E861BA43CCA002B8223 /* ImgAssets */ = {
 			isa = PBXGroup;
 			children = (
+				0DB35F7D1BB2420900D9943A /* rotate.png */,
 				0DD23B601BA5A5FC00217B53 /* 1.1.jpg */,
 				0DD23B611BA5A5FC00217B53 /* 2.1.jpg */,
 				0DD23B621BA5A5FC00217B53 /* 3.1.jpg */,
@@ -322,6 +325,7 @@
 				0D6171171BA8BCD700DBD449 /* LICENSE in Resources */,
 				39784EA81BA46EAF002B8223 /* fabric_plaid2.png in Resources */,
 				39784E521B93BF38002B8223 /* Values.plist in Resources */,
+				0DB35F7E1BB2420900D9943A /* rotate.png in Resources */,
 				39784E1C1B8A0861002B8223 /* Main.storyboard in Resources */,
 				39784EA41BA46E74002B8223 /* mockup1.jpg in Resources */,
 				0DD23B681BA5A5FC00217B53 /* 4.1.jpg in Resources */,

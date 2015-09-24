@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Receipt : NSObject
+@interface Receipt : NSObject <NSCopying>
 
 @property (atomic) NSInteger m_primaryKey; //id
 @property (atomic) NSInteger m_tripKey; //trip_id
@@ -30,7 +30,8 @@
 +(NSMutableArray*)loadReceipts:(NSInteger)tripId;
 +(void)deleteReceipt:(Receipt*)rcpt;
 -(NSString*)imagePath:(NSString*)imgId;
-
+-(BOOL)isSame:(Receipt*) rcpt;
+-(void)transferData:(Receipt*)rcpt;
 
 
 @end

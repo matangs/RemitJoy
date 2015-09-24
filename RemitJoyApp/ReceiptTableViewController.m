@@ -30,7 +30,7 @@
 @synthesize m_typeTextViewPickerToolbar;
 @synthesize m_selDate, m_selAmount;
 @synthesize m_currencyText, m_amountText, m_dateText, m_typeText;
-@synthesize m_receiptImageHelper, m_deletedImageArr;
+@synthesize m_receiptImageHelper, m_deletedImageArr, m_origReceipt;
 
 
 - (void)viewDidLoad {
@@ -56,6 +56,7 @@
     currencyFullNameArray = [dictionary objectForKey:@"CurrencyFullName"];
     m_receiptImageHelper = [[ReceiptImage alloc] init];
     if (self.m_receipt == nil){
+        m_origReceipt = nil;
         
         NSString* defCurrency = [[NSUserDefaults standardUserDefaults] stringForKey:@"ReceiptCurrency"];
         if (defCurrency == nil){
@@ -77,6 +78,7 @@
         m_selComment = nil;
     }
     else{
+        m_origReceipt = [self.m_receipt copy];
         m_selCurrency = self.m_receipt.m_currency;
         m_selType = self.m_receipt.m_expenseType;
         m_selAmount = self.m_receipt.m_amount;
@@ -141,9 +143,15 @@
     }
 
     
+    [self saveReceipt];
+    [[self navigationController] popViewControllerAnimated:YES];
+}
+
+-(void)updateReceipt{
     if (self.m_isUpdating == false){
         self.m_receipt = [[Receipt alloc] init];
     }
+    
     self.m_receipt.m_amount = m_selAmount;
     self.m_receipt.m_currency = m_selCurrency;
     self.m_receipt.m_expenseType = m_selType;
@@ -151,6 +159,10 @@
     self.m_receipt.m_tripKey = self.m_tripId;
     self.m_receipt.m_photo = [m_receiptImageHelper getPhotoStr];
     self.m_receipt.m_comment = self.m_selComment;
+}
+
+-(void)saveReceipt{
+    [self updateReceipt];
     if (self.m_isUpdating)
         [self.m_receipt updateReceipt];
     else
@@ -164,10 +176,6 @@
     tripCtrl.m_trip.m_receipts = [Receipt loadReceipts:tripCtrl.m_trip.m_primaryKey];;
     [tripCtrl.tableView reloadData];
     [self.m_receiptImageHelper.m_imageDataArr removeAllObjects];
-    [[self navigationController] popViewControllerAnimated:YES];
-    
-
-    
 }
 
 -(void)saveImagesToAppFolder{
@@ -667,15 +675,77 @@
 }
 
 -(BOOL) navigationShouldPopOnBackButton {
-    //if(needsShowConfirmation) {
-        // Show confirmation alert
-        // ...
-   //     return NO; // Ignore 'Back' button this time
-   // }
+    
+    if (m_origReceipt == nil){
+        if (self.m_selAmount > 0.01 && m_receiptImageHelper.m_imageDataArr.count > 0){
+        
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Warning"
+                                                                           message:@"You have not save the Receipt. Save now?"
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action) {
+                                                                      [self saveReceipt];
+                                                                      [[self navigationController] popViewControllerAnimated:YES];
+
+                                                                  }];
+            
+            [alert addAction:defaultAction];
+            UIAlertAction* noAction = [UIAlertAction actionWithTitle:@"Ignore" style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action) {
+                                                                      [[self navigationController] popViewControllerAnimated:YES];
+                                                                  }];
+            
+            [alert addAction:noAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        
+            return NO;
+        }
+        
+        return YES;
+    }
+    
+    [self updateReceipt];
+    
+    bool needsUpdate = false;
+    if (self.m_deletedImageArr.count > 0)
+        needsUpdate = true;
+    if (needsUpdate == false){
+        for (ReceiptImageData* data in self.m_receiptImageHelper.m_imageDataArr) {
+            if (data.m_isNew){
+                needsUpdate = true;
+                break;
+            }
+        }
+    }
+    
+    if (needsUpdate || [self.m_receipt isSame:self.m_origReceipt] == false){
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Warning"
+                                                                       message:@"You have not save the Receipt. Save now?"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {
+                                                                  [self saveReceipt];
+                                                                  [[self navigationController] popViewControllerAnimated:YES];
+                                                                  
+                                                              }];
+        
+        [alert addAction:defaultAction];
+        UIAlertAction* noAction = [UIAlertAction actionWithTitle:@"Ignore" style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction * action) {
+                                                             [self.m_receipt transferData: self.m_origReceipt];
+                                                             [[self navigationController] popViewControllerAnimated:YES];
+                                                         }];
+        
+        [alert addAction:noAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+        return NO;
+    }
+    
     return YES; // Process 'Back' button click and Pop view controller
 }
-
-
 
 
 @end

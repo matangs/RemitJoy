@@ -12,6 +12,58 @@
 
 @implementation Receipt
 
+-(id)copyWithZone:(NSZone *)zone{
+    Receipt* rcpt = [[Receipt alloc] init];
+    
+    rcpt.m_comment = [self.m_comment copyWithZone:zone];
+    rcpt.m_currency = [self.m_currency copyWithZone:zone];
+    rcpt.m_date = [self.m_date copyWithZone:zone];
+    rcpt.m_expenseType = [self.m_expenseType copyWithZone:zone];
+    rcpt.m_photo = [self.m_photo copyWithZone:zone];
+    
+    rcpt.m_amount = self.m_amount;
+    rcpt.m_expenseTypeOrder = self.m_expenseTypeOrder;
+    rcpt.m_primaryKey = self.m_primaryKey;
+    rcpt.m_tripKey = self.m_tripKey;
+    
+    return rcpt;
+}
+
+-(void)transferData:(Receipt*)rcpt{
+    self.m_comment = [rcpt.m_comment copy];
+    self.m_currency = [rcpt.m_currency copy];
+    self.m_date = [rcpt.m_date copy];
+    self.m_expenseType = [rcpt.m_expenseType copy];
+    self.m_photo = [rcpt.m_photo copy];
+    
+    self.m_amount = rcpt.m_amount;
+    self.m_expenseTypeOrder = rcpt.m_expenseTypeOrder;
+    self.m_primaryKey = rcpt.m_primaryKey;
+    self.m_tripKey = rcpt.m_tripKey;
+}
+
+-(BOOL)isSame:(Receipt*) rcpt{
+    if (rcpt.m_amount != self.m_amount || rcpt.m_primaryKey != rcpt.m_primaryKey || rcpt.m_tripKey != self.m_tripKey)
+        return false;
+    
+    if (rcpt.m_comment != self.m_comment && [rcpt.m_comment isEqualToString:self.m_comment] == false)
+        return false;
+
+    if (rcpt.m_currency != self.m_currency && [rcpt.m_currency isEqualToString:self.m_currency] == false)
+        return false;
+
+    if (rcpt.m_date != self.m_date && [rcpt.m_date isEqualToString:self.m_date] == false)
+        return false;
+
+    if (rcpt.m_expenseType != self.m_expenseType && [rcpt.m_expenseType isEqualToString:self.m_expenseType] == false)
+        return false;
+    
+    if (rcpt.m_photo != self.m_photo && [rcpt.m_photo isEqualToString:self.m_photo] == false)
+        return false;
+    
+    return true;
+}
+
 -(void)saveReceipt{
     NSInteger typeOrder = [RemitConsts orderForExpenseType:self.m_expenseType];
     

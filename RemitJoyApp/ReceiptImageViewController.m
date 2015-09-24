@@ -25,6 +25,9 @@
     self.m_imageView.contentMode = UIViewContentModeScaleAspectFit;
     
     NSString* buttonName = @"Rotate";
+    
+    //UIBarButtonItem* rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"rotate.png"] landscapeImagePhone:[UIImage imageNamed:@"rotate.png"] style:UIBarButtonItemStyleDone target:self action:@selector(onRotate)];
+    
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:buttonName
                                                                     style:UIBarButtonItemStyleDone target:self action:@selector(onRotate)];
     self.navigationItem.rightBarButtonItem = rightButton;
