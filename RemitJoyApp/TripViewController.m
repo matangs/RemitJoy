@@ -241,7 +241,7 @@
     else if (path.section == 1){
         [self CreatePDFonTempPath];
         EmailViewController* controller = (EmailViewController*)[segue destinationViewController];
-        controller.m_tripName = self.m_trip.m_name;
+        controller.m_trip = self.m_trip;
     }
     else if (path.section == 2){
         

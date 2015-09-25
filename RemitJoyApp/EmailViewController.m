@@ -8,6 +8,7 @@
 
 #import "EmailViewController.h"
 #import "MainViewController.h"
+#import "Receipt.h"
 
 @interface EmailViewController ()
 
@@ -46,21 +47,36 @@
 
 - (IBAction)onSendEmail:(id)sender {
     // Email Subject
-    NSString *emailTitle = [NSString stringWithFormat: @"%@ - Trip summary", self.m_tripName];
+    NSString *emailTitle = [NSString stringWithFormat: @"%@ - Trip summary", self.m_trip.m_name];
     // Email Content
-    NSString *messageBody = @"<br /> Hello there,<br /><br />The PDF containing all reciept images are attached for your filing purposes. Hope you enjoyed the ease of use of RemitJoy.<br /><br />Sent using <a href = 'www.remitjoy.com'>RemitJoy</a> for the iPhone.</p>";
-    // To address
+    //NSString *messageBody = @"<br /> Hello there,<br /><br />The PDF containing all reciept images are attached for your filing purposes. Hope you enjoyed the ease of use of RemitJoy.<br /><br />Sent using <a href = 'www.remitjoy.com'>RemitJoy</a> for the iPhone.</p>";
+    NSMutableString* message = [[NSMutableString alloc] init];
+    
+    [message appendString:@"<br />Hello there,<br /><br />The PDF containing all reciept images are attached for your filing purposes. Hope you enjoyed the ease of use of RemitJoy. Please find your expenses in a tabular format below.<br /><br /><table style=\"margin:0;border-collapse:collapse;\" cellpadding=\"5px\" cellspacing=\"5px\" border=\"1px\"><tr><th>Amount</th><th>Currency</th><th>Date</th><th>Type</th><th>Notes</th></tr>"];
+    
+    for (Receipt* rcpt in self.m_trip.m_receipts) {
+        NSString* comment = @"";
+        if (rcpt.m_comment != nil)
+            comment = rcpt.m_comment;
+        
+        NSString* str = [NSString stringWithFormat:@"<tr><td>%.02f</td><td>%@</td><td>%@</td><td>%@</td><td>%@</td></tr>", rcpt.m_amount, rcpt.m_currency, rcpt.m_date, rcpt.m_expenseType, comment];
+        [message appendString:str];
+    }
+    
+    [message appendString:@"</table><br/><br/>Sent using <a href = 'www.remitjoy.com'>RemitJoy</a> for the iPhone.</p>"];
+    
+    NSString* messageBody = [NSString stringWithFormat:@"%@",message];
     NSArray *toRecipents = [NSArray arrayWithObject:@""];
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
     mc.mailComposeDelegate = self;
     [mc setSubject:emailTitle];
-    [mc setMessageBody:messageBody isHTML:YES];
+    [mc setMessageBody:messageBody isHTML:NO];
     [mc setToRecipients:toRecipents];
     
     NSString *filePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"temp.pdf"];
     NSData *fileData = [NSData dataWithContentsOfFile:filePath];
-    NSString* filename = [NSString stringWithFormat:@"%@.pdf",self.m_tripName];
+    NSString* filename = [NSString stringWithFormat:@"%@.pdf",self.m_trip.m_name];
     
     NSString* mimeType = @"application/pdf";
     [mc addAttachmentData:fileData mimeType:mimeType fileName:filename];

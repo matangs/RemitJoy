@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
+#import "Trip.h"
+
 @interface EmailViewController : UIViewController<MFMailComposeViewControllerDelegate, UIWebViewDelegate>
 
+
 @property (weak, nonatomic) IBOutlet UIWebView *m_pdfWebView;
-@property (strong, nonatomic) NSString* m_tripName;
+@property (weak, nonatomic) Trip* m_trip;
 
 @end
