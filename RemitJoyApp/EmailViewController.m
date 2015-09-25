@@ -63,7 +63,7 @@
         [message appendString:str];
     }
     
-    [message appendString:@"</table><br/><br/>Sent using <a href = 'www.remitjoy.com'>RemitJoy</a> for the iPhone.</p>"];
+    [message appendString:@"</table><br/><br/>Sent using RemitJoy for the iPhone.</p>"];
     
     NSString* messageBody = [NSString stringWithFormat:@"%@",message];
     NSArray *toRecipents = [NSArray arrayWithObject:@""];

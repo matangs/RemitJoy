@@ -19,6 +19,7 @@
 		0DD23B681BA5A5FC00217B53 /* 4.1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DD23B631BA5A5FC00217B53 /* 4.1.jpg */; };
 		0DD23B691BA5A5FC00217B53 /* 5.1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DD23B641BA5A5FC00217B53 /* 5.1.jpg */; };
 		0DD23B6C1BA5EED900217B53 /* ReceiptTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD23B6B1BA5EED900217B53 /* ReceiptTableViewController.m */; };
+		0DF519CC1BB4EAAA00A00F0F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF519CB1BB4EAAA00A00F0F /* libsqlite3.tbd */; };
 		39784E131B8A0861002B8223 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E121B8A0861002B8223 /* main.m */; };
 		39784E161B8A0861002B8223 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E151B8A0861002B8223 /* AppDelegate.m */; };
 		39784E1C1B8A0861002B8223 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39784E1A1B8A0861002B8223 /* Main.storyboard */; };
@@ -29,7 +30,6 @@
 		39784E3E1B8A45E3002B8223 /* AddTripViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E3D1B8A45E3002B8223 /* AddTripViewController.m */; };
 		39784E441B8B1DDE002B8223 /* EmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E431B8B1DDE002B8223 /* EmailViewController.m */; };
 		39784E461B8F1B03002B8223 /* PDFHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E451B8F1B03002B8223 /* PDFHelper.m */; };
-		39784E491B933F3C002B8223 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 39784E481B933F3C002B8223 /* libsqlite3.dylib */; };
 		39784E4C1B933FAD002B8223 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E4B1B933FAD002B8223 /* DBManager.m */; };
 		39784E521B93BF38002B8223 /* Values.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39784E511B93BF38002B8223 /* Values.plist */; };
 		39784E541B9AF9D8002B8223 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39784E531B9AF9D8002B8223 /* MessageUI.framework */; };
@@ -61,6 +61,7 @@
 		0DD23B641BA5A5FC00217B53 /* 5.1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 5.1.jpg; path = RemitJoyApp/5.1.jpg; sourceTree = "<group>"; };
 		0DD23B6A1BA5EED900217B53 /* ReceiptTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptTableViewController.h; sourceTree = "<group>"; };
 		0DD23B6B1BA5EED900217B53 /* ReceiptTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptTableViewController.m; sourceTree = "<group>"; };
+		0DF519CB1BB4EAAA00A00F0F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		39784E0D1B8A0861002B8223 /* Remit Joy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Remit Joy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39784E111B8A0861002B8223 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39784E121B8A0861002B8223 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -81,7 +82,6 @@
 		39784E431B8B1DDE002B8223 /* EmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailViewController.m; sourceTree = "<group>"; };
 		39784E451B8F1B03002B8223 /* PDFHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFHelper.m; sourceTree = "<group>"; };
 		39784E471B8F1B1D002B8223 /* PDFHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDFHelper.h; sourceTree = "<group>"; };
-		39784E481B933F3C002B8223 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		39784E4A1B933FAD002B8223 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		39784E4B1B933FAD002B8223 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		39784E511B93BF38002B8223 /* Values.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Values.plist; sourceTree = "<group>"; };
@@ -106,9 +106,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DF519CC1BB4EAAA00A00F0F /* libsqlite3.tbd in Frameworks */,
 				39784E6F1B9E0478002B8223 /* Photos.framework in Frameworks */,
 				39784E541B9AF9D8002B8223 /* MessageUI.framework in Frameworks */,
-				39784E491B933F3C002B8223 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +118,7 @@
 		39784E041B8A0861002B8223 = {
 			isa = PBXGroup;
 			children = (
+				0DF519CB1BB4EAAA00A00F0F /* libsqlite3.tbd */,
 				39784E8C1BA46DE8002B8223 /* Default-568h@2x.png */,
 				39784E861BA43CCA002B8223 /* ImgAssets */,
 				39784E6E1B9E0478002B8223 /* Photos.framework */,
@@ -125,7 +126,6 @@
 				39784E871BA43D0B002B8223 /* AppTexture */,
 				39784E881BA43D20002B8223 /* StartupDB */,
 				39784E531B9AF9D8002B8223 /* MessageUI.framework */,
-				39784E481B933F3C002B8223 /* libsqlite3.dylib */,
 				39784E0F1B8A0861002B8223 /* RemitJoyApp */,
 				39784E291B8A0861002B8223 /* TestApp2Tests */,
 				39784E0E1B8A0861002B8223 /* Products */,
