@@ -38,15 +38,8 @@
 		39784E6F1B9E0478002B8223 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39784E6E1B9E0478002B8223 /* Photos.framework */; };
 		39784E8B1BA44653002B8223 /* RemitConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E8A1BA44653002B8223 /* RemitConsts.m */; };
 		39784E8D1BA46DE8002B8223 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39784E8C1BA46DE8002B8223 /* Default-568h@2x.png */; };
-		39784E9F1BA46E74002B8223 /* ios-linen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39784E931BA46E74002B8223 /* ios-linen.jpg */; };
 		39784EA01BA46E74002B8223 /* logo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39784E941BA46E74002B8223 /* logo1.jpg */; };
 		39784EA11BA46E74002B8223 /* logo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 39784E951BA46E74002B8223 /* logo1.png */; };
-		39784EA21BA46E74002B8223 /* logo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39784E961BA46E74002B8223 /* logo2.jpg */; };
-		39784EA31BA46E74002B8223 /* logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 39784E971BA46E74002B8223 /* logo2.png */; };
-		39784EA41BA46E74002B8223 /* mockup1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39784E981BA46E74002B8223 /* mockup1.jpg */; };
-		39784EA51BA46E74002B8223 /* mockup2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39784E991BA46E74002B8223 /* mockup2.jpg */; };
-		39784EA81BA46EAF002B8223 /* fabric_plaid2.png in Resources */ = {isa = PBXBuildFile; fileRef = 39784EA61BA46EAF002B8223 /* fabric_plaid2.png */; };
-		39784EA91BA46EAF002B8223 /* whitey2.png in Resources */ = {isa = PBXBuildFile; fileRef = 39784EA71BA46EAF002B8223 /* whitey2.png */; };
 		39784EAB1BA46ED5002B8223 /* remitjoy.sql in Resources */ = {isa = PBXBuildFile; fileRef = 39784EAA1BA46ED5002B8223 /* remitjoy.sql */; };
 /* End PBXBuildFile section */
 
@@ -103,15 +96,8 @@
 		39784E891BA44653002B8223 /* RemitConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemitConsts.h; sourceTree = "<group>"; };
 		39784E8A1BA44653002B8223 /* RemitConsts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemitConsts.m; sourceTree = "<group>"; };
 		39784E8C1BA46DE8002B8223 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		39784E931BA46E74002B8223 /* ios-linen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "ios-linen.jpg"; path = "RemitJoyApp/ios-linen.jpg"; sourceTree = "<group>"; };
 		39784E941BA46E74002B8223 /* logo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logo1.jpg; path = RemitJoyApp/logo1.jpg; sourceTree = "<group>"; };
 		39784E951BA46E74002B8223 /* logo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo1.png; path = RemitJoyApp/logo1.png; sourceTree = "<group>"; };
-		39784E961BA46E74002B8223 /* logo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logo2.jpg; path = RemitJoyApp/logo2.jpg; sourceTree = "<group>"; };
-		39784E971BA46E74002B8223 /* logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo2.png; path = RemitJoyApp/logo2.png; sourceTree = "<group>"; };
-		39784E981BA46E74002B8223 /* mockup1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = mockup1.jpg; path = RemitJoyApp/mockup1.jpg; sourceTree = "<group>"; };
-		39784E991BA46E74002B8223 /* mockup2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = mockup2.jpg; path = RemitJoyApp/mockup2.jpg; sourceTree = "<group>"; };
-		39784EA61BA46EAF002B8223 /* fabric_plaid2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fabric_plaid2.png; path = RemitJoyApp/fabric_plaid2.png; sourceTree = "<group>"; };
-		39784EA71BA46EAF002B8223 /* whitey2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whitey2.png; path = RemitJoyApp/whitey2.png; sourceTree = "<group>"; };
 		39784EAA1BA46ED5002B8223 /* remitjoy.sql */ = {isa = PBXFileReference; lastKnownFileType = file; name = remitjoy.sql; path = RemitJoyApp/remitjoy.sql; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -236,10 +222,6 @@
 				0DD23B641BA5A5FC00217B53 /* 5.1.jpg */,
 				39784E941BA46E74002B8223 /* logo1.jpg */,
 				39784E951BA46E74002B8223 /* logo1.png */,
-				39784E961BA46E74002B8223 /* logo2.jpg */,
-				39784E971BA46E74002B8223 /* logo2.png */,
-				39784E981BA46E74002B8223 /* mockup1.jpg */,
-				39784E991BA46E74002B8223 /* mockup2.jpg */,
 			);
 			name = ImgAssets;
 			sourceTree = "<group>";
@@ -247,9 +229,6 @@
 		39784E871BA43D0B002B8223 /* AppTexture */ = {
 			isa = PBXGroup;
 			children = (
-				39784EA61BA46EAF002B8223 /* fabric_plaid2.png */,
-				39784EA71BA46EAF002B8223 /* whitey2.png */,
-				39784E931BA46E74002B8223 /* ios-linen.jpg */,
 			);
 			name = AppTexture;
 			sourceTree = "<group>";
@@ -320,25 +299,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DD23B671BA5A5FC00217B53 /* 3.1.jpg in Resources */,
-				39784EA31BA46E74002B8223 /* logo2.png in Resources */,
 				39784EA11BA46E74002B8223 /* logo1.png in Resources */,
 				0D6171171BA8BCD700DBD449 /* LICENSE in Resources */,
-				39784EA81BA46EAF002B8223 /* fabric_plaid2.png in Resources */,
 				39784E521B93BF38002B8223 /* Values.plist in Resources */,
 				0DB35F7E1BB2420900D9943A /* rotate.png in Resources */,
 				39784E1C1B8A0861002B8223 /* Main.storyboard in Resources */,
-				39784EA41BA46E74002B8223 /* mockup1.jpg in Resources */,
 				0DD23B681BA5A5FC00217B53 /* 4.1.jpg in Resources */,
 				0DD23B651BA5A5FC00217B53 /* 1.1.jpg in Resources */,
 				39784EA01BA46E74002B8223 /* logo1.jpg in Resources */,
-				39784EA91BA46EAF002B8223 /* whitey2.png in Resources */,
-				39784EA21BA46E74002B8223 /* logo2.jpg in Resources */,
-				39784E9F1BA46E74002B8223 /* ios-linen.jpg in Resources */,
 				39784EAB1BA46ED5002B8223 /* remitjoy.sql in Resources */,
 				39784E211B8A0861002B8223 /* LaunchScreen.xib in Resources */,
 				0DD23B661BA5A5FC00217B53 /* 2.1.jpg in Resources */,
 				39784E8D1BA46DE8002B8223 /* Default-568h@2x.png in Resources */,
-				39784EA51BA46E74002B8223 /* mockup2.jpg in Resources */,
 				0DD23B691BA5A5FC00217B53 /* 5.1.jpg in Resources */,
 				39784E1E1B8A0861002B8223 /* Images.xcassets in Resources */,
 			);
