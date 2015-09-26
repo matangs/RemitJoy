@@ -42,20 +42,20 @@
 -(void)setupCoachMark{
     NSArray *coachMarks = @[
                             @{
-                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,65.0f},{300.0f,80.0f}}],
-                                @"caption": @"You add a new receipt for this trip here"
+                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,65.0f},{365.0f,80.0f}}],
+                                @"caption": @"Add a new receipt for this trip by tapping here."
                                 },
                             @{
-                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,145.0f},{300.0f,80.0f}}],
-                                @"caption": @"Here, you generate a PDF with all receipts captured on this trip for an email"
+                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,145.0f},{365.0f,80.0f}}],
+                                @"caption": @"Tap here to generate a PDF with all receipts captured on this trip and send it via email."
                                 },
                             @{
-                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,225.0f},{300.0f,80.0f}}],
-                                @"caption": @"You view and change details for this expense here."
+                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,225.0f},{365.0f,80.0f}}],
+                                @"caption": @"View and change details for this expense by tapping here."
                                 },
                             @{
-                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,260.0f},{300.0f,45.0f}}],
-                                @"caption": @"Now click on this reciept to view it's details"
+                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,260.0f},{365.0f,45.0f}}],
+                                @"caption": @"Now please tap on this reciept to view details"
                                 }
                             
                             

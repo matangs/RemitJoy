@@ -114,20 +114,20 @@ const NSInteger SECTION_NOTE = 4;
 -(void)setupCoachMark{
     NSArray *coachMarks = @[
                             @{
-                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,65.0f},{300.0f,80.0f}}],
+                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,65.0f},{365.0f,100.0f}}],
+                                @"caption": @"Tap here to use your camera for clicking a photo of reciept or use an existing photo. You can add more than one photo. You can delete a photo by left-swipe."
+                                },
+                            @{
+                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,165.0f},{365.0f,80.0f}}],
                                 @"caption": @"Set or change amount you spent and the currency you used."
                                 },
                             @{
-                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,150.0f},{300.0f,80.0f}}],
+                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,250.0f},{365.0f,80.0f}}],
                                 @"caption": @"Set or update date for this expense, and the type of expense."
                                 },
                             @{
-                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,230.0f},{400.0f,80.0f}}],
-                                @"caption": @"You can use your camera to click a photo of reciept or use an existing photo. You can add more than one photo. You can delete a photo by left-swipe."
-                                },
-                            @{
-                                @"rect": [NSValue valueWithCGRect:(CGRect){{250.0f,15.0f},{300.0f,45.0f}}],
-                                @"caption": @"Finally click on update button to save the details"
+                                @"rect": [NSValue valueWithCGRect:(CGRect){{325.0f,20.0f},{45.0f,45.0f}}],
+                                @"caption": @"Finally click on save button to save your data."
                                 }
                             
                             

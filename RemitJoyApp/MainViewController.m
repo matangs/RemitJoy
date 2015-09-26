@@ -45,38 +45,23 @@
 -(void)setupCoachMark{
     // Setup coach marks
     NSArray *coachMarks = @[
-                            /*@{
-                                @"rect": [NSValue valueWithCGRect:(CGRect){{0,0},{45,45}}],
-                                @"caption": @"Helpful navigation menu",
-                                @"shape": @"circle"
+                            @{
+                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,65.0f},{365.0f,80.0f}}],
+                                @"caption": @"Tap here to add a new trip for attaching reciepts"
                                 },
                             @{
-                                @"rect": [NSValue valueWithCGRect:(CGRect){{10.0f,56.0f},{300.0f,56.0f}}],
-                                @"caption": @"Document your wedding by taking photos",
-                                @"shape": @"square"
-                                },*/
-                            @{
-                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,65.0f},{300.0f,80.0f}}],
-                                @"caption": @"You start by adding a new trip to attach reciepts"
+                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,145.0f},{365.0f,120.0f}}],
+                                @"caption": @"View, add, delete and email receipts from existing trips."
                                 },
                             @{
-                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,145.0f},{300.0f,120.0f}}],
-                                @"caption": @"You can view and add receipts to trips already existing"
-                                },
-                            @{
-                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,225.0f},{300.0f,40.0f}}],
-                                @"caption": @"Now please select Paris trip to explore it"
+                                @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,225.0f},{365.0f,40.0f}}],
+                                @"caption": @"Please tap on Paris trip to explore it."
                                 }
                             
                             ];
     m_coachMarksView = [[WSCoachMarksView alloc] initWithFrame:self.view.bounds coachMarks:coachMarks];
     
     [self.navigationController.view addSubview:m_coachMarksView];
-    //[self.view addSubview:coachMarksView];
-    
-    //coachMarksView.animationDuration = 0.5f;
-    //coachMarksView.enableContinueLabel = NO;
-    //[coachMarksView start];
 }
 
 
