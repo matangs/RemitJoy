@@ -46,8 +46,17 @@
     if (rcpt.m_amount != self.m_amount || rcpt.m_primaryKey != rcpt.m_primaryKey || rcpt.m_tripKey != self.m_tripKey)
         return false;
     
-    if (rcpt.m_comment != self.m_comment && [rcpt.m_comment isEqualToString:self.m_comment] == false)
-        return false;
+    bool emptyCommment = false;
+    if ((rcpt.m_comment == nil || [rcpt.m_comment isEqualToString:@""]) &&
+        (self.m_comment == nil || [self.m_comment isEqualToString:@""]))
+    {
+        emptyCommment = true;
+    }
+    
+    if (emptyCommment == false){
+        if (rcpt.m_comment != self.m_comment && [rcpt.m_comment isEqualToString:self.m_comment] == false)
+            return false;
+    }
 
     if (rcpt.m_currency != self.m_currency && [rcpt.m_currency isEqualToString:self.m_currency] == false)
         return false;

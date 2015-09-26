@@ -18,7 +18,15 @@
 
 @end
 
+const NSInteger SECTION_AMOUNT = 1;
+const NSInteger SECTION_TYPE = 2;
+const NSInteger SECTION_BUTTONS = 0;
+const NSInteger SECTION_PHOTOS = 3;
+const NSInteger SECTION_NOTE = 4;
+
 @implementation ReceiptTableViewController
+
+
 
 @synthesize currencyArray,currencyFullNameArray;
 @synthesize typeArray;
@@ -33,17 +41,19 @@
 @synthesize m_receiptImageHelper, m_deletedImageArr, m_origReceipt;
 
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     self.title = @"Receipt";
     [MainViewController setBackgrounColor:self];
     
-    NSString* buttonName = nil;
-    if (self.m_isUpdating)
+    NSString* buttonName = @"Save";
+    /*if (self.m_isUpdating)
         buttonName = @"Update";
     else
         buttonName = @"Add";
+     */
     
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:buttonName
                                                                     style:UIBarButtonItemStyleDone target:self action:@selector(onAddOrUpdate)];
@@ -93,6 +103,8 @@
         [m_receiptImageHelper load:self.m_receipt.m_photo receipt:self.m_receipt];
         m_selComment = self.m_receipt.m_comment;
     }
+    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     m_deletedImageArr = [[NSMutableArray alloc] init];
     [self setupCoachMark];
@@ -224,20 +236,20 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (((NSInteger)section) == 0 || ((NSInteger)section) == 1 || ((NSInteger)section) == 2 )
+    if (((NSInteger)section) == SECTION_AMOUNT || ((NSInteger)section) == SECTION_TYPE || ((NSInteger)section) == SECTION_BUTTONS )
         return 1;
     
-    if (((NSInteger)section) == 3)
+    if (((NSInteger)section) == SECTION_PHOTOS)
         return self.m_receiptImageHelper.m_imageDataArr.count;
 
-    if (((NSInteger)section) == 4)
+    if (((NSInteger)section) == SECTION_NOTE)
         return 1;
 
     return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0)
+    if (indexPath.section == SECTION_AMOUNT)
     {
         static NSString* cellIdentifier = @"RcptAmountCell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];// forIndexPath:indexPath];
@@ -261,7 +273,7 @@
         
         return cell;
     }
-    if (indexPath.section == 1)
+    if (indexPath.section == SECTION_TYPE)
     {
         static NSString* cellIdentifier = @"RcptTypeCell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];// forIndexPath:indexPath];
@@ -286,7 +298,7 @@
         return cell;
     }
 
-    if (indexPath.section == 2)
+    if (indexPath.section == SECTION_BUTTONS)
     {
         static NSString* cellIdentifier = @"RcptButtonCell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];// forIndexPath:indexPath];
@@ -296,20 +308,22 @@
         }
         
         UIButton* newPhotoBtn = (UIButton*)[cell viewWithTag:105];
+        //UIImage *btnImage = [UIImage imageNamed:@"Camera Filled-50-2.png"];
+        //[newPhotoBtn setImage:btnImage forState:UIControlStateNormal];
         [newPhotoBtn addTarget:self
-                   action:@selector(onAddReceiptPhoto:)
+                        action:@selector(onGetPhoto:)//onAddReceiptPhoto:)
          forControlEvents:UIControlEventTouchUpInside];
         
-        UIButton* usePhotoBtn = (UIButton*)[cell viewWithTag:106];
+        /*UIButton* usePhotoBtn = (UIButton*)[cell viewWithTag:106];
         [usePhotoBtn addTarget:self
                         action:@selector(onUseReceiptPhoto:)
               forControlEvents:UIControlEventTouchUpInside];
-        
+        */
         
         return cell;
     }
 
-    if (indexPath.section == 3)
+    if (indexPath.section == SECTION_PHOTOS)
     {
         static NSString* cellIdentifier = @"RcptImageCell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];// forIndexPath:indexPath];
@@ -322,11 +336,11 @@
         imgView.contentMode = UIViewContentModeScaleAspectFit;
 
         imgView.image = ((ReceiptImageData*)[self.m_receiptImageHelper.m_imageDataArr objectAtIndex:indexPath.row]).m_image;
-        
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         return cell;
     }
     
-    if (indexPath.section == 4)
+    if (indexPath.section == SECTION_NOTE)
     {
         static NSString* cellIdentifier = @"CommentCell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];// forIndexPath:indexPath];
@@ -410,12 +424,15 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 0 || indexPath.section == 1 || indexPath.section == 2)
+    if(indexPath.section == SECTION_AMOUNT || indexPath.section == SECTION_TYPE)
         return 48;
-    if (indexPath.section == 3)
+    if (indexPath.section == SECTION_PHOTOS)
         return 220;
-    if (indexPath.section == 4)
+    if (indexPath.section == SECTION_NOTE)
         return 100;
+    
+    if (indexPath.section == SECTION_BUTTONS)
+        return 66;
     
     return 0;
 }
@@ -428,26 +445,33 @@
     subjectLabel.textColor = [[RemitConsts sharedInstance] darkBackgrounColor];
     subjectLabel.backgroundColor = [UIColor clearColor];
     
-    if (section == 0){
+    if (section == SECTION_AMOUNT){
         subjectLabel.text=@"Amount";
         [headerView addSubview:subjectLabel];
         return headerView;
     }
     
-    if (section==1) {
+    if (section== SECTION_TYPE) {
         subjectLabel.text=@"Date and type";
         [headerView addSubview:subjectLabel];
         return headerView;
     }
     
-    if (section==2) {
-        subjectLabel.text=@"Receipts";
+    if (section==SECTION_BUTTONS) {
+        subjectLabel.text=@"Capture Receipt";
         [headerView addSubview:subjectLabel];
         return headerView;
     }
 
-    if (section==4) {
-        subjectLabel.text=@"Notes";
+    if (section == SECTION_PHOTOS){
+        if (self.m_receiptImageHelper.m_imageDataArr.count > 0){
+            subjectLabel.text=@"Receipts";
+            [headerView addSubview:subjectLabel];
+            return headerView;
+        }
+    }
+    if (section==SECTION_NOTE) {
+        subjectLabel.text=@"Enter notes";
         [headerView addSubview:subjectLabel];
         return headerView;
     }
@@ -457,13 +481,21 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if(section == 0 || section == 1 || section == 2 || section == 4)
+    if(section == SECTION_AMOUNT || section == SECTION_TYPE || section == SECTION_NOTE)
         return 35;
+    
+    if (section == SECTION_BUTTONS)
+        return 35;
+    
+    if (section == SECTION_PHOTOS){
+        if (self.m_receiptImageHelper.m_imageDataArr.count > 0)
+            return 35;
+    }
     return 0;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 3)
+    if (indexPath.section == SECTION_PHOTOS)
         return YES;
     
     return NO;
@@ -621,6 +653,40 @@
 
 #pragma mark - Image capture
 
+-(IBAction)onGetPhoto:(id)sender{
+    UIAlertController * alert=   [UIAlertController
+                                 alertControllerWithTitle:@"How do you want to capture the receipt?"
+                                 message:nil
+                                 preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction* newPhoto = [UIAlertAction
+                               actionWithTitle:@"Take New Photo(s)"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action)
+                               {
+                                   [self onAddReceiptPhoto:nil];
+                                   
+                               }];
+    [alert addAction:newPhoto];
+    
+    UIAlertAction* choosePhoto = [UIAlertAction
+                                  actionWithTitle:@"Import from Cameral Roll"
+                                  style:UIAlertActionStyleDefault
+                                  handler:^(UIAlertAction * action)
+                                  {
+                                      [self onUseReceiptPhoto:nil];
+                                      
+                                  }];
+    [alert addAction:choosePhoto];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:nil];
+    [alert addAction:cancelAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
 
 - (IBAction)onAddReceiptPhoto:(id)sender {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
@@ -662,8 +728,19 @@
     
 }
 
+-(void)textViewDidBeginEditing:(UITextView *)textView{
+    NSString* defText = @"Details about this receipt.";
+    if ([defText isEqualToString:textView.text]){
+        // something new was entered.
+        textView.text = @"";
+    }
+}
+
 -(void)textViewDidEndEditing:(UITextView *)textView{
     self.m_selComment = textView.text;
+    if ([textView.text isEqualToString:@""]){
+        textView.text = @"Details about this receipt.";
+    }
     [textView resignFirstResponder];
 }
 
@@ -713,6 +790,11 @@
         return YES;
     }
     
+    NSString* defText = @"Details about this receipt.";
+    if ([defText isEqualToString:self.m_commentText.text] == false){
+        // something new was entered.
+        self.m_selComment = self.m_commentText.text;
+    }
     [self updateReceipt];
     
     bool needsUpdate = false;

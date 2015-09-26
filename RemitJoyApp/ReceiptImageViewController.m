@@ -24,12 +24,13 @@
     self.m_imageView.image = self.m_imageData.m_image;
     self.m_imageView.contentMode = UIViewContentModeScaleAspectFit;
     
+    //UIImage *image = [[UIImage imageNamed:@"rotate.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    //UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(onRotate)];
+    
     NSString* buttonName = @"Rotate";
-    
-    //UIBarButtonItem* rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"rotate.png"] landscapeImagePhone:[UIImage imageNamed:@"rotate.png"] style:UIBarButtonItemStyleDone target:self action:@selector(onRotate)];
-    
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:buttonName
                                                                     style:UIBarButtonItemStyleDone target:self action:@selector(onRotate)];
+    
     self.navigationItem.rightBarButtonItem = rightButton;
     
     self.m_scrollView.minimumZoomScale=0.5;

@@ -11,9 +11,14 @@
 		0D6171121BA83B7400DBD449 /* ReceiptImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6171111BA83B7400DBD449 /* ReceiptImageViewController.m */; };
 		0D6171151BA8BCCA00DBD449 /* WSCoachMarksView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6171141BA8BCCA00DBD449 /* WSCoachMarksView.m */; };
 		0D6171171BA8BCD700DBD449 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 0D6171161BA8BCD700DBD449 /* LICENSE */; };
+		0D656D051BB732C300E396BD /* Camera-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D656D041BB732C300E396BD /* Camera-25.png */; settings = {ASSET_TAGS = (); }; };
+		0D656D071BB7347400E396BD /* Camera-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D656D061BB7347400E396BD /* Camera-50.png */; settings = {ASSET_TAGS = (); }; };
+		0D656D091BB7368100E396BD /* Camera Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D656D081BB7368100E396BD /* Camera Filled-50.png */; settings = {ASSET_TAGS = (); }; };
+		0D656D0B1BB7372000E396BD /* Camera Filled-50-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D656D0A1BB7372000E396BD /* Camera Filled-50-1.png */; settings = {ASSET_TAGS = (); }; };
 		0D8ACC111BB637B6002BD8D4 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D8ACC101BB637B6002BD8D4 /* iTunesArtwork.png */; settings = {ASSET_TAGS = (); }; };
+		0DA9D77D1BB738DA002ADB01 /* Camera Filled-50-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA9D77C1BB738DA002ADB01 /* Camera Filled-50-2.png */; settings = {ASSET_TAGS = (); }; };
+		0DA9D77F1BB7415A002ADB01 /* rotate.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA9D77E1BB7415A002ADB01 /* rotate.png */; settings = {ASSET_TAGS = (); }; };
 		0DB35F7A1BB23DDA00D9943A /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB35F791BB23DDA00D9943A /* UIViewController+BackButtonHandler.m */; settings = {ASSET_TAGS = (); }; };
-		0DB35F7E1BB2420900D9943A /* rotate.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB35F7D1BB2420900D9943A /* rotate.png */; settings = {ASSET_TAGS = (); }; };
 		0DD23B651BA5A5FC00217B53 /* 1.1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DD23B601BA5A5FC00217B53 /* 1.1.jpg */; };
 		0DD23B661BA5A5FC00217B53 /* 2.1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DD23B611BA5A5FC00217B53 /* 2.1.jpg */; };
 		0DD23B671BA5A5FC00217B53 /* 3.1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DD23B621BA5A5FC00217B53 /* 3.1.jpg */; };
@@ -39,7 +44,6 @@
 		39784E6F1B9E0478002B8223 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39784E6E1B9E0478002B8223 /* Photos.framework */; };
 		39784E8B1BA44653002B8223 /* RemitConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = 39784E8A1BA44653002B8223 /* RemitConsts.m */; };
 		39784E8D1BA46DE8002B8223 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39784E8C1BA46DE8002B8223 /* Default-568h@2x.png */; };
-		39784EA01BA46E74002B8223 /* logo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39784E941BA46E74002B8223 /* logo1.jpg */; };
 		39784EA11BA46E74002B8223 /* logo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 39784E951BA46E74002B8223 /* logo1.png */; };
 		39784EAB1BA46ED5002B8223 /* remitjoy.sql in Resources */ = {isa = PBXBuildFile; fileRef = 39784EAA1BA46ED5002B8223 /* remitjoy.sql */; };
 /* End PBXBuildFile section */
@@ -52,10 +56,15 @@
 		0D6171131BA8BCCA00DBD449 /* WSCoachMarksView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSCoachMarksView.h; sourceTree = "<group>"; };
 		0D6171141BA8BCCA00DBD449 /* WSCoachMarksView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSCoachMarksView.m; sourceTree = "<group>"; };
 		0D6171161BA8BCD700DBD449 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		0D656D041BB732C300E396BD /* Camera-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Camera-25.png"; sourceTree = "<group>"; };
+		0D656D061BB7347400E396BD /* Camera-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Camera-50.png"; sourceTree = "<group>"; };
+		0D656D081BB7368100E396BD /* Camera Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Camera Filled-50.png"; sourceTree = "<group>"; };
+		0D656D0A1BB7372000E396BD /* Camera Filled-50-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Camera Filled-50-1.png"; sourceTree = "<group>"; };
 		0D8ACC101BB637B6002BD8D4 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iTunesArtwork.png; path = RemitJoyApp/iTunesArtwork.png; sourceTree = "<group>"; };
+		0DA9D77C1BB738DA002ADB01 /* Camera Filled-50-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Camera Filled-50-2.png"; sourceTree = "<group>"; };
+		0DA9D77E1BB7415A002ADB01 /* rotate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rotate.png; sourceTree = "<group>"; };
 		0DB35F781BB23DDA00D9943A /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
 		0DB35F791BB23DDA00D9943A /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
-		0DB35F7D1BB2420900D9943A /* rotate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rotate.png; sourceTree = "<group>"; };
 		0DD23B601BA5A5FC00217B53 /* 1.1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.1.jpg; path = RemitJoyApp/1.1.jpg; sourceTree = "<group>"; };
 		0DD23B611BA5A5FC00217B53 /* 2.1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.1.jpg; path = RemitJoyApp/2.1.jpg; sourceTree = "<group>"; };
 		0DD23B621BA5A5FC00217B53 /* 3.1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 3.1.jpg; path = RemitJoyApp/3.1.jpg; sourceTree = "<group>"; };
@@ -98,7 +107,6 @@
 		39784E891BA44653002B8223 /* RemitConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemitConsts.h; sourceTree = "<group>"; };
 		39784E8A1BA44653002B8223 /* RemitConsts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemitConsts.m; sourceTree = "<group>"; };
 		39784E8C1BA46DE8002B8223 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		39784E941BA46E74002B8223 /* logo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logo1.jpg; path = RemitJoyApp/logo1.jpg; sourceTree = "<group>"; };
 		39784E951BA46E74002B8223 /* logo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo1.png; path = RemitJoyApp/logo1.png; sourceTree = "<group>"; };
 		39784EAA1BA46ED5002B8223 /* remitjoy.sql */ = {isa = PBXFileReference; lastKnownFileType = file; name = remitjoy.sql; path = RemitJoyApp/remitjoy.sql; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -217,13 +225,17 @@
 		39784E861BA43CCA002B8223 /* ImgAssets */ = {
 			isa = PBXGroup;
 			children = (
-				0DB35F7D1BB2420900D9943A /* rotate.png */,
+				0DA9D77C1BB738DA002ADB01 /* Camera Filled-50-2.png */,
+				0D656D081BB7368100E396BD /* Camera Filled-50.png */,
+				0D656D0A1BB7372000E396BD /* Camera Filled-50-1.png */,
+				0D656D061BB7347400E396BD /* Camera-50.png */,
+				0D656D041BB732C300E396BD /* Camera-25.png */,
+				0DA9D77E1BB7415A002ADB01 /* rotate.png */,
 				0DD23B601BA5A5FC00217B53 /* 1.1.jpg */,
 				0DD23B611BA5A5FC00217B53 /* 2.1.jpg */,
 				0DD23B621BA5A5FC00217B53 /* 3.1.jpg */,
 				0DD23B631BA5A5FC00217B53 /* 4.1.jpg */,
 				0DD23B641BA5A5FC00217B53 /* 5.1.jpg */,
-				39784E941BA46E74002B8223 /* logo1.jpg */,
 				39784E951BA46E74002B8223 /* logo1.png */,
 			);
 			name = ImgAssets;
@@ -302,16 +314,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D656D091BB7368100E396BD /* Camera Filled-50.png in Resources */,
+				0D656D051BB732C300E396BD /* Camera-25.png in Resources */,
+				0DA9D77D1BB738DA002ADB01 /* Camera Filled-50-2.png in Resources */,
 				0DD23B671BA5A5FC00217B53 /* 3.1.jpg in Resources */,
 				39784EA11BA46E74002B8223 /* logo1.png in Resources */,
 				0D6171171BA8BCD700DBD449 /* LICENSE in Resources */,
 				39784E521B93BF38002B8223 /* Values.plist in Resources */,
-				0DB35F7E1BB2420900D9943A /* rotate.png in Resources */,
+				0D656D0B1BB7372000E396BD /* Camera Filled-50-1.png in Resources */,
 				39784E1C1B8A0861002B8223 /* Main.storyboard in Resources */,
+				0D656D071BB7347400E396BD /* Camera-50.png in Resources */,
 				0D8ACC111BB637B6002BD8D4 /* iTunesArtwork.png in Resources */,
 				0DD23B681BA5A5FC00217B53 /* 4.1.jpg in Resources */,
 				0DD23B651BA5A5FC00217B53 /* 1.1.jpg in Resources */,
-				39784EA01BA46E74002B8223 /* logo1.jpg in Resources */,
+				0DA9D77F1BB7415A002ADB01 /* rotate.png in Resources */,
 				39784EAB1BA46ED5002B8223 /* remitjoy.sql in Resources */,
 				39784E211B8A0861002B8223 /* LaunchScreen.xib in Resources */,
 				0DD23B661BA5A5FC00217B53 /* 2.1.jpg in Resources */,

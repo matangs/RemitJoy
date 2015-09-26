@@ -217,7 +217,7 @@
     }
     
     if (section==1) {
-        subjectLabel.text=@"Previous Trips";
+        subjectLabel.text=@"Added Trips";
         [headerView addSubview:subjectLabel];
         return headerView;
     }

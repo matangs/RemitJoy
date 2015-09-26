@@ -251,37 +251,18 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="47.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" tag="105" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cru-Zh-6gk">
-                                            <rect key="frame" x="38" y="9" width="90" height="30"/>
-                                            <state key="normal" title="Click a photo">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
-                                        <button opaque="NO" tag="106" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BBI-78-e8h">
-                                            <rect key="frame" x="479" y="9" width="83" height="30"/>
-                                            <state key="normal" title="Use a photo">
+                                        <button opaque="NO" tag="105" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cru-Zh-6gk">
+                                            <rect key="frame" x="8" y="-1" width="584" height="50"/>
+                                            <state key="normal" image="Camera Filled-50-2.png">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="BBI-78-e8h" secondAttribute="trailing" constant="30" id="2Xb-20-dHE"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="BBI-78-e8h" secondAttribute="trailing" constant="20" id="FfG-fJ-gn6"/>
-                                        <constraint firstItem="BBI-78-e8h" firstAttribute="leading" secondItem="Cru-Zh-6gk" secondAttribute="trailing" constant="10" id="GZB-wP-JKY"/>
-                                        <constraint firstAttribute="centerY" secondItem="BBI-78-e8h" secondAttribute="centerY" id="Lhi-vK-1En"/>
-                                        <constraint firstItem="Cru-Zh-6gk" firstAttribute="leading" secondItem="ZU0-BY-2Hf" secondAttribute="leadingMargin" constant="80" id="Lsf-mK-Khx"/>
+                                        <constraint firstItem="Cru-Zh-6gk" firstAttribute="leading" secondItem="ZU0-BY-2Hf" secondAttribute="leadingMargin" id="Nfc-mF-s9R"/>
+                                        <constraint firstItem="Cru-Zh-6gk" firstAttribute="centerX" secondItem="ZU0-BY-2Hf" secondAttribute="centerX" id="Uuk-Hh-shw"/>
                                         <constraint firstAttribute="centerY" secondItem="Cru-Zh-6gk" secondAttribute="centerY" id="XfC-OS-LG3"/>
-                                        <constraint firstAttribute="centerY" secondItem="BBI-78-e8h" secondAttribute="centerY" id="gW5-iU-Dkk"/>
-                                        <constraint firstItem="Cru-Zh-6gk" firstAttribute="leading" secondItem="ZU0-BY-2Hf" secondAttribute="leadingMargin" constant="30" id="h1u-MJ-s7R"/>
                                     </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="Lsf-mK-Khx"/>
-                                            <exclude reference="FfG-fJ-gn6"/>
-                                            <exclude reference="GZB-wP-JKY"/>
-                                            <exclude reference="gW5-iU-Dkk"/>
-                                        </mask>
-                                    </variation>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" id="QJ3-fa-PvN">
@@ -485,6 +466,9 @@
             <point key="canvasLocation" x="775" y="488"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Camera Filled-50-2.png" width="50" height="50"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="QyC-ND-RbK"/>
     </inferredMetricsTieBreakers>

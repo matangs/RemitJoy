@@ -171,7 +171,7 @@
         subjectLabel.text=@"Email";
     }
     else if (section==2) {
-        subjectLabel.text=@"Receipts";
+        subjectLabel.text=@"Added Receipts";
     }
     
     [headerView addSubview:subjectLabel];

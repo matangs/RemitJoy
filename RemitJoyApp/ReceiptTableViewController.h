@@ -12,7 +12,15 @@
 #import "WSCoachMarksView.h"
 
 
+extern const NSInteger SECTION_AMOUNT;
+extern const NSInteger SECTION_TYPE;
+extern const NSInteger SECTION_BUTTONS;
+extern const NSInteger SECTION_PHOTOS;
+extern const NSInteger SECTION_NOTE;
+
+
 @interface ReceiptTableViewController : UITableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource,UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate, UIAlertViewDelegate>
+
 
 
 @property (weak, nonatomic) UITextField* m_amountText;
