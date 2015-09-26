@@ -272,6 +272,7 @@
 				TargetAttributes = {
 					39784E0C1B8A0861002B8223 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = M7W8UG94XB;
 					};
 				};
 			};
@@ -449,6 +450,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/RemitJoyApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "RemitJoy.$(PRODUCT_NAME:rfc1034identifier)";
@@ -460,6 +462,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/RemitJoyApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "RemitJoy.$(PRODUCT_NAME:rfc1034identifier)";

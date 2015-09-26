@@ -16,4 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIWebView *m_pdfWebView;
 @property (weak, nonatomic) Trip* m_trip;
 
+@property (strong, nonatomic) MFMailComposeViewController * m_mailComposerViewcontroller;
+
 @end

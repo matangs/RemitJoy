@@ -46,6 +46,21 @@
 }
 
 - (IBAction)onSendEmail:(id)sender {
+    
+    if ([MFMailComposeViewController canSendMail] == false) {
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Warning"
+                                                                       message:@"You can't send email from this device, it is not setup."
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {
+                                                              }];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+        return;
+    }
     // Email Subject
     NSString *emailTitle = [NSString stringWithFormat: @"%@ - Trip summary", self.m_trip.m_name];
     // Email Content
@@ -74,6 +89,8 @@
     [mc setMessageBody:messageBody isHTML:YES];
     [mc setToRecipients:toRecipents];
     
+    //[mc setToRecipients:toRecipents];
+    
     NSString *filePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"temp.pdf"];
     NSData *fileData = [NSData dataWithContentsOfFile:filePath];
     NSString* filename = [NSString stringWithFormat:@"%@.pdf",self.m_trip.m_name];
@@ -83,6 +100,7 @@
     
     // Present mail view controller on screen
     [self presentViewController:mc animated:YES completion:NULL];
+    self.m_mailComposerViewcontroller = mc;
     
     
 }
@@ -109,6 +127,7 @@
     
     // Close the Mail Interface
     [self dismissViewControllerAnimated:YES completion:NULL];
+    self.m_mailComposerViewcontroller = nil;
 }
 
 
