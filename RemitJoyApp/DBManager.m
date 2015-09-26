@@ -46,7 +46,7 @@ NSString* const m_databaseFileName = @"remitjoy.sql";
 
     // create two folders for existing trips
     for (NSInteger d = 1; d < 3; d++){
-        NSString *dataPath = [self.m_documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%lu",d]];
+        NSString *dataPath = [self.m_documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%lu",(long)d]];
         NSError *error;
         if (![[NSFileManager defaultManager] fileExistsAtPath:dataPath])
             [[NSFileManager defaultManager] createDirectoryAtPath:dataPath withIntermediateDirectories:NO attributes:nil error:&error]; //Create folder
@@ -55,22 +55,22 @@ NSString* const m_databaseFileName = @"remitjoy.sql";
     
     //
     for (NSInteger i = 1; i < 4; i++) {
-        NSString* destinationPath = [self.m_documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"1/%lu.1.jpg",i]];
+        NSString* destinationPath = [self.m_documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"1/%lu.1.jpg",(long)i]];
         if ([[NSFileManager defaultManager] fileExistsAtPath:destinationPath])
             continue;
 
-        NSString *sourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%lu.1.jpg",i]];
+        NSString *sourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%lu.1.jpg",(long)i]];
         NSError *error;
         [[NSFileManager defaultManager] copyItemAtPath:sourcePath toPath:destinationPath error:&error];
 
     }
 
     for (NSInteger i = 4; i < 6; i++) {
-        NSString* destinationPath = [self.m_documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"2/%lu.1.jpg",i]];
+        NSString* destinationPath = [self.m_documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"2/%lu.1.jpg",(long)i]];
         if ([[NSFileManager defaultManager] fileExistsAtPath:destinationPath])
             continue;
         
-        NSString *sourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%lu.1.jpg",i]];
+        NSString *sourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%lu.1.jpg",(long)i]];
         NSError *error;
         [[NSFileManager defaultManager] copyItemAtPath:sourcePath toPath:destinationPath error:&error];
     }

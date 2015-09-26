@@ -58,7 +58,7 @@
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString* homePath = [paths objectAtIndex:0];
-    NSString *dataPath = [homePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%lu",trip.m_primaryKey]];
+    NSString *dataPath = [homePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%lu",(long)trip.m_primaryKey]];
     
     NSError *error;
     if (![[NSFileManager defaultManager] fileExistsAtPath:dataPath])

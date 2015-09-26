@@ -20,7 +20,7 @@
     [mgr.m_parameterArray addObject:self.m_date];
     [mgr executeQuery:insertStr];
     
-    self.m_primaryKey = [mgr lastInsertedRowID];
+    self.m_primaryKey = (NSInteger)[mgr lastInsertedRowID];
 }
 
 +(NSMutableArray*)loadTrips{
@@ -46,7 +46,7 @@
 -(NSString*)tripDirectoryPath{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString* documentsDirectory = [paths objectAtIndex:0];
-    return [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%lu", self.m_primaryKey]];
+    return [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%lu", (long)self.m_primaryKey]];
 }
 
 +(void)deleteTrip:(Trip *)trip{
@@ -63,7 +63,7 @@
     }
     
     
-    NSString* deleteStr = [NSString stringWithFormat:@"DELETE FROM trips WHERE id = %lu ",trip.m_primaryKey];
+    NSString* deleteStr = [NSString stringWithFormat:@"DELETE FROM trips WHERE id = %lu ",(long)trip.m_primaryKey];
     DBManager* mgr = [[DBManager alloc] initDatabase];
     [mgr executeQuery:deleteStr];
 }

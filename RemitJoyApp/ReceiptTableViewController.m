@@ -199,7 +199,7 @@
         if (data.m_isNew == false)
             continue;
         
-        NSString* imgId = [NSString stringWithFormat:@"%lu",data.m_id];
+        NSString* imgId = [NSString stringWithFormat:@"%lu",(long)data.m_id];
         NSString* destinationPath = [self.m_receipt imagePath:imgId];
         if ([[NSFileManager defaultManager] fileExistsAtPath:destinationPath]){
             NSError* error;
@@ -473,7 +473,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
         NSInteger idOfDeletedImg = ((ReceiptImageData*)(self.m_receiptImageHelper.m_imageDataArr[indexPath.row])).m_id;
-        [self.m_deletedImageArr addObject: [NSString stringWithFormat:@"%lu",idOfDeletedImg]];
+        [self.m_deletedImageArr addObject: [NSString stringWithFormat:@"%lu",(long)idOfDeletedImg]];
         [self.m_receiptImageHelper deleteImageAt:indexPath.row];
         [self.tableView reloadData];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {

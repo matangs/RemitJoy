@@ -11,6 +11,7 @@
 		0D6171121BA83B7400DBD449 /* ReceiptImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6171111BA83B7400DBD449 /* ReceiptImageViewController.m */; };
 		0D6171151BA8BCCA00DBD449 /* WSCoachMarksView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6171141BA8BCCA00DBD449 /* WSCoachMarksView.m */; };
 		0D6171171BA8BCD700DBD449 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 0D6171161BA8BCD700DBD449 /* LICENSE */; };
+		0D8ACC111BB637B6002BD8D4 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D8ACC101BB637B6002BD8D4 /* iTunesArtwork.png */; settings = {ASSET_TAGS = (); }; };
 		0DB35F7A1BB23DDA00D9943A /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB35F791BB23DDA00D9943A /* UIViewController+BackButtonHandler.m */; settings = {ASSET_TAGS = (); }; };
 		0DB35F7E1BB2420900D9943A /* rotate.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB35F7D1BB2420900D9943A /* rotate.png */; settings = {ASSET_TAGS = (); }; };
 		0DD23B651BA5A5FC00217B53 /* 1.1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DD23B601BA5A5FC00217B53 /* 1.1.jpg */; };
@@ -51,6 +52,7 @@
 		0D6171131BA8BCCA00DBD449 /* WSCoachMarksView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSCoachMarksView.h; sourceTree = "<group>"; };
 		0D6171141BA8BCCA00DBD449 /* WSCoachMarksView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSCoachMarksView.m; sourceTree = "<group>"; };
 		0D6171161BA8BCD700DBD449 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		0D8ACC101BB637B6002BD8D4 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iTunesArtwork.png; path = RemitJoyApp/iTunesArtwork.png; sourceTree = "<group>"; };
 		0DB35F781BB23DDA00D9943A /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
 		0DB35F791BB23DDA00D9943A /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
 		0DB35F7D1BB2420900D9943A /* rotate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rotate.png; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		39784E041B8A0861002B8223 = {
 			isa = PBXGroup;
 			children = (
+				0D8ACC101BB637B6002BD8D4 /* iTunesArtwork.png */,
 				0DF519CB1BB4EAAA00A00F0F /* libsqlite3.tbd */,
 				39784E8C1BA46DE8002B8223 /* Default-568h@2x.png */,
 				39784E861BA43CCA002B8223 /* ImgAssets */,
@@ -305,6 +308,7 @@
 				39784E521B93BF38002B8223 /* Values.plist in Resources */,
 				0DB35F7E1BB2420900D9943A /* rotate.png in Resources */,
 				39784E1C1B8A0861002B8223 /* Main.storyboard in Resources */,
+				0D8ACC111BB637B6002BD8D4 /* iTunesArtwork.png in Resources */,
 				0DD23B681BA5A5FC00217B53 /* 4.1.jpg in Resources */,
 				0DD23B651BA5A5FC00217B53 /* 1.1.jpg in Resources */,
 				39784EA01BA46E74002B8223 /* logo1.jpg in Resources */,
@@ -453,7 +457,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/RemitJoyApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "RemitJoy.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.RemitJoy.mkumar.Remit-Joy";
 				PRODUCT_NAME = "Remit Joy";
 			};
 			name = Debug;
@@ -465,7 +469,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/RemitJoyApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "RemitJoy.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.RemitJoy.mkumar.Remit-Joy";
 				PRODUCT_NAME = "Remit Joy";
 			};
 			name = Release;

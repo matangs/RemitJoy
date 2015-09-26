@@ -65,7 +65,7 @@
 -(NSString*)getPhotoStr{
     NSMutableArray* arr = [[NSMutableArray alloc]init];
     for (ReceiptImageData* data in self.m_imageDataArr) {
-        [arr addObject:[NSString stringWithFormat:@"%lu", data.m_id]];
+        [arr addObject:[NSString stringWithFormat:@"%lu", (long)data.m_id]];
     }
     
     return [arr componentsJoinedByString:@","];

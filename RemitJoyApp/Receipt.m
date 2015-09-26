@@ -68,9 +68,9 @@
     NSInteger typeOrder = [RemitConsts orderForExpenseType:self.m_expenseType];
     
     NSString* insertStr = [NSString stringWithFormat:@"insert into receipts (trip_id, amount, currency, type, type_order, date, photo, comment) values(%lu, %.02f, ?, ?, %lu, ?,?,?)",
-                            self.m_tripKey,
+                            (long)self.m_tripKey,
                             self.m_amount,
-                            typeOrder
+                            (long)typeOrder
                      ];
         
     
@@ -86,7 +86,7 @@
     
     [mgr executeQuery:insertStr];
     
-    self.m_primaryKey = [mgr lastInsertedRowID];
+    self.m_primaryKey = (NSInteger)[mgr lastInsertedRowID];
     
 }
 
@@ -95,8 +95,8 @@
 
     NSString* updateStr = [NSString stringWithFormat:@"UPDATE receipts SET amount = %.02f, currency = ?, type = ?, date = ?, photo = ?, type_order = %lu, comment = ? WHERE id = %lu",
                      self.m_amount,
-                     typeOrder,
-                     self.m_primaryKey
+                     (long)typeOrder,
+                     (long)self.m_primaryKey
                      ];
     
     DBManager* mgr = [[DBManager alloc] initDatabase];
@@ -125,7 +125,7 @@
         }
     }
     
-    NSString* deleteStr = [NSString stringWithFormat:@"DELETE FROM receipts WHERE id = %lu ",rcpt.m_primaryKey];
+    NSString* deleteStr = [NSString stringWithFormat:@"DELETE FROM receipts WHERE id = %lu ",(long)rcpt.m_primaryKey];
     DBManager* mgr = [[DBManager alloc] initDatabase];
     [mgr executeQuery:deleteStr];
 }
@@ -138,7 +138,7 @@
         [mgr executeQuery:@"UPDATE receipts SET comment='my comment' WHERE id=1"];
     }
     
-    NSString* loadStr = [NSString stringWithFormat:@"select id, trip_id, amount, currency, type, type_order, date, photo, comment from receipts where trip_id = %lu order by date, type_order",tripId];
+    NSString* loadStr = [NSString stringWithFormat:@"select id, trip_id, amount, currency, type, type_order, date, photo, comment from receipts where trip_id = %lu order by date, type_order",(long)tripId];
     
     DBManager* mgr = [[DBManager alloc] initDatabase];
     NSArray* data = [mgr loadDataFromDB:loadStr];
@@ -171,7 +171,7 @@
 -(NSString*)imagePath:(NSString*)imgId{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString* documentsDirectory = [paths objectAtIndex:0];
-    return [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%lu/%lu.%@.jpg", self.m_tripKey, self.m_primaryKey,imgId]];
+    return [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%lu/%lu.%@.jpg", (long)self.m_tripKey, (long)self.m_primaryKey,imgId]];
 }
 
 @end
