@@ -126,7 +126,7 @@ const NSInteger SECTION_NOTE = 4;
                                 @"caption": @"Set or update date for this expense, and the type of expense."
                                 },
                             @{
-                                @"rect": [NSValue valueWithCGRect:(CGRect){{325.0f,20.0f},{45.0f,45.0f}}],
+                                @"rect": [NSValue valueWithCGRect:(CGRect){{250.0f,20.0f},{200.0f,45.0f}}],
                                 @"caption": @"Finally click on save button to save your data."
                                 }
                             
