@@ -39,6 +39,8 @@
 	</dict>
     <key>CurrencyDetail</key>
     <dict>
+        <key>USD</key><string>US Dollar</string>
+        <key>EUR</key><string>Euro</string>
         <key>AED</key><string>UAE - Dirham</string>
         <key>ARS</key><string>Argentine Peso</string>
         <key>AUD</key><string>Australian Dollar</string>
@@ -51,7 +53,6 @@
         <key>COP</key><string>Columbian Peso</string>
         <key>CZK</key><string>Czech Kruna</string>
         <key>DKK</key><string>Danish Krone</string>
-        <key>EUR</key><string>Euro</string>
         <key>GBP</key><string>Pound Sterling</string>
         <key>HKD</key><string>Hong-Kong Dollar</string>
         <key>HUF</key><string>Forint</string>
@@ -75,13 +76,14 @@
         <key>THB</key><string>Thailand Baht</string>
         <key>TRY</key><string>Turkish Lira</string>
         <key>TWD</key><string>Taiwan Dollar</string>
-        <key>USD</key><string>US Dollar</string>
         <key>ZAR</key><string>Rand</string>
     </dict>
 	<key>BackgroundTexture</key>
 	<string>whitey2.png</string>
 	<key>Currency</key>
 	<array>
+        <string>USD</string>
+        <string>EUR</string>
 		<string>AED</string>
 		<string>ARS</string>
 		<string>AUD</string>
@@ -94,7 +96,6 @@
 		<string>COP</string>
 		<string>CZK</string>
 		<string>DKK</string>
-		<string>EUR</string>
 		<string>GBP</string>
 		<string>HKD</string>
 		<string>HUF</string>
@@ -118,11 +119,12 @@
 		<string>THB</string>
 		<string>TRY</string>
 		<string>TWD</string>
-		<string>USD</string>
 		<string>ZAR</string>
 	</array>
     <key>CurrencyFullName</key>
     <array>
+        <string>USD - US Dollar</string>
+        <string>EUR - Euro</string>
         <string>AED - UAE - Dirham</string>
         <string>ARS - Argentine Peso</string>
         <string>AUD - Australian Dollar</string>
@@ -135,7 +137,6 @@
         <string>COP - Columbian Peso</string>
         <string>CZK - Czech Kruna</string>
         <string>DKK - Danish Krone</string>
-        <string>EUR - Euro</string>
         <string>GBP - Pound Sterling</string>
         <string>HKD - Hong-Kong Dollar</string>
         <string>HUF - Forint</string>
@@ -159,7 +160,6 @@
         <string>THB - Thailand Baht</string>
         <string>TRY - Turkish Lira</string>
         <string>TWD - Taiwan Dollar</string>
-        <string>USD - US Dollar</string>
         <string>ZAR - Rand</string>
     </array>
 	<key>Types</key>

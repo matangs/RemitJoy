@@ -35,7 +35,7 @@
     [MainViewController setBackgrounColor:self];
     
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
-    [self setupCoachMark];
+    //[self setupCoachMark];
     
 }
 
@@ -43,19 +43,19 @@
     NSArray *coachMarks = @[
                             @{
                                 @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,65.0f},{365.0f,80.0f}}],
-                                @"caption": @"Add a new receipt for this trip by tapping here."
+                                @"caption": @"Add a new receipt for this trip by tapping on \"New receipt\" above."
                                 },
                             @{
                                 @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,145.0f},{365.0f,80.0f}}],
-                                @"caption": @"Tap here to generate a PDF with all receipts captured on this trip and send it via email."
+                                @"caption": @"Tap on \"Trip summary\" above to generate a PDF with all receipts captured on this trip and send it via email."
                                 },
                             @{
                                 @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,225.0f},{365.0f,80.0f}}],
-                                @"caption": @"View and change details for this expense by tapping here."
+                                @"caption": @"View and change details for this expense by tapping above."
                                 },
                             @{
                                 @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,260.0f},{365.0f,45.0f}}],
-                                @"caption": @"Now please tap on this reciept to view details"
+                                @"caption": @"Now please tap on above reciept to view it's details"
                                 }
                             
                             

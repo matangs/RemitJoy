@@ -43,7 +43,7 @@
 }
 
 -(BOOL)isSame:(Receipt*) rcpt{
-    if (rcpt.m_amount != self.m_amount || rcpt.m_primaryKey != rcpt.m_primaryKey || rcpt.m_tripKey != self.m_tripKey)
+    if (rcpt.m_amount != self.m_amount || rcpt.m_primaryKey != self.m_primaryKey || rcpt.m_tripKey != self.m_tripKey)
         return false;
     
     bool emptyCommment = false;

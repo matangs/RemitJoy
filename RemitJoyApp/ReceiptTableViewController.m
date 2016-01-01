@@ -13,13 +13,14 @@
 #import "TripViewController.h"
 #import "ReceiptImageViewController.h"
 #import "WSCoachMarksView.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface ReceiptTableViewController ()
 
 @end
 
 const NSInteger SECTION_AMOUNT = 1;
-const NSInteger SECTION_TYPE = 2;
+const NSInteger SECTION_EXP_TYPE = 2;
 const NSInteger SECTION_BUTTONS = 0;
 const NSInteger SECTION_PHOTOS = 3;
 const NSInteger SECTION_NOTE = 4;
@@ -107,7 +108,7 @@ const NSInteger SECTION_NOTE = 4;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     m_deletedImageArr = [[NSMutableArray alloc] init];
-    [self setupCoachMark];
+    //[self setupCoachMark];
 }
 
 
@@ -115,7 +116,7 @@ const NSInteger SECTION_NOTE = 4;
     NSArray *coachMarks = @[
                             @{
                                 @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,65.0f},{365.0f,100.0f}}],
-                                @"caption": @"Tap here to use your camera for clicking a photo of reciept or use an existing photo. You can add more than one photo. You can delete a photo by left-swipe."
+                                @"caption": @"Tap above to use your camera for clicking a photo of reciept or use an existing photo. You can add more than one photo. You can delete a photo by left-swipe."
                                 },
                             @{
                                 @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,165.0f},{365.0f,80.0f}}],
@@ -123,7 +124,7 @@ const NSInteger SECTION_NOTE = 4;
                                 },
                             @{
                                 @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,250.0f},{365.0f,80.0f}}],
-                                @"caption": @"Set or update date for this expense, and the type of expense."
+                                @"caption": @"Set or modify date for this expense, and the type of expense."
                                 },
                             @{
                                 @"rect": [NSValue valueWithCGRect:(CGRect){{250.0f,20.0f},{200.0f,45.0f}}],
@@ -143,6 +144,42 @@ const NSInteger SECTION_NOTE = 4;
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"WSReceiptViewCoachMarksShown"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         [self.m_coachMarksView start];
+    }
+    
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    if(authStatus == AVAuthorizationStatusAuthorized) {
+        // do your logic
+    } else if(authStatus == AVAuthorizationStatusDenied){
+        // denied
+        UIAlertController * alert=   [UIAlertController
+                                      alertControllerWithTitle:@"Xpense Rcpt does not have access to your camera. to enable access, tap Settings and turn on Camera."
+                                      message:nil
+                                      preferredStyle:UIAlertControllerStyleAlert];
+        
+        
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                               style:UIAlertActionStyleCancel
+                                                             handler:nil];
+        [alert addAction:cancelAction];
+        
+        UIAlertAction* settings = [UIAlertAction
+                                   actionWithTitle:@"Settings"
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action)
+                                   {
+                                       [[UIApplication sharedApplication] openURL:[NSURL  URLWithString:UIApplicationOpenSettingsURLString]];
+                                       
+                                   }];
+        [alert addAction:settings];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    } else if(authStatus == AVAuthorizationStatusRestricted){
+        // restricted, normally won't happen
+    } else if(authStatus == AVAuthorizationStatusNotDetermined){
+        // not determined?!
+    } else {
+        // impossible, unknown authorization status
     }
 }
 
@@ -236,7 +273,7 @@ const NSInteger SECTION_NOTE = 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (((NSInteger)section) == SECTION_AMOUNT || ((NSInteger)section) == SECTION_TYPE || ((NSInteger)section) == SECTION_BUTTONS )
+    if (((NSInteger)section) == SECTION_AMOUNT || ((NSInteger)section) == SECTION_EXP_TYPE || ((NSInteger)section) == SECTION_BUTTONS )
         return 1;
     
     if (((NSInteger)section) == SECTION_PHOTOS)
@@ -273,7 +310,7 @@ const NSInteger SECTION_NOTE = 4;
         
         return cell;
     }
-    if (indexPath.section == SECTION_TYPE)
+    if (indexPath.section == SECTION_EXP_TYPE)
     {
         static NSString* cellIdentifier = @"RcptTypeCell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];// forIndexPath:indexPath];
@@ -424,7 +461,7 @@ const NSInteger SECTION_NOTE = 4;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == SECTION_AMOUNT || indexPath.section == SECTION_TYPE)
+    if(indexPath.section == SECTION_AMOUNT || indexPath.section == SECTION_EXP_TYPE)
         return 48;
     if (indexPath.section == SECTION_PHOTOS)
         return 220;
@@ -451,7 +488,7 @@ const NSInteger SECTION_NOTE = 4;
         return headerView;
     }
     
-    if (section== SECTION_TYPE) {
+    if (section== SECTION_EXP_TYPE) {
         subjectLabel.text=@"Date and type";
         [headerView addSubview:subjectLabel];
         return headerView;
@@ -481,7 +518,7 @@ const NSInteger SECTION_NOTE = 4;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if(section == SECTION_AMOUNT || section == SECTION_TYPE || section == SECTION_NOTE)
+    if(section == SECTION_AMOUNT || section == SECTION_EXP_TYPE || section == SECTION_NOTE)
         return 35;
     
     if (section == SECTION_BUTTONS)
@@ -538,8 +575,13 @@ const NSInteger SECTION_NOTE = 4;
     
     NSMutableArray *barItems = [[NSMutableArray alloc] init];
     UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onDateChanged)];
+    
+    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    [barItems addObject:flexibleSpace];
     [barItems addObject:doneBtn];
     [self.m_datePickerToolbar setItems:barItems animated:YES];
+    //[self.m_datePickerToolbar setItems:[NSArray arrayWithObjects:flexibleSpace, doneBtn, nil]];
+    
     
     self.m_datePicker.date = self.m_selDate;
     
@@ -572,6 +614,8 @@ const NSInteger SECTION_NOTE = 4;
     
     NSMutableArray *barItems = [[NSMutableArray alloc] init];
     UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onCurrencySelected:)];
+    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    [barItems addObject:flexibleSpace];
     [barItems addObject:doneBtn];
     [m_currencyTextViewPickerToolbar setItems:barItems animated:YES];
     
@@ -600,6 +644,8 @@ const NSInteger SECTION_NOTE = 4;
     
     NSMutableArray *barItems2 = [[NSMutableArray alloc] init];
     UIBarButtonItem *doneBtn2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onTypeSelected:)];
+    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    [barItems2 addObject:flexibleSpace];
     [barItems2 addObject:doneBtn2];
     [m_typeTextViewPickerToolbar setItems:barItems2 animated:YES];
     
@@ -692,6 +738,7 @@ const NSInteger SECTION_NOTE = 4;
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = NO;
+    picker.cameraFlashMode = UIImagePickerControllerCameraFlashModeOn;
     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     
     [self presentViewController:picker animated:YES completion:NULL];

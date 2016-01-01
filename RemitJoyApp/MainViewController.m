@@ -38,7 +38,7 @@
     
     self.navigationController.navigationBar.barTintColor = [RemitConsts navBarColor];
     
-    [self setupCoachMark];
+    //[self setupCoachMark];
     
 }
 
@@ -47,15 +47,15 @@
     NSArray *coachMarks = @[
                             @{
                                 @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,65.0f},{365.0f,80.0f}}],
-                                @"caption": @"Tap here to add a new trip for attaching reciepts"
+                                @"caption": @"Tap above to add a new trip for attaching reciepts"
                                 },
                             @{
                                 @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,145.0f},{365.0f,120.0f}}],
-                                @"caption": @"View, add, delete and email receipts from existing trips."
+                                @"caption": @"Previous trips shown above. You can view and delete them"
                                 },
                             @{
                                 @"rect": [NSValue valueWithCGRect:(CGRect){{5.0f,225.0f},{365.0f,40.0f}}],
-                                @"caption": @"Please tap on Paris trip to explore it."
+                                @"caption": @"Please tap on Paris trip above to explore it."
                                 }
                             
                             ];
