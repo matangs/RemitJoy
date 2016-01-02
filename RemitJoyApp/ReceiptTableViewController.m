@@ -14,6 +14,7 @@
 #import "ReceiptImageViewController.h"
 #import "WSCoachMarksView.h"
 #import <AVFoundation/AVFoundation.h>
+#import <MobileCoreServices/MobileCoreServices.h>
 
 @interface ReceiptTableViewController ()
 
@@ -735,13 +736,29 @@ const NSInteger SECTION_NOTE = 4;
 }
 
 - (IBAction)onAddReceiptPhoto:(id)sender {
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    picker.allowsEditing = NO;
-    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    
-    [self presentViewController:picker animated:YES completion:NULL];
+    @try {
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = NO;
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        NSArray* avMediaTypes = [UIImagePickerController availableMediaTypesForSourceType:picker.sourceType];
+        if (avMediaTypes.count > 0)
+        {
+            picker.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *)kUTTypeImage, nil];
+            picker.cameraFlashMode = UIImagePickerControllerCameraFlashModeOn;
+        }
+        
+        
+        [self presentViewController:picker animated:YES completion:NULL];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"error = %@", exception.reason);
+    }
+    @finally {
+        NSLog(@"done");
+    }
 }
+
 
 - (IBAction)onUseReceiptPhoto:(id)sender {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
