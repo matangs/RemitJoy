@@ -11,7 +11,7 @@
 #import "WSCoachMarksView.h"
 #import "Trip.h"
 
-@interface MainViewController : UITableViewController <UIAlertViewDelegate>
+@interface MainViewController : UITableViewController <UIAlertViewDelegate,UITableViewDelegate, UITableViewDataSource>
 @property(strong, nonatomic) NSMutableArray* m_tripArray;
 
 +(void)setBackgrounColor:(UIViewController*)controller;

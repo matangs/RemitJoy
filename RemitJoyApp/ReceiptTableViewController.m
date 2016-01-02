@@ -738,7 +738,6 @@ const NSInteger SECTION_NOTE = 4;
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = NO;
-    picker.cameraFlashMode = UIImagePickerControllerCameraFlashModeOn;
     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     
     [self presentViewController:picker animated:YES completion:NULL];

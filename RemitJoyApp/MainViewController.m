@@ -38,6 +38,11 @@
     
     self.navigationController.navigationBar.barTintColor = [RemitConsts navBarColor];
     
+    NSInteger count = [[NSUserDefaults standardUserDefaults] integerForKey:@"WSMainViewLaunchCount"];
+    [[NSUserDefaults standardUserDefaults] setInteger:(count+1) forKey:@"WSMainViewLaunchCount"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    
     //[self setupCoachMark];
     
 }
@@ -96,6 +101,10 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    NSInteger count = [[NSUserDefaults standardUserDefaults] integerForKey:@"WSMainViewLaunchCount"];
+    if (count > 20 && count < 100)
+        return 3;
+    
     // Return the number of sections.
     return 2;
 }
@@ -104,7 +113,9 @@
     // Return the number of rows in the section.
     if (((NSInteger)section) == 0)
         return 1;
-    return [m_tripArray count];
+    if (((NSInteger)section) == 1)
+        return [m_tripArray count];
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -123,22 +134,45 @@
         
         return cell;
     }
-    static NSString* cellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];// forIndexPath:indexPath];
-    
-    if (cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+    if (indexPath.section == 1){
+        static NSString* cellIdentifier = @"Cell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];// forIndexPath:indexPath];
+        
+        if (cell == nil){
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        }
+        
+        cell.textLabel.text = [(Trip*)[m_tripArray objectAtIndex:indexPath.row] m_name];
+        cell.detailTextLabel.text = [(Trip*)[m_tripArray objectAtIndex:indexPath.row] m_date];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        // Configure the cell...
+        
+        return cell;
     }
-    
-    cell.textLabel.text = [(Trip*)[m_tripArray objectAtIndex:indexPath.row] m_name];
-    cell.detailTextLabel.text = [(Trip*)[m_tripArray objectAtIndex:indexPath.row] m_date];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    // Configure the cell...
-    
-    return cell;
+    if (indexPath.section == 2){
+        static NSString* cellIdentifier = @"RevCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];// forIndexPath:indexPath];
+        
+        if (cell == nil){
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        }
+        
+        cell.textLabel.text = @"Please rate us on the App Store";
+        // cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        // Configure the cell...
+        
+        return cell;
+    }
+    return NULL;
 }
 
-
+-(void)rateApp {
+    static NSString *const iOS7AppStoreURLFormat = @"itms-apps://itunes.apple.com/app/id1043795678";
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iOS7AppStoreURLFormat]];
+    [[NSUserDefaults standardUserDefaults] setInteger:200 forKey:@"WSMainViewLaunchCount"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+}
 
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -207,16 +241,35 @@
         return headerView;
     }
     
+    if (section==2) {
+        subjectLabel.text=@"";
+        [headerView addSubview:subjectLabel];
+        return headerView;
+    }
+    
     return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    //if(section == 1)
+    if(section == 1 || section == 0)
         return 35;
+    return 2;
     //return UITableViewAutomaticDimension;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 2){
+        [self rateApp];
+        
+        //UIAlertView *messageAlert = [[UIAlertView alloc]
+        //                         initWithTitle:@"Row Selected" message:@"You've selected a row" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    
+        //[messageAlert show];
+    }
+    
+}
 
 /*
 // Override to support editing the table view.

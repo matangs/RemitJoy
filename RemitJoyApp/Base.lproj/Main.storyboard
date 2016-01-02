@@ -54,6 +54,15 @@
                                     <segue destination="maq-RZ-9AZ" kind="show" id="vUa-ui-xI2"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RevCell" id="Acf-rK-ajh">
+                                <rect key="frame" x="0.0" y="174" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Acf-rK-ajh" id="Nr7-d4-Peu">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.96470588239999999" green="0.62745098040000002" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="Hd7-zv-Mxv" id="j4Z-ir-KZm"/>

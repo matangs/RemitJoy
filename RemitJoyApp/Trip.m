@@ -24,7 +24,7 @@
 }
 
 +(NSMutableArray*)loadTrips{
-    NSString* loadStr = @"select id,name,date from trips order by date desc";
+    NSString* loadStr = @"select id,name,date from trips order by id desc";
     
     DBManager* mgr = [[DBManager alloc] initDatabase];
     NSArray* data = [mgr loadDataFromDB:loadStr];
