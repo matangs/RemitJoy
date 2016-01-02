@@ -10,6 +10,7 @@
 #import "Receipt.h"
 #import "ReceiptImage.h"
 #import "WSCoachMarksView.h"
+#import "CKCalendarView.h"
 
 
 extern const NSInteger SECTION_AMOUNT;
@@ -19,7 +20,7 @@ extern const NSInteger SECTION_PHOTOS;
 extern const NSInteger SECTION_NOTE;
 
 
-@interface ReceiptTableViewController : UITableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource,UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate, UIAlertViewDelegate>
+@interface ReceiptTableViewController : UITableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource,UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate, UIAlertViewDelegate, CKCalendarDelegate>
 
 
 
@@ -58,6 +59,9 @@ extern const NSInteger SECTION_NOTE;
 @property(strong, nonatomic) NSMutableArray* m_deletedImageArr;
 
 @property(strong, nonatomic) WSCoachMarksView* m_coachMarksView;
+
+@property(strong, nonatomic) CKCalendarView* m_calendarView;
+
 
 
 @end

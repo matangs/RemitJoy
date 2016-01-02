@@ -41,7 +41,7 @@ const NSInteger SECTION_NOTE = 4;
 @synthesize m_selDate, m_selAmount;
 @synthesize m_currencyText, m_amountText, m_dateText, m_typeText;
 @synthesize m_receiptImageHelper, m_deletedImageArr, m_origReceipt;
-
+@synthesize m_calendarView;
 
 
 - (void)viewDidLoad {
@@ -442,7 +442,7 @@ const NSInteger SECTION_NOTE = 4;
         m_selAmount = [textField.text floatValue];
     }
     if (textField == self.m_dateText){
-        [self onDateChanged];
+        //[self onDateChanged];
     }
     if (textField == self.m_currencyText){
         NSInteger row = [m_currencyTextViewPickerView selectedRowInComponent:0];
@@ -559,49 +559,52 @@ const NSInteger SECTION_NOTE = 4;
     }
 }
 
+#pragma mark -
+#pragma mark - CKCalendarDelegate
+
+- (void)calendar:(CKCalendarView *)calendar configureDateItem:(CKDateItem *)dateItem forDate:(NSDate *)date {
+    if ([self.m_selDate compare:date] == NSOrderedSame) {
+        
+        dateItem.backgroundColor = [RemitConsts colorFromRGB:0x88B6DB];//[UIColor blueColor];
+        dateItem.textColor = [RemitConsts colorFromRGB:0xF2F2F2];//[UIColor whiteColor];
+    }
+}
+
+- (BOOL)calendar:(CKCalendarView *)calendar willSelectDate:(NSDate *)date {
+    return TRUE;//![self dateIsDisabled:date];
+}
+
+- (void)calendar:(CKCalendarView *)calendar didSelectDate:(NSDate *)date {
+    self.m_selDate = date;
+    NSString* str = [RemitConsts strFromDate:self.m_selDate];
+    self.m_dateText.text = str;
+    [[NSUserDefaults standardUserDefaults] setObject:self.m_dateText.text forKey:@"DefaultReceiptDate"];
+    [self.m_dateText resignFirstResponder];
+    
+    //self.dateLabel.text = [self.dateFormatter stringFromDate:date];
+}
+
+- (BOOL)calendar:(CKCalendarView *)calendar willChangeToMonth:(NSDate *)date {
+    return YES;
+}
+
+- (void)calendar:(CKCalendarView *)calendar didLayoutInRect:(CGRect)frame {
+    NSLog(@"calendar layout: %@", NSStringFromCGRect(frame));
+}
+
 
 #pragma mark - various pickers
 
-
 -(void)setDatePicker{
+    m_calendarView = [[CKCalendarView alloc] initWithStartDay:startMonday stDate:self.m_selDate];
+    m_calendarView.delegate = self;
     
-    self.m_datePicker = [[UIDatePicker alloc] init];
-    self.m_datePicker.datePickerMode = UIDatePickerModeDate;
-    //[self.m_datePicker addTarget:self action:nil forControlEvents:UIControlEventValueChanged];
-    
-    self.m_datePickerToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 56)];
-    self.m_datePickerToolbar.barStyle = UIBarStyleDefault;
-    [self.m_datePickerToolbar sizeToFit];
-    
-    
-    NSMutableArray *barItems = [[NSMutableArray alloc] init];
-    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onDateChanged)];
-    
-    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    [barItems addObject:flexibleSpace];
-    [barItems addObject:doneBtn];
-    [self.m_datePickerToolbar setItems:barItems animated:YES];
-    //[self.m_datePickerToolbar setItems:[NSArray arrayWithObjects:flexibleSpace, doneBtn, nil]];
-    
-    
-    self.m_datePicker.date = self.m_selDate;
-    
-    
-    self.m_dateText.inputView = self.m_datePicker;
-    self.m_dateText.inputAccessoryView = self.m_datePickerToolbar;
+    m_calendarView.onlyShowCurrentMonth = FALSE;
+    m_calendarView.adaptHeightToNumberOfWeeksInMonth = YES;
+    self.m_dateText.inputView = m_calendarView;
+    [self.m_dateText.inputView setBackgroundColor:[RemitConsts navBarColor]];
     self.m_dateText.text = [RemitConsts strFromDate:self.m_selDate];
-    
-    
 }
-
--(void)onDateChanged{
-    self.m_selDate = self.m_datePicker.date;
-    self.m_dateText.text = [RemitConsts strFromDate:self.m_selDate];
-    [[NSUserDefaults standardUserDefaults] setObject:self.m_dateText.text forKey:@"DefaultReceiptDate"];
-    [self.m_dateText resignFirstResponder];
-}
-
-
 
 -(void)setCurrencyPicker{
     m_currencyTextViewPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 50, 100, 150)];

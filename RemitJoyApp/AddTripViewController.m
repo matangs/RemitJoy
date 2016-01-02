@@ -49,6 +49,8 @@
     trip.m_date = date;
     trip.m_name = name;
     [trip saveTrip];
+    [[NSUserDefaults standardUserDefaults] setObject:date forKey:@"DefaultReceiptDate"];
+    
 
     NSArray *viewContrlls=[[self navigationController] viewControllers];
     MainViewController* mainCtrl = (MainViewController*)[viewContrlls objectAtIndex:0];

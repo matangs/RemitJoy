@@ -21,6 +21,7 @@
 +(NSString*)strFromDate:(NSDate*)date;
 
 +(NSInteger)orderForExpenseType:(NSString*)type;
++(UIColor*) colorFromRGB:(NSUInteger)rgbValue;
 
 
 @end
