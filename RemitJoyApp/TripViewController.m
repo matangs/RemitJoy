@@ -228,6 +228,28 @@
 
 #pragma mark - Navigation
 
+// if the size on disk is less than 100 MBs, don't even try to generate the PDF. just exit.
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+    if (path.section == 1){
+        
+        unsigned long long hundredMB = 100*1024*1024;
+        unsigned long long spaceLeft = [self getFreeDiskspace];
+        if (spaceLeft < hundredMB){
+            UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                  message:@"Device is out of space!"
+                                                                 delegate:nil
+                                                        cancelButtonTitle:@"OK"
+                                                        otherButtonTitles: nil];
+            
+            [myAlertView show];
+            return NO;
+        }
+    }
+    return YES;
+    
+}
+
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSIndexPath *path = [self.tableView indexPathForSelectedRow];
@@ -317,8 +339,27 @@
     return resultUIImage;
 }
 
--(void)CreatePDFonTempPath{
+-(uint64_t)getFreeDiskspace {
+    uint64_t totalSpace = 0;
+    uint64_t totalFreeSpace = 0;
+    NSError *error = nil;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSDictionary *dictionary = [[NSFileManager defaultManager] attributesOfFileSystemForPath:[paths lastObject] error: &error];
     
+    if (dictionary) {
+        NSNumber *fileSystemSizeInBytes = [dictionary objectForKey: NSFileSystemSize];
+        NSNumber *freeFileSystemSizeInBytes = [dictionary objectForKey:NSFileSystemFreeSize];
+        totalSpace = [fileSystemSizeInBytes unsignedLongLongValue];
+        totalFreeSpace = [freeFileSystemSizeInBytes unsignedLongLongValue];
+        NSLog(@"Memory Capacity of %llu MiB with %llu MiB Free memory available.", ((totalSpace/1024ll)/1024ll), ((totalFreeSpace/1024ll)/1024ll));
+    } else {
+        NSLog(@"Error Obtaining System Memory Info: Domain = %@, Code = %ld", [error domain], (long)[error code]);
+    }
+    
+    return totalFreeSpace;
+}
+
+-(void)CreatePDFonTempPath{
     NSString *pdfFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"temp.pdf"];
     if ([[NSFileManager defaultManager] fileExistsAtPath:pdfFilePath]){
         NSError* error;

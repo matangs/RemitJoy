@@ -140,7 +140,7 @@ static const BOOL kEnableSkipButton = YES;
     
     // Animate it
     CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"path"];
-    anim.delegate = self;
+    anim.delegate = (id)self;
     anim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
     anim.duration = self.animationDuration;
     anim.removedOnCompletion = NO;
